@@ -1,0 +1,25 @@
+.cont-not-found{
+display: flex;
+align-items: center;
+justify-content: center;
+height: 500px;
+}
+.content-text{
+display: block;
+}
+.title-not{
+padding: 30px;
+color: brown;
+font-size: 40px;
+}
+.link-not{
+text-decoration:none ;
+padding: 20px;
+background-color: royalblue;
+color: white;
+border-radius: 5px;
+}
+
+.link-not:hover{
+background-color: blue;
+}

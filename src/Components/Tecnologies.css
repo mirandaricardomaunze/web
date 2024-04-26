@@ -1,0 +1,37 @@
+.container-main-tecno{
+border: none;
+padding: 50px;
+}
+
+.container-tecno{
+margin:0 auto;
+display: grid;
+gap: 10px;
+grid-template-columns: repeat(4,1fr);
+padding: 20px;
+width: fit-content;
+}
+.title-tecno{
+color: royalblue;
+}
+.text-tecno{
+font-size: 20px;
+color: #555;
+}
+.tecno{
+box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+width: 300px;
+height: 350px;
+border-radius: 5px;
+}
+
+.container-text{
+text-align: left;
+padding: 20px;
+}
+
+.image-tec{
+width: 300px;
+height: 200;
+border-radius: 5px;
+}

@@ -1,0 +1,40 @@
+.container-home{
+margin-top: 40px;
+}
+
+#title{
+margin-top: 40px;
+}
+
+.container-title{
+position: absolute;
+text-align: left;
+height: fit-content;
+margin-top: -34%;
+}
+.title-color{
+color: blueviolet;
+}
+.cont-title{
+height:fit-content ;
+width: 600px;
+height: fit-content;
+border-radius: 10px;
+padding:50px  50px  10px 70px;
+}
+
+
+.container-link-main{
+margin-top: 30px;
+}
+    
+.link-main{
+background-color: royalblue;
+padding: 20px;
+border-radius: 5px;
+text-decoration: none;
+color: white;
+}
+.link-main:hover{
+background-color: rgb(8, 63, 228);
+}

@@ -1,0 +1,15 @@
+.container-map{
+padding: 90px;
+background-color: rgb(215, 230, 243);
+}
+.map{
+padding: 40px;
+width: 840px;
+height: 540px;
+margin: 0 auto;
+}
+
+iframe{
+border: none;
+border-radius: 10px;
+}

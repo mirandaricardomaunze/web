@@ -1,0 +1,90 @@
+.container-modal{
+position: fixed;
+width: 100%;
+z-index: 1;
+left: 0;
+top: 0;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.5);
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.title-signup{
+font-size: 40px;
+color: royalblue;
+}
+
+.modal{
+text-align: left;
+background-color: white;
+padding: 30px;
+width: fit-content;
+border-radius: 5px;
+
+}
+.text-regist{
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.container-checkbox{
+display: flex;
+padding: 10px;
+}
+.input-checkbox{
+border: none;
+margin-right: 10px;
+}
+
+.link-sign{
+text-decoration: none;
+color: royalblue;
+padding: 10px;
+}
+.btn-modal-close{
+background-color:transparent;
+border: none;
+cursor: pointer;
+float: right;
+padding: 10px;
+}
+
+.label{
+margin-top: 10px;
+margin-bottom: 6px;
+}
+
+.input{
+border: none;
+outline: none;
+background-color: aliceblue;
+padding: 15px;
+font-size: 15px;
+border-radius: 5px;
+width: 400px;
+transition: 0.7s ease;
+}
+
+.input:focus{
+box-shadow:0px 0px 0px 3px royalblue;
+}
+
+.btn{
+background-color: royalblue;
+color: white;
+padding: 15px;
+border-radius: 5px;
+border: none;
+margin-top: 10px;
+font-size: 17px;
+}
+.btn:focus{
+box-shadow:0px 0px 0px 2px royalblue;
+}
+
+.btn:hover{
+background-color: rgb(22, 71, 218);
+}
+

@@ -1,0 +1,35 @@
+.container-grow-main{
+padding: 90px;
+height:fit-content;
+background-color: rgb(4, 155, 231);
+background-image: url('https://img.freepik.com/vetores-gratis/tecnologia-futurista-de-rede-global_53876-97389.jpg?t=st=1713808314~exp=1713811914~hmac=cb12a04209bce5298cace6429a49a691571a75c478611cbaba28823de2bc20d2&w=740');
+background-size: cover;
+}
+
+
+.container-grow{
+display: grid;
+grid-template-columns: repeat(3,1fr);
+gap: 10px;
+margin:0 auto;
+padding: 20px;
+width: 700px;
+}
+
+.grow{
+width: 150px;
+color:white;
+padding: 40px;
+border: 0.1px solid;
+border-radius: 5px;
+background-color:transparent;
+font-weight: 1000;
+border-right: 10px solid;
+background-color: royalblue;
+z-index: 1;
+}
+
+.title-grow{
+color:rgb(5, 21, 243);
+font-size: 55px;
+}
