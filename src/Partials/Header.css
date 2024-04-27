@@ -12,7 +12,17 @@ transition: 0.7s ease;
 margin: 20px;
 font-size: 16px;
 }
-
+.nav-brand{
+text-decoration: none;
+font-weight: bold;
+background-color: transparent;
+float: left;
+margin-left: 30px;
+font-size: 30px;
+}
+.brand{
+color: blueviolet;
+}
 .nav-link:hover{
 background-color: royalblue;
 color: white;

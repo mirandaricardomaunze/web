@@ -1,5 +1,5 @@
 import React, {  useEffect, useState } from 'react'
-import { NavLink, Route, Routes } from 'react-router-dom'
+import { Link, NavLink, Route, Routes } from 'react-router-dom'
 import Home from '../Pages/Home'
 import Contact from '../Pages/Contact'
 import Services from '../Pages/Services'
@@ -7,6 +7,7 @@ import NotFound from '../Pages/NotFound'
 import About from '../Pages/About'
 import './Header.css'
 import SignUp from '../Components/Modal/SignUp'
+
 
 
 
@@ -20,7 +21,8 @@ const Header = () => {
   return (
     <div>
       
-        <nav className='nav-bar'>  
+        <nav className='nav-bar'>
+            <Link onClick={()=>setPageText('Pagina de inicio')}  className='nav-brand'  to='/' ><span className='brand'>Soft</span>Moz</Link>  
             <NavLink onClick={()=>setPageText('Pagina de inicio')}  className='nav-link'  to='/' >Inicio</NavLink>
             <NavLink onClick={()=>setPageText('Pagina de servicos')} className='nav-link' to='/Services'>Servicos</NavLink>
             <NavLink onClick={()=>setPageText('Pagina de contato')} className='nav-link' to='/Contact'>Contato</NavLink>

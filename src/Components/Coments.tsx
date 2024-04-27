@@ -45,9 +45,11 @@ useEffect(()=>{
                   <div className='container-img'>
                       <img className='image' src={data.image} alt="" />
                   </div>
+                  <div className='text-comment'>
                       <p className='text-comment'><FontAwesomeIcon className='quote-left' icon={faQuoteLeft}/> 
                       {data.text} <FontAwesomeIcon className='quote-right' icon={faQuoteRight}/></p>
                       <h4 className='name-com'>- {data.nome}</h4>
+                  </div>
                 </div>
            </div>
            ))}
