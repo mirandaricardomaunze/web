@@ -27,7 +27,7 @@ padding: 10px;
 .team{
 box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
 width: 200px;
-height: 250px;
+height: 280px;
 text-align: left;
 background-color: white;
 border-radius: 10px;
@@ -55,4 +55,19 @@ height: 100px;
 .footer-link-comp{
 padding: 10px 0px 10px 0;
 color: #555;
+}
+.team-icon{
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 5px;
+}
+
+.youtube-team{
+color: red;
+font-size: 30px;
+}
+.facebook-team{
+font-size: 30px;
+color: blue;
 }

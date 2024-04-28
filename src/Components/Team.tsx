@@ -1,5 +1,7 @@
 import React from 'react'
 import './Team.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFacebookSquare, faYoutubeSquare } from '@fortawesome/free-brands-svg-icons'
 
 
 
@@ -28,8 +30,13 @@ const Team = ({contents}:Cont) => {
                         <p>{item.text}</p>
                         <h4>{item.nome}</h4>
                     </div>
-                    <div className='icon-team'>
-                        
+                    <div className='team-icon'>
+                       <a href="http://www.facebook.com" target="_blank" rel="noopener noreferrer">
+                        <FontAwesomeIcon className='facebook-team' icon={faFacebookSquare}/>
+                        </a>
+                       <a href="http://www.youtube.com" target="_blank" rel="noopener noreferrer">
+                       <FontAwesomeIcon className='youtube-team' icon={faYoutubeSquare}/>
+                       </a>
                     </div>
                 </div>
             ))}

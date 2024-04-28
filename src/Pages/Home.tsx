@@ -13,6 +13,7 @@ import Faq from '../Components/Faq'
 
 
 
+
 const slides=[
 'https://images.pexels.com/photos/5862375/pexels-photo-5862375.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
 'https://images.pexels.com/photos/3888151/pexels-photo-3888151.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
@@ -20,28 +21,7 @@ const slides=[
 'https://images.pexels.com/photos/7648226/pexels-photo-7648226.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
 ]
 
-const content =[
-{id:1,
-image:'https://images.pexels.com/photos/270408/pexels-photo-270408.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-title:'Node js',
-text:'Usamos para criar server-side aplication, ou seja back-end.'
-},
-{id:2,
-image:'https://images.pexels.com/photos/4050288/pexels-photo-4050288.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-title:'React js',
-text:'Usamos esta biblioteca para criar interfaces de single page.'
-},
-{id:3,
-image:'https://images.pexels.com/photos/89724/pexels-photo-89724.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-title:'Bootstrap',
-text:'Usamos esta biblioteca para criar loyouts responsivos de  sites para todos despositivos .'
-},
-{id:4,
-image:'https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-title:'JavaScript vanila',
-text:'Usamos para criar sites sem nenhuma biblioteca. '
-}
-]
+
 
 const team=[
 {id:1,image:'https://img.freepik.com/fotos-gratis/homem-caucasiano-bonito-vestindo-roupas-casuais-e-oculos-com-um-sorriso-feliz-e-legal-no-rosto-pessoa-sortuda_839833-12772.jpg?t=st=1713634038~exp=1713637638~hmac=53b9e76379e7f03c7dd641c5f994ac75188347d5bc3e1558e40cbc117c4536b7&w=740',
@@ -81,11 +61,11 @@ const Home = () => {
                   </div>
               </div>
          </div>
-         <div>
-           <h1 className='title' id='title'><span className='title-color'>Tecnologias</span> Modernas</h1> 
+         <div className='container-home-title'>
+           <h1 className='title-home' >Nossos <span className='title-color'>Servicos</span> </h1> 
          </div>
          <div>
-            <Tecnologies content={content} /> 
+            <Tecnologies /> 
             <WorkWithUs/>
             <Team contents={team}/>
             <Growing/>

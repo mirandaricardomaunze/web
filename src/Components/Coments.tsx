@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import './Coments.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleLeft, faAngleRight, faQuoteLeft, faQuoteRight } from '@fortawesome/free-solid-svg-icons';
+import { faAngleLeft, faAngleRight, faQuoteLeft, faQuoteRight, faStar } from '@fortawesome/free-solid-svg-icons';
 
 interface Comments{
 comments:any[];
@@ -41,7 +41,7 @@ useEffect(()=>{
              className={comentCurrent===index?
               'comment-active container-img-active':
                'comment '}>
-                <div className='container-com'> 
+                <div className='container-comment-in'> 
                   <div className='container-img'>
                       <img className='image' src={data.image} alt="" />
                   </div>
@@ -49,6 +49,13 @@ useEffect(()=>{
                       <p className='text-comment'><FontAwesomeIcon className='quote-left' icon={faQuoteLeft}/> 
                       {data.text} <FontAwesomeIcon className='quote-right' icon={faQuoteRight}/></p>
                       <h4 className='name-com'>- {data.nome}</h4>
+                      <p className='star'>
+                        <FontAwesomeIcon icon={faStar}/>
+                        <FontAwesomeIcon icon={faStar}/>
+                        <FontAwesomeIcon icon={faStar}/>
+                        <FontAwesomeIcon icon={faStar}/>
+                        <FontAwesomeIcon icon={faStar}/>
+                      </p>
                   </div>
                 </div>
            </div>
