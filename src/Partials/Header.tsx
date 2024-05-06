@@ -6,13 +6,16 @@ import Services from '../Pages/Services'
 import NotFound from '../Pages/NotFound'
 import About from '../Pages/About'
 import './Header.css'
+import SignIn from '../Components/Modal/SignIn'
 import SignUp from '../Components/Modal/SignUp'
-
-
-
+import { useAuthContext } from '../Components/Context/MyContextProvider'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSignOut } from '@fortawesome/free-solid-svg-icons'
 
 
 const Header = () => {
+const {token,logout}=useAuthContext()
+
   const [pageText,setPageText]=useState<string>('Pagina de inicio')
   useEffect(()=>{
     document.title=pageText
@@ -27,15 +30,19 @@ const Header = () => {
             <NavLink onClick={()=>setPageText('Pagina de servicos')} className='nav-link' to='/Services'>Servicos</NavLink>
             <NavLink onClick={()=>setPageText('Pagina de contato')} className='nav-link' to='/Contact'>Contato</NavLink>
             <NavLink onClick={()=>setPageText('Pagina de sobre')} className='nav-link' to='/About'>Sobre</NavLink>
-            <div className='container-signup'>
-              <SignUp/>
-          </div>
+            <NavLink onClick={()=>setPageText('Pagina de Registro')} className='nav-link' to='/SignUp'>Registro</NavLink>
+           {token? <Link to='' className='link-logout' onClick={logout} >Sair <FontAwesomeIcon icon={faSignOut} /></Link>:
+           <NavLink onClick={()=>setPageText('Pagina de Login')} className='nav-link' to='/SignIn'>Entrar</NavLink>}
+          
+          
          <Routes>
             <Route path='/'  Component={Home} />
             <Route path='/Services' Component={Services}/>
             <Route path='/Contact'Component={Contact}/>
             <Route path='/About' Component={About}/>
             <Route path='/*'Component={NotFound}/>
+            <Route path='/SignUp'Component={SignUp}/>
+            <Route path='/SignIn'Component={SignIn}/>
          </Routes> 
     </nav>
     </div>

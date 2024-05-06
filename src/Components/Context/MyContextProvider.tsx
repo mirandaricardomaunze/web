@@ -1,0 +1,109 @@
+import axios, { AxiosResponse } from "axios";
+import React, { useContext, useState } from "react";
+import { createContext } from "react";
+import { useNavigate } from "react-router-dom";
+
+
+
+
+interface Credentials{
+  name:string
+  email:string|null
+  password:string|null
+}
+interface User{
+  id:number
+  name:string
+  email:string
+  password:string 
+}
+
+interface AuthContextType{
+user:User|null
+setUser:React.Dispatch<User|null>
+inputEmptyError:boolean
+setInputEmptyError:React.Dispatch<boolean>
+errorCredentials:boolean
+setErrorCredentials:React.Dispatch<boolean>
+token:string|null
+setToken:React.Dispatch<string|null>
+login:({name,email,password}:Credentials)=>Promise<void>
+logout:()=>void
+}
+
+const AuthContext=createContext<{
+  user: User | null;
+  setUser:React.Dispatch<User|null>
+  inputEmptyError:boolean
+  setInputEmptyError:React.Dispatch<boolean>
+  errorCredentials:boolean
+  setErrorCredentials:React.Dispatch<boolean>
+  setToken:React.Dispatch<string|null>
+  token:string|null
+  login: ({name,email, password}:Credentials) => Promise<void>;
+  logout:()=>void;
+}>({} as AuthContextType);
+
+const MyContextProvider = ({children}:any) =>{
+const navegate=useNavigate()
+
+const [user, setUser] = useState<User | null>(null);
+const [token,setToken]=useState<string|null>('')
+const [errorCredentials,setErrorCredentials]=useState<boolean>(false)
+const [inputEmptyError,setInputEmptyError]=useState<boolean>(false)
+
+const login=async({name,email, password}:Credentials)=>{
+   try {
+     const Base_Url:string='http://localhost:4000/login/login'
+     const response:AxiosResponse=await axios.post<User>(Base_Url,{name,email,password})
+     const result= response.data
+     console.log(result);
+     const jwtToken= response.data.token
+    if (response) {
+        navegate('/')
+        console.log( `Entrou com sucesso, token gerado: ${jwtToken}`);
+        localStorage.setItem('Token',jwtToken)
+        const item=localStorage.getItem('Token')
+        setToken(item)
+        setErrorCredentials(false)
+        localStorage.setItem('Nome',name)
+     }
+    
+}catch (error) {  
+    console.log(`Erro ocorrido:  ${error}`);
+    console.log( 'Nao foi possivel a conexao')
+    if (error) {
+      setErrorCredentials(true)
+    }
+     throw error
+   }
+}
+
+const logout=()=>{
+  setUser(null)
+  setToken('')
+}
+
+
+  return (
+    <AuthContext.Provider value={
+      {user,
+      setUser,
+      token,
+      setToken,
+      login,
+      logout,
+      errorCredentials,
+      setErrorCredentials,
+      setInputEmptyError,
+      inputEmptyError
+      }} >
+        {children}
+    </AuthContext.Provider>
+
+    
+  )
+}
+export default MyContextProvider
+export  const useAuthContext=()=> useContext(AuthContext)
+ 

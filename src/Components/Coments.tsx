@@ -36,19 +36,19 @@ useEffect(()=>{
     <div className='container-comment-main'>
           <h1 className='title-coments'>Avaliação dos clientes</h1>
          <div className='container-comment'>
-           {comments.map((data,index)=>(
-           <div key={data.id} 
+           {comments.map((comment,index)=>(
+           <div key={comment.id} 
              className={comentCurrent===index?
               'comment-active container-img-active':
                'comment '}>
                 <div className='container-comment-in'> 
                   <div className='container-img'>
-                      <img className='image' src={data.image} alt="" />
+                      <img className='image' src={comment.image} alt="" />
                   </div>
                   <div className='text-comment'>
                       <p className='text-comment'><FontAwesomeIcon className='quote-left' icon={faQuoteLeft}/> 
-                      {data.text} <FontAwesomeIcon className='quote-right' icon={faQuoteRight}/></p>
-                      <h4 className='name-com'>- {data.nome}</h4>
+                      {comment.text} <FontAwesomeIcon className='quote-right' icon={faQuoteRight}/></p>
+                      <h4 className='name-com'>- {comment.nome}</h4>
                       <p className='star'>
                         <FontAwesomeIcon icon={faStar}/>
                         <FontAwesomeIcon icon={faStar}/>
@@ -63,7 +63,7 @@ useEffect(()=>{
          </div>
          <div>
             {comments.map((comment,index)=>(
-              <div className='container-dot'>
+              <div key={comment.id} className='container-dot'>
                  <button  onClick={()=>toComments(index)} 
                   className={comentCurrent===index?'dot-active':'dot'}></button >
               </div>

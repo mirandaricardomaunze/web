@@ -1,12 +1,93 @@
-import React from 'react'
+import React, {  useState } from 'react'
 import './Contact.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {  faEnvelope, faMobile } from '@fortawesome/free-solid-svg-icons'
+import axios, { AxiosResponse } from 'axios'
 
-
+interface Client{
+  name:string
+  email:string
+  subject:string
+}
 
 
 const Contact = () => {
+const[name,setName]=useState<string>('')
+const[email,setEmail]=useState<string>('')
+const [subject,setSubject]=useState<string>('')
+const [erro,setEerror]=useState<boolean>(false)
+const [emptyInput,setEmptyInput]=useState<boolean>(false)
+
+
+const inputEmpty=()=>{
+  if (email.length>0) {
+     console.log('esta preechido'); 
+     setEmptyInput(false)
+  }else{
+     console.log('nao preechido');
+     setEmptyInput(true)  
+  }
+  if (name.length>0) {
+     console.log('esta preechido'); 
+     setEmptyInput(false)
+  }else{
+     console.log('nao preechido');
+     setEmptyInput(true)  
+  }
+  if (subject.length>0) {
+     console.log('esta preechido'); 
+     setEmptyInput(false)
+  }else{
+     console.log('nao preechido');
+     setEmptyInput(true)  
+  }
+}
+
+
+const handleChangeName=(e:React.ChangeEvent<HTMLInputElement>)=>{
+  setName(e.target.value)
+
+}
+
+const handleChangeEmail=(e:React.ChangeEvent<HTMLInputElement>)=>{
+  setEmail(e.target.value)
+ 
+}
+
+const handleChangeSubject=(e:React.ChangeEvent<HTMLTextAreaElement>)=>{
+  setSubject(e.target.value)
+ 
+}
+const clearAllInput=()=>{
+  setName('')
+  setEmail('')
+  setSubject('')
+}
+
+const handleSendingSubject=async()=>{
+ try {
+  const BASE_URL:string='http://localhost:4000/subject/subject'
+  const response:AxiosResponse<Client>=await axios.post<Client>(BASE_URL,{name,email,subject})
+  if (response) {
+    setEerror(false)
+    console.log('Mensagem enviada com sucesso'); 
+  }
+ } catch (error) {
+  console.log(`Ocorreu falha na conexao com servidor: ${error}`);
+  setEerror(true)
+ }
+}
+
+const handleSubmit=async(e:React.FormEvent<HTMLFormElement>)=>{
+   e.preventDefault();
+   clearAllInput()
+   handleSendingSubject()
+   inputEmpty()
+   console.log(`Nome: ${name}`);
+   console.log(`Email: ${email}`);
+   console.log(`Assunto: ${subject}`); 
+}
+
   return (
     <div className='container-contact-main'>
           <div className='container-contact-text'>
@@ -25,25 +106,35 @@ const Contact = () => {
               <p className='text-contact'>Para sua conveniência, preencha o formulário abaixo e entraremos em contato com você em breve:</p>
              <div className='form'>
                 <h1 className='title-contact'>Contacta-nos </h1>
-                <form action="">
+                <form action=""  onSubmit={handleSubmit}>
                    <div>
-                     <label htmlFor="" className='text-contact'>Nome:</label>
+                     <label htmlFor="name" className='text-contact'>Nome:</label>
                    </div>
                    <div>
-                      <input className='input' type="text" placeholder='Degite o nome' />
+                      <input className='input' type="text" name='name' id='name'
+                       value={name}  onChange={handleChangeName}
+                       placeholder='Degite o nome' />
+                      {emptyInput? <p className='erro'>Preecha os espacos vazios</p>:null}
                    </div>
                    <div>
-                     <label htmlFor="" className='text-contact'>Email:</label>
+                     <label htmlFor="email" className='text-contact'>Email:</label>
                    </div>
                    <div>
-                      <input className='input' type="text" placeholder='Degite o email' />
+                      <input className='input' type="text" name='email' id='email'
+                      value={email}  onChange={handleChangeEmail}
+                       placeholder='Degite o email' />
+                        {emptyInput? <p  className='erro'>Preecha os espacos vazios</p>:null}
                    </div>
                    <div>
-                     <label htmlFor="" className='text-contact'>Assunto:</label>
+                     <label htmlFor="subject" className='text-contact'>Assunto:</label>
                    </div>
                    <div>
-                      <textarea className='input'  name="" id="textarea" placeholder='Escreva o assunto' ></textarea>
+                      <textarea className='input textarea'  name="subject" id="subject" 
+                      value={subject}  onChange={handleChangeSubject}
+                      placeholder='Escreva o assunto' ></textarea>
+                       {emptyInput? <p  className='erro'>Preecha os espacos vazios</p>:null}
                    </div>
+                     { erro?<p>Nao foi possivel enviar</p>:null}
                     <div>
                        <button className='btn'>Enviar</button>
                     </div>

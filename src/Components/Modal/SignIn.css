@@ -26,8 +26,15 @@
     }
     .link-signIn{
     text-decoration: none;
-    color: royalblue;
-    padding: 10px;
+    background-color: royalblue;
+    color: white;
+    padding: 20px;
+    font-size: 20px;
+    border-radius: 5px;
+    }
+    .link-signIn:hover{
+     background-color: blue;
+     color: white;
     }
     .text-regist{
     display: flex;
@@ -42,6 +49,12 @@
     border: none;
     margin-right: 10px;
     }
+    .containair-btn-modal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 500px;
+    }   
     .btn-modal-close{
     background-color:transparent;
     border: none;
@@ -49,7 +62,7 @@
     float: right;
     padding: 10px;
     }
-    
+   
     .label{
     margin-top: 10px;
     margin-bottom: 6px;
@@ -86,5 +99,8 @@
     .btn:hover{
     background-color: rgb(22, 71, 218);
     }
-    
+    .erro{
+    color: red;
+    font-size: 15px;
+    }
     

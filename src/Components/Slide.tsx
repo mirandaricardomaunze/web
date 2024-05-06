@@ -7,7 +7,7 @@ import { faAngleLeft, faAngleRight} from '@fortawesome/free-solid-svg-icons'
 
 
 interface Slides{
-  slide:string[]
+  slide:any[]
 }
 
 
@@ -38,24 +38,19 @@ const timer=  setInterval(()=>
   return (
     <div>
         <div className='container-slide'>
-           {slide.map((slide,index)=>(
-             <div className={index===slideCurrent?'active-slide':'slide'}
-              key={index}
-              style={{backgroundImage:`url(${slide})`,
+           {slide.map((slides,index)=>(
+             <div key={slides.id} className={index===slideCurrent?'active-slide':'slide'}
+              style={{backgroundImage:`url(${slides.img})`,
                  backgroundSize:'cover',
-                 height:'100%'
+                 height:'100%',
                 }}
               >
-          <div className='container-title-main'>
-              
-           
-          </div>
           </div>
           ))}
          </div>
          <div className='container-bar'>
             {slide.map((slide,index)=>(
-                <button
+                <button key={slide.id}
                    onClick={()=>toSlide(index)}
                    className={index===slideCurrent?'active-btn-bar':'btn-bar'}>
                 </button>

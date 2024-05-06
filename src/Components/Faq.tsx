@@ -44,7 +44,7 @@ const handleFaqForth=()=>{
            </div>
            <div className='faq'>
               <div className='faq-quetion'>
-                <p>Quanto tempo leva para criar um site?            </p>
+                <p>Quanto tempo leva para criar um site? </p>
                 {textShowSecond?<button className='btn-faq' id='btn-faq1' onClick={handleFaqSecond}><FontAwesomeIcon icon={faAngleDown}/></button>:
                 <button className='btn-faq' id='btn-faq1' onClick={handleFaqSecond}><FontAwesomeIcon icon={faAngleUp}/></button>}
               </div>
