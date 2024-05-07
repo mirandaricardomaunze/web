@@ -1,0 +1,22 @@
+.container-private{
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ justify-items: center;
+ height: 500px;
+ color: #555;
+}
+.container-link{
+margin-top: 20px;
+}
+.link{
+padding: 10px;
+background-color: royalblue;
+color: white;
+text-decoration: none;
+border-radius: 5px;
+}
+.link:hover{
+background-color: blue;
+}
+

@@ -25,8 +25,8 @@ inputEmptyError:boolean
 setInputEmptyError:React.Dispatch<boolean>
 errorCredentials:boolean
 setErrorCredentials:React.Dispatch<boolean>
-token:string|null
-setToken:React.Dispatch<string|null>
+token:boolean
+setToken:React.Dispatch<boolean>
 login:({name,email,password}:Credentials)=>Promise<void>
 logout:()=>void
 }
@@ -38,8 +38,8 @@ const AuthContext=createContext<{
   setInputEmptyError:React.Dispatch<boolean>
   errorCredentials:boolean
   setErrorCredentials:React.Dispatch<boolean>
-  setToken:React.Dispatch<string|null>
-  token:string|null
+  setToken:React.Dispatch<boolean>
+  token:boolean
   login: ({name,email, password}:Credentials) => Promise<void>;
   logout:()=>void;
 }>({} as AuthContextType);
@@ -48,7 +48,7 @@ const MyContextProvider = ({children}:any) =>{
 const navegate=useNavigate()
 
 const [user, setUser] = useState<User | null>(null);
-const [token,setToken]=useState<string|null>('')
+const [token,setToken]=useState<boolean>(false)
 const [errorCredentials,setErrorCredentials]=useState<boolean>(false)
 const [inputEmptyError,setInputEmptyError]=useState<boolean>(false)
 
@@ -63,8 +63,11 @@ const login=async({name,email, password}:Credentials)=>{
         navegate('/')
         console.log( `Entrou com sucesso, token gerado: ${jwtToken}`);
         localStorage.setItem('Token',jwtToken)
-        const item=localStorage.getItem('Token')
-        setToken(item)
+        const itemToken=localStorage.getItem('Token')
+        if (itemToken) {
+          setToken(true)
+        }
+       
         setErrorCredentials(false)
         localStorage.setItem('Nome',name)
      }
@@ -80,8 +83,9 @@ const login=async({name,email, password}:Credentials)=>{
 }
 
 const logout=()=>{
+localStorage.removeItem('Token')
   setUser(null)
-  setToken('')
+  setToken(false)
 }
 
 

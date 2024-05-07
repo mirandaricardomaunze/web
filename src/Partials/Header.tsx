@@ -11,19 +11,22 @@ import SignUp from '../Components/Modal/SignUp'
 import { useAuthContext } from '../Components/Context/MyContextProvider'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSignOut } from '@fortawesome/free-solid-svg-icons'
+import PrivateRoute from '../Components/Private/PrivateRoute'
 
 
 const Header = () => {
-const {token,logout}=useAuthContext()
 
-  const [pageText,setPageText]=useState<string>('Pagina de inicio')
+const {token,logout}=useAuthContext()
+const [pageText,setPageText]=useState<string>('Pagina de inicio')
+ 
+
+
   useEffect(()=>{
     document.title=pageText
   },[pageText])
 
   return (
     <div>
-      
         <nav className='nav-bar'>
             <Link onClick={()=>setPageText('Pagina de inicio')}  className='nav-brand'  to='/' ><span className='brand'>Soft</span>Moz</Link>  
             <NavLink onClick={()=>setPageText('Pagina de inicio')}  className='nav-link'  to='/' >Inicio</NavLink>
@@ -38,7 +41,7 @@ const {token,logout}=useAuthContext()
          <Routes>
             <Route path='/'  Component={Home} />
             <Route path='/Services' Component={Services}/>
-            <Route path='/Contact'Component={Contact}/>
+            <Route path='/Contact'element={<PrivateRoute><Contact/></PrivateRoute>}/>
             <Route path='/About' Component={About}/>
             <Route path='/*'Component={NotFound}/>
             <Route path='/SignUp'Component={SignUp}/>
