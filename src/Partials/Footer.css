@@ -1,5 +1,5 @@
 .main-container-footer{
-background-color: rgb(197, 206, 203);
+background-color:#faf5f5;
 padding: 30px 0 0 0px;
 }
 
@@ -9,7 +9,7 @@ grid-template-columns: repeat(4,1fr);
 width: fit-content;
 margin:0 auto;
 padding: 20px;
-height: 56vh;
+height: 61vh;
 }
 
 .footer{
@@ -67,24 +67,24 @@ width: fit-content;
 padding: 0 0 0 10px;
 }
 .midia-facebook{
-width: 47px;
-height: 45px;
+width: 30px;
+height: 25px;
 margin-top: 2px;
 color: #0660d4;
+border-radius: 5px;
 }
 
 .midia-instagram{
-width: 50px;
-height: 45px;
+width: 30px;
+height: 25px;
 margin-top: 2px;
-color:rgb(168, 13, 189);
+color:rgb(110, 13, 86);
 
 }
 
 .midia-youtube{
-width:42px;
-margin-top: -5px;
-height: 55px;
+width:30px;
+height: 25px;
 color: rgb(179, 9, 9);
 }
 #footer-follow{

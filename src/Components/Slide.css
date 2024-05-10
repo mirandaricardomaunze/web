@@ -3,6 +3,7 @@ display: flex;
 overflow: hidden;
 width: 100%;
 height: 500px;
+background-color:black;
 }
 
 @keyframes animeRight{
@@ -29,7 +30,7 @@ height: 500px;
 .container-bar{
 position: absolute;
 bottom: 40px;
-left:50%;
+left:73%;
 transform: translate(-50%);
 }
 
@@ -71,11 +72,11 @@ color: transparent;
 }
 
 .prev{
-left: 10px;
+right: 740px;
 }
 
 .next{
-right: 10px;
+right: 1px;
 }
 
 .prev:hover{
@@ -98,12 +99,12 @@ height: fit-content;
 
 .title{
 font-size: 50px;
-color: royalblue;
+color:blueviolet;
 }
 
 .text{
 font-size: 20px;
-color: rgb(8, 121, 250);
+color:royalblue;
 }
 
 .container-link-main{
@@ -111,13 +112,20 @@ margin-top: 30px;
 
 }
 
-.link-main{
-background-color: royalblue;
+.link-slide{
+background-color:blueviolet;
 padding: 20px;
 border-radius: 5px;
 text-decoration: none;
 color: white;
 }
-.link-main:hover{
+.link-slide:hover{
 background-color: rgb(7, 63, 231);
+}
+
+.container-text-slide{
+padding: 60px  40px 40px 40px;
+width: 60%;
+text-align: left;
+
 }

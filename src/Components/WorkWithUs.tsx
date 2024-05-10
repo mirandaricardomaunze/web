@@ -1,7 +1,7 @@
 import React from 'react'
 import './WorkWithUs.css'
 import { Link } from 'react-router-dom'
-
+import personWorkImage from '../Assets/workwithus.png'
 
 
 
@@ -11,7 +11,7 @@ const WorkWithUs = () => {
         <div className='container-work'>
             <div className='work-first'>
                 <div className='in-work'>
-                    <h1 className='title'><span className='span-title'>Porque </span>trabalhar conosco</h1>
+                    <h1 className='title-work'><span className='span-title'>Porque </span>trabalhar conosco</h1>
                     <p className='text-work'>Na nossa empresa de desenvolvimento de sites, oferecemos
                          uma atmosfera vibrante e colaborativa, onde a inovação é incentivada 
                          e celebrada. Com uma equipe talentosa e diversificada, cada membro tem 
@@ -27,7 +27,7 @@ const WorkWithUs = () => {
             </div>
             <div className='work'>
                 <img className='image-work'
-                 src="https://img.freepik.com/fotos-gratis/imagem-de-close-up-de-programador-trabalhando-em-sua-mesa-no-escritorio_1098-18707.jpg?t=st=1713635310~exp=1713638910~hmac=4de25e09e3f8cdaeaf8e9e65b852da987e8592d2d2d24d8fae6d151d59d7183a&w=740"
+                 src={personWorkImage}
                  alt="" />
             </div>
         </div>

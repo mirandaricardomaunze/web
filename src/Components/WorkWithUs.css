@@ -1,5 +1,5 @@
 .container-main-work{
-background-color: rgb(182, 187, 233);
+background-color:black;
 }
 
 .container-work{
@@ -23,15 +23,14 @@ text-align: left;
 border-top-right-radius: 10px;
 border-bottom-right-radius: 10px;
 border-radius: 10px;
-background-color: royalblue;
 }
 
 .image-work{
 width: 500px;
-height: 500px;
+height: 450px;
 border-radius: 10px;
 z-index: 1;
-margin-top: -50px;
+margin-bottom: -480px;
 }
 .span-title{
 color: blueviolet;
@@ -44,9 +43,13 @@ color: white;
 .in-work{
 padding: 23px;
 }
+.title-work{
+color: royalblue;
+font-size: 50px;
+}
 .text-work{
 font-size: 20px;
-color: black;
+color: rgb(15, 161, 180);
 }
 .link-container{
 margin-top: 10px;

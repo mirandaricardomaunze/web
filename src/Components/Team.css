@@ -1,5 +1,5 @@
 .contaneir-main-team{
-background-color:royalblue;
+background-color:rgb(188, 190, 192);
 padding: 20px 50px 90px 50px;
 }
 .title-team{
@@ -20,32 +20,51 @@ margin:0 auto;
 gap: 10px;
 display: grid;
 grid-template-columns: repeat(3,1fr);
-background-color: royalblue;
 padding: 10px;
 }
 
+.text-team{
+color: rgb(26, 26, 27);
+}
+.txt-team{
+font-size: 20px;
+
+margin: 2px;
+}
+.icon-team{
+margin-left: 4px;
+}
+.icon-teamleft{
+margin-right: 4px;
+}
+.titl-team{
+color: black;
+}
 .team{
 box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-width: 200px;
-height: 280px;
-text-align: left;
-background-color: white;
-border-radius: 10px;
+width: 300px;
+height: 290px;
+background-color:#f9f9f9;
+border-radius: 20px;
+padding: 20px;
 }
 .container-team-text{
-padding: 10px;
+padding: 20px;
 }
 
 .container-img-team{
-width: 200px;
-height: 110px;
+width: 130px;
+height: 130px;
 margin:0 auto;
-margin-bottom: 10px;
-border-radius: 5px;
+border-radius: 360px;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 10px;
 }
 .img-team{
-width: 200px;
-height: 110px;
+width: 90px;
+height: 115px;
 border-radius: 5px;
 }
 .bar{
@@ -64,10 +83,9 @@ gap: 5px;
 }
 
 .youtube-team{
-color: red;
-font-size: 30px;
+font-size: 20px;
 }
 .facebook-team{
-font-size: 30px;
-color: blue;
+font-size: 20px;
+
 }

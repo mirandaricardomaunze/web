@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from "axios";
 import React, { useContext, useState } from "react";
 import { createContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 
 
@@ -45,7 +45,7 @@ const AuthContext=createContext<{
 }>({} as AuthContextType);
 
 const MyContextProvider = ({children}:any) =>{
-const navegate=useNavigate()
+
 
 const [user, setUser] = useState<User | null>(null);
 const [token,setToken]=useState<boolean>(false)
@@ -60,7 +60,7 @@ const login=async({name,email, password}:Credentials)=>{
      console.log(result);
      const jwtToken= response.data.token
     if (response) {
-        navegate('/')
+        <Navigate to='/'/>
         console.log( `Entrou com sucesso, token gerado: ${jwtToken}`);
         localStorage.setItem('Token',jwtToken)
         const itemToken=localStorage.getItem('Token')
@@ -86,6 +86,8 @@ const logout=()=>{
 localStorage.removeItem('Token')
   setUser(null)
   setToken(false)
+  return <Navigate to='/SignIn'/>
+   
 }
 
 

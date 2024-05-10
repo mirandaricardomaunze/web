@@ -50,6 +50,16 @@ margin: 5px;
 }
 
 .link-logout:hover{
-background-color: rgb(197, 12, 27);
+background-color: rgb(90, 81, 82);
 color: white;
+}
+
+.user-icon{
+display: flex;
+float: right;
+padding-right: 10px;
+text-decoration: none;
+cursor: none;
+font-size: 20px;
+color: royalblue;
 }

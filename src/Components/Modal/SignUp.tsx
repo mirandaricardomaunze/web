@@ -10,7 +10,11 @@ interface User{
   email:string
   password:string
 }
-
+interface Errors{
+   name:string
+   email:string
+   password:string
+}
 
 const SignUp = ():React.JSX.Element => {
 const navegate=useNavigate()
@@ -21,11 +25,29 @@ const [password,setPassword]=useState<string>('')
 const [emptyInput,setEmptyInput]=useState<boolean>(false)
 const [showHide,setShowHide]=useState<boolean>(false)
 const [error,setEerror]=useState<boolean>(false)
+const [errorsRegex,setEerrorsRegex]=useState<Errors>(
+   {
+    name:'',
+    email:'',
+    password:''
+   }
+)
+
+const newErrors:Errors={name,password,email}
+const emailRegex:RegExp=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+if (!emailRegex.test(email)) {
+   newErrors.email='Email invalido'
+}
+const passwordRegex:RegExp=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
+if (!passwordRegex.test(password)) {
+   newErrors.password='A senha e invalida (pelo menos 8 caracteres ,incluindo letras maisuculas,minusculas e numeros) '
+}
 
 
 const handleModal=()=>{
     setShowHide(!showHide)
 }
+
 
 const handleInputEmpty=()=>{
    if (email.length>0) {
@@ -62,6 +84,10 @@ if (response) {
  } catch (error) {
   console.log(`Ocorreu erro durante o cadastro: ${error}`);
   setEerror(true)
+ }
+ setEerrorsRegex(newErrors)
+ if (Object.keys(newErrors).length===0) {
+   handleSignUp() 
  }
 
 }
@@ -117,6 +143,7 @@ const handleChangePassword=(e:React.ChangeEvent<HTMLInputElement>)=>{
                      onChange={handleChangeName}
                      placeholder='Degite o seu nome'/>
                      {emptyInput?<p  className='erro'>Preencha os espacos vazios</p>:null}
+                     {errorsRegex.name && <span>{errorsRegex.name}</span>}
                  </div>
                  <div className='label'>
                     <label htmlFor="email">Email:</label>
@@ -126,6 +153,7 @@ const handleChangePassword=(e:React.ChangeEvent<HTMLInputElement>)=>{
                      onChange={handleChangeEmail}
                      placeholder='Degite o seu email'/>
                      {emptyInput?<p  className='erro'>Preencha os espacos vazios</p>:null}
+                     {errorsRegex.email && <span>{errorsRegex.email}</span>}
                  </div>
                  <div className='label'>
                     <label htmlFor="password">Senha:</label>
@@ -135,6 +163,7 @@ const handleChangePassword=(e:React.ChangeEvent<HTMLInputElement>)=>{
                      onChange={handleChangePassword} 
                       placeholder='Degite a sua senha'/>
                      {emptyInput?<p  className='erro'>Preencha os espacos vazios</p>:null}
+                     {errorsRegex.password && <span>{errorsRegex.password}</span>}
                  </div>
                  <div className='container-checkbox'>
                      <input type="checkbox"  className='input-checkbox' required/>

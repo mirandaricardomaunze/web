@@ -1,9 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './Footer.css'
 import { Link } from 'react-router-dom'
-import SignUp from '../Components/Modal/SignUp'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'
 import { faFacebookSquare, faInstagramSquare, faYoutubeSquare } from '@fortawesome/free-brands-svg-icons'
 
 
@@ -11,10 +9,7 @@ import { faFacebookSquare, faInstagramSquare, faYoutubeSquare } from '@fortaweso
 const Footer = () => {
   const date=new Date()
   const newYear=date.getFullYear();
-  const [showLink,setShowLink]=useState<boolean>(false)
-  const handleshowLink=()=>{
-      setShowLink(!showLink)
-   }
+ 
 
   return (
     <div className='main-container-footer'>
@@ -33,13 +28,7 @@ const Footer = () => {
                 <Link className='footer-link ' to='/Services'>Servicos</Link>
                 <Link className='footer-link ' to='/About'>Sobre</Link>
                 <Link className='footer-link ' to='/Contact'>Contato</Link>
-                {showLink?<p className='btn-footer' onClick={handleshowLink}><FontAwesomeIcon icon={faAngleDown}/></p>:
-                 <p className='btn-footer' onClick={handleshowLink}><FontAwesomeIcon icon={faAngleUp}/></p>
-                }
-                {showLink?
-                <div className='footer-link-signUp'>
-                     <SignUp/>
-              </div>:null}
+                
               </div>
           </div>
           <div className='footer'>

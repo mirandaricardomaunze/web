@@ -30,8 +30,8 @@ const handleFaqForth=()=>{
            <div className='faq'>
               <div className='faq-quetion'>
                 <p className=''>Posso atualizar meu site após o lançamento? </p>
-                {textShow?<button className='btn-faq' id='btn-faq' onClick={handleFaqfirst}><FontAwesomeIcon icon={faAngleDown}/></button>:
-                <button className='btn-faq' id='btn-faq' onClick={handleFaqfirst}><FontAwesomeIcon icon={faAngleUp}/></button>}
+                {textShow?<button className='btn-faq' id='btn-faq1' onClick={handleFaqfirst}><FontAwesomeIcon icon={faAngleDown}/></button>:
+                <button className='btn-faq' id='btn-faq1' onClick={handleFaqfirst}><FontAwesomeIcon icon={faAngleUp}/></button>}
               </div>
                 <hr className='hr' />
               {textShow?
@@ -45,8 +45,8 @@ const handleFaqForth=()=>{
            <div className='faq'>
               <div className='faq-quetion'>
                 <p>Quanto tempo leva para criar um site? </p>
-                {textShowSecond?<button className='btn-faq' id='btn-faq1' onClick={handleFaqSecond}><FontAwesomeIcon icon={faAngleDown}/></button>:
-                <button className='btn-faq' id='btn-faq1' onClick={handleFaqSecond}><FontAwesomeIcon icon={faAngleUp}/></button>}
+                {textShowSecond?<button className='btn-faq' id='btn-faq2' onClick={handleFaqSecond}><FontAwesomeIcon icon={faAngleDown}/></button>:
+                <button className='btn-faq' id='btn-faq2' onClick={handleFaqSecond}><FontAwesomeIcon icon={faAngleUp}/></button>}
               </div>
                  <hr  className='hr'/>
               {textShowSecond?
@@ -60,8 +60,8 @@ const handleFaqForth=()=>{
            <div className='faq'>
               <div className='faq-quetion'>
                 <p>Meu site será otimizado para mecanismos de busca (SEO)?</p>
-                {textShowthirt?<button className='btn-faq' onClick={handleFaqThirt}><FontAwesomeIcon icon={faAngleDown}/></button>:
-                <button className='btn-faq' onClick={handleFaqThirt}><FontAwesomeIcon icon={faAngleUp}/></button>}
+                {textShowthirt?<button className='btn-faq' id='btn-faq3'  onClick={handleFaqThirt}><FontAwesomeIcon icon={faAngleDown}/></button>:
+                <button className='btn-faq' id='btn-faq3' onClick={handleFaqThirt}><FontAwesomeIcon icon={faAngleUp}/></button>}
               </div>
                  <hr  className='hr'/>
               {textShowthirt?
@@ -75,8 +75,8 @@ const handleFaqForth=()=>{
            <div className='faq'>
               <div className='faq-quetion'>
                 <p>Vocês oferecem serviços de hospedagem para meu site?</p>
-                {textShowforth?<button className='btn-faq' id='btn-faq2' onClick={handleFaqForth}><FontAwesomeIcon icon={faAngleDown}/></button>:
-                <button className='btn-faq' id='btn-faq2' onClick={handleFaqForth}><FontAwesomeIcon icon={faAngleUp}/></button>}
+                {textShowforth?<button className='btn-faq' id='btn-faq4' onClick={handleFaqForth}><FontAwesomeIcon icon={faAngleDown}/></button>:
+                <button className='btn-faq' id='btn-faq4' onClick={handleFaqForth}><FontAwesomeIcon icon={faAngleUp}/></button>}
               </div>
                  <hr  className='hr'/>
               {textShowforth?

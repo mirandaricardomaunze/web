@@ -14,13 +14,16 @@ display: flex;
 border-left:5px royalblue solid;
 }
 #btn-faq1{
-margin-left: 220px;
-}
-#btn-faq{
-margin-left: 170px;
+margin-left: 200px;
 }
 #btn-faq2{
-margin-left: 70px;
+margin-left: 250px;
+}
+#btn-faq3{
+margin-left: 86px;
+}
+#btn-faq4{
+ margin-left: 101px;
 }
 .btn-faq{
 border: none;

@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './SignIn.css'
 import { useAuthContext } from '../Context/MyContextProvider'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {  faUser } from '@fortawesome/free-solid-svg-icons'
 
 
 const SignIn = () => {
@@ -89,7 +91,9 @@ console.log('Senha:', password);
   return (
     <div>
        <div className='containair-btn-modal'>
-           <Link className='link-signIn'  onClick={handleModal} to=''>Clique aqui para entrar</Link>
+           <Link className='link-signIn'  onClick={handleModal} to=''>
+            <FontAwesomeIcon  icon={faUser}/> 
+           </Link>
        </div>
          {showHideModal?
         <div className='container-modal'>

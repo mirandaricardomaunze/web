@@ -10,7 +10,7 @@ import SignIn from '../Components/Modal/SignIn'
 import SignUp from '../Components/Modal/SignUp'
 import { useAuthContext } from '../Components/Context/MyContextProvider'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSignOut } from '@fortawesome/free-solid-svg-icons'
+import { faSignOut, faUserCircle } from '@fortawesome/free-solid-svg-icons'
 import PrivateRoute from '../Components/Private/PrivateRoute'
 
 
@@ -34,14 +34,15 @@ const [pageText,setPageText]=useState<string>('Pagina de inicio')
             <NavLink onClick={()=>setPageText('Pagina de contato')} className='nav-link' to='/Contact'>Contato</NavLink>
             <NavLink onClick={()=>setPageText('Pagina de sobre')} className='nav-link' to='/About'>Sobre</NavLink>
             <NavLink onClick={()=>setPageText('Pagina de Registro')} className='nav-link' to='/SignUp'>Registro</NavLink>
-           {token? <Link to='' className='link-logout' onClick={logout} >Sair <FontAwesomeIcon icon={faSignOut} /></Link>:
+           {token? <Link to='/SignIn' className='link-logout' onClick={logout} >Sair <FontAwesomeIcon icon={faSignOut} /></Link>:
            <NavLink onClick={()=>setPageText('Pagina de Login')} className='nav-link' to='/SignIn'>Entrar</NavLink>}
+           {token?<Link to='' className='user-icon'><FontAwesomeIcon className='' icon={faUserCircle}/></Link>:null}
           
           
          <Routes>
             <Route path='/'  Component={Home} />
             <Route path='/Services' Component={Services}/>
-            <Route path='/Contact'element={<PrivateRoute><Contact/></PrivateRoute>}/>
+            <Route path='/Contact'element={<PrivateRoute> <Contact/> </PrivateRoute>}/>
             <Route path='/About' Component={About}/>
             <Route path='/*'Component={NotFound}/>
             <Route path='/SignUp'Component={SignUp}/>

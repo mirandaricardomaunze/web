@@ -2,6 +2,7 @@ import React from 'react'
 import './Team.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebookSquare, faYoutubeSquare } from '@fortawesome/free-brands-svg-icons'
+import { faQuoteLeft, faQuoteRight } from '@fortawesome/free-solid-svg-icons'
 
 
 
@@ -15,20 +16,27 @@ const Team = ({contents}:Cont) => {
     <div className='contaneir-main-team'>
           <div className='text-team'>
              <h1 className='title-team'>Nossa equipe</h1>
-              <p>
+              <p className='text-team'>
                 Com anos de experiência no desenvolvimento web, nossa equipe é habilidosa 
                 em transformar conceitos em interfaces intuitivas e visualmente deslumbrantes.
               </p>
+              <div  className=''>
+                 <img src="b" alt="" />
+              </div>
           </div>
         <div className='contaneir-team'>
-            {contents.map((item,index)=>(
-                <div key={item.id} className='team'>
+            {contents.map((team)=>(
+                <div key={team.id} className='team'>
                     <div className='container-img-team'>
-                        <img className='img-team' src={item.image} alt="" />
+                        <img className='img-team' src={team.image} alt="" />
                     </div>
                     <div className='container-team-text'>
-                        <p>{item.text}</p>
-                        <h4>{item.nome}</h4>
+                        <p className='txt-team'>
+                          <FontAwesomeIcon className='icon-teamleft' icon={faQuoteLeft}/>
+                            {team.text}
+                            <FontAwesomeIcon className='icon-team' icon={faQuoteRight}/>
+                        </p>
+                        <h4 className='titl-team'>{team.nome}</h4>
                     </div>
                     <div className='team-icon'>
                        <a href="http://www.facebook.com" target="_blank" rel="noopener noreferrer">
