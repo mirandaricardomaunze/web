@@ -51,4 +51,15 @@ transition: 0.9s ease;
 transition-delay: 5s;
 }
 
+.title-faq{
+font-size: 50px;
+color: royalblue;
+text-align: center;
+}
 
+.text-first-faq{
+width: 500px;
+margin:0 auto;
+text-align: center;
+padding: 40px;
+}

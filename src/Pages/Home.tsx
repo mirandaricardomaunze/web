@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Slide from '../Components/Slide'
 import './Home.css'
 import Tecnologies from '../Components/Tecnologies'
@@ -25,25 +25,31 @@ const slides=[
 
 const team=[
 {id:1,image:man,
-text:'Sou desenvolvedor fullstack em javascript ',nome:'Miranda Ricardo'},
+text:'Sou desenvolvedor Senior em javascript e react ',nome:'Miranda Ricardo'},
 {id:2,image:man1,
-text:'Sou desenvolvedor fullstack em javascript ',nome:'Mark John'},
+text:'Sou desenvolvedor senior em javascript e php',nome:'Mark John'},
 {id:3,image:manblack,
-text:'Sou desenvolvedor fullstack em javascript ',nome:' Richard Muller'}
+text:'Sou desenvolvedor e Designer Grafico',nome:' Richard Muller'}
 ]
 
 const comment=[
 {id:1,image:client1,
-text:'Sou muito grato a vossa empresa, o meu site ficou incrivel',nome:'Jhon Milton'},
+text:'Sou muito grato a vossa empresa, o meu site ficou incrivel',nome:'Jhon Milton',rev:4.7},
 {id:2,image:client2,
-text:'Apenas a vossa empresa, conseguiu transformar ideias em site incrivel',nome:'Elton Milton'},
+text:'Apenas a vossa empresa, conseguiu transformar ideias em site incrivel',nome:'Elton Milton',rev:4.8},
 {id:3,image:client3,
-text:'Foi exatamente o que eu queria, o meu site ficou incrivel',nome:'Leonel  Mackdown'},
+text:'Foi exatamente o que eu queria, o meu site ficou incrivel',nome:'Leonel  Mackdown',rev:4.9},
 ]
 
 
 
 const Home = () => {
+  useEffect(()=>{ 
+    document.title='Pagina de inicio'
+ })
+ 
+
+
   return (
     <div className='container-home'>
        <Slide slide={slides}/> 

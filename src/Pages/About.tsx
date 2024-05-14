@@ -1,26 +1,32 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './About.css'
 import Coments from '../Components/Coments'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDesktop, faHandHolding, faHands, faLaptop, faMobileAndroid, faPen, faPerson, faSearch } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
+import client1 from '../Assets/client1.jpg'
+import client2 from '../Assets/client2.jpg'
+import client3 from '../Assets/client3.jpg'
+
 
 const comment=[
-{id:1,image:'https://img.freepik.com/fotos-gratis/homem-bonito-e-confiante-sorrindo-com-as-maos-cruzadas-no-peito_176420-18743.jpg?t=st=1713634505~exp=1713638105~hmac=576ddaacd9e751a0602efde86f406acbc7efbd99247a201b8306becda5f9d1c8&w=740',
-text:'Sou muito grato a vossa empresa, o meu site ficou incrivel',nome:'Jhon Milton'},
-{id:1,image:'https://img.freepik.com/fotos-gratis/bonito-homem-sorridente-vestindo-camisa-verde-em-pe-contra-um-fundo-azul_662251-587.jpg?t=st=1713634650~exp=1713638250~hmac=717f05144e28301a2a7bd5ed399742037ae36865a546f40ac0b4d4528108da5b&w=740',
-text:'Apenas a vossa empresa, conseguiu transformar ideias em site incrivel',nome:'Elton Milton'},
-{id:1,image:'https://img.freepik.com/fotos-gratis/retrato-isolado-de-jovem-engracado-de-pele-escura-com-os-bracos-cruzados-com-penteado-afro-na-camisa-branca-casual-sob-jaqueta-jeans-com-expressao-de-rosto-animado_176420-13044.jpg?t=st=1713634685~exp=1713638285~hmac=05e32af95ed69b7b867c8bec9ddc71795258e6a52ac55c044100366835161627&w=740',
-text:'Foi exatamente o que eu queria, o meu site ficou incrivel',nome:'Leonel  Mackdown'},
+{id:1,image:client1,
+text:'Sou muito grato a vossa empresa, o meu site ficou incrivel',nome:'Jhon Milton',rev:4.7},
+{id:1,image:client2,
+text:'Apenas a vossa empresa, conseguiu transformar ideias em site incrivel',nome:'Elton Milton',rev:4.9},
+{id:1,image:client3,
+text:'Foi exatamente o que eu queria, o meu site ficou incrivel',nome:'Leonel  Mackdown',rev:4.9},
 ]
 
-
-
-
 const About = () => {
+  useEffect(()=>{ 
+    document.title='Pagina de sobre'
+ })
+ 
+
   return (
     <div className='container-main-about'>
-      <h1 className='title'>Construa a Sua Presença Online</h1>
+      <h1 className='title-about'>Construa a Sua Presença Online</h1>
        <div className='cont-text-about'>
          <p className='text-about'>
           Seu site é a porta de entrada para o mundo virtual. Na era digital, 
@@ -31,7 +37,7 @@ const About = () => {
        </div>
        <div className='container-about-main'>
          <div>
-            <h2 className='title-about'>Por que Escolher Nossos Serviços?</h2>
+            <h2 className='title-about-second '>Por que Escolher Nossos Serviços?</h2>
          </div>
          <div className='container-grid-about'>
             <div className='about'>

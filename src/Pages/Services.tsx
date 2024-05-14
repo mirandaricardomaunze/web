@@ -1,18 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Services.css'
 import { Link } from 'react-router-dom'
-import  bootstrapimg from'../Assets/bootstrap.png'
-import nodejsimg from '../Assets/nodejs.png'
-import reactimg from '../Assets/react.png'
-import jsimg from  '../Assets/javascript.png'
-import seo from  '../Assets/seo.png'
+import Tecnologies from '../Components/Tecnologies'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBootstrap, faJsSquare, faNodeJs, faReact} from '@fortawesome/free-brands-svg-icons'
 
 const Services = () => {
+
+useEffect(()=>{
+document.title='Pagina de serviços'
+})
+
   return (
     <div className='container-service-main'>
+       <Tecnologies/>
        <div className='container-text-service'>
          <h1 className='title-first'> Sites Modernos</h1>
-          
           <p className='text-service'>
             Nossa equipe de especialistas em desenvolvimento web oferece soluções personalizadas
             e inovadoras para atender às suas necessidades digitais. Combinando nossa experiência
@@ -27,7 +30,7 @@ const Services = () => {
        <div className='container-service'>
           <div className='services'>
              <div className='container-image-service'>
-               <img className='image-service' src={nodejsimg} alt="" />
+               <FontAwesomeIcon className='image-service' icon={faNodeJs}/> 
              </div>
               <div className="container-p">
                   <h3>Node js</h3>
@@ -39,9 +42,7 @@ const Services = () => {
           </div>
           <div className='services'>
              <div className='container-image-service'>
-               <img className='image-service' 
-               src={reactimg} 
-               alt="" />
+             <FontAwesomeIcon className='image-service' icon={faReact}/> 
              </div>
              <div className='container-p'>
                  <h3>React js</h3>
@@ -52,7 +53,7 @@ const Services = () => {
           </div>
           <div className='services'>
              <div className='container-image-service'>
-                <img className='image-service' src={jsimg}alt="" />
+             <FontAwesomeIcon className='image-service' icon={faJsSquare}/> 
              </div>
              <div className="container-p">
                  <h3>JavaScript vanila</h3>
@@ -64,7 +65,7 @@ const Services = () => {
           </div>
           <div className='services'>
              <div className='container-image-service'>
-                <img className='image-service' src={bootstrapimg} alt="" />
+             <FontAwesomeIcon className='image-service' icon={faBootstrap}/> 
              </div>
              <div className="container-p">
                  <h3>Bootstrap</h3>
@@ -75,18 +76,7 @@ const Services = () => {
                  </p>
              </div>
           </div>
-          <div className='services'>
-             <div className='container-image-service'>
-                <img className='image-service' src={seo} alt="" />
-             </div>
-             <div className="container-p">
-                 <h3>SEO</h3>
-                 <p >
-                   Otimizamos cada aspecto do seu site para garantir tempos de carregamento rápidos 
-                   e uma classificação elevada nos mecanismos de busca, maximizando sua visibilidade online.
-                 </p>
-             </div>
-          </div>
+         
        </div>
        </div>
        

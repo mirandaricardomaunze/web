@@ -1,5 +1,5 @@
 .nav-bar{
-text-align: center;
+text-align: right;
 padding-top: 30px;
 }
 
@@ -21,6 +21,7 @@ background-color: transparent;
 float: left;
 margin-left: 30px;
 font-size: 30px;
+color: black;
 }
 .brand{
 color: blueviolet;
@@ -56,6 +57,7 @@ color: white;
 
 .user-icon{
 display: flex;
+justify-content: center;
 float: right;
 padding-right: 10px;
 text-decoration: none;

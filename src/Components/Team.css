@@ -1,6 +1,7 @@
 .contaneir-main-team{
-background-color:rgb(188, 190, 192);
+background-color:#eeecec;
 padding: 20px 50px 90px 50px;
+text-align: center;
 }
 .title-team{
 color:black;
@@ -12,6 +13,7 @@ width: 600px;
 margin:0 auto;
 padding: 20px;
 font-size: 22px;
+
 }
 .contaneir-team{
 width: fit-content;
@@ -25,11 +27,12 @@ padding: 10px;
 
 .text-team{
 color: rgb(26, 26, 27);
+font-family: sans-serif;
 }
 .txt-team{
 font-size: 20px;
-
 margin: 2px;
+font-family: sans-serif;
 }
 .icon-team{
 margin-left: 4px;
@@ -42,11 +45,11 @@ color: black;
 }
 .team{
 box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-width: 300px;
+width: 305px;
 height: 290px;
-background-color:#f9f9f9;
+background-color:royalblue;
 border-radius: 20px;
-padding: 20px;
+padding: 15px;
 }
 .container-team-text{
 padding: 20px;
@@ -61,6 +64,7 @@ display: flex;
 align-items: center;
 justify-content: center;
 padding: 10px;
+background-color: royalblue;
 }
 .img-team{
 width: 90px;
@@ -84,6 +88,7 @@ gap: 5px;
 
 .youtube-team{
 font-size: 20px;
+color: red;
 }
 .facebook-team{
 font-size: 20px;

@@ -10,7 +10,7 @@ padding: 40px;
 margin:0 auto;
 border-radius: 10px;
 text-align: left;
-background-color: rgb(48, 48, 189);
+background-color: royalblue;
 }
 .container-comment{
 display: flex;
@@ -57,10 +57,14 @@ margin-left: 10px;
 display: inline-block;
 }
 
+.container-dot-btn{
+text-align: center;
+}
 .title-coments{
 color:#0f0f0f;
 font-size: 50px;
 padding: 20px;
+text-align: center;
 }
 
 .dot{
@@ -133,5 +137,5 @@ background-color: white;
 color: royalblue;
 }
 .star{
-color: rgb(154, 172, 180);
+color: rgb(167, 170, 6);
 }

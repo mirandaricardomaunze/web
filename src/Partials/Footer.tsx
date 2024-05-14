@@ -19,7 +19,7 @@ const Footer = () => {
        <div className='container-footer'>
           <div className='footer'>
               <h2 className='footer-title'>Onde estamos</h2>
-                <p className='text-footer'> Bairro Mchava Sede, Quarteirão 11, Matola, Maputo, Moçambique.</p>
+                <p className='text-footer'> Bairro Mchava Sede, Matola, Moçambique.</p>
           </div>
           <div className='footer'>
               <h2 className='footer-title'>Links uteis</h2>
@@ -57,7 +57,7 @@ const Footer = () => {
           </div>
        </div>  
        <div className='p-allright'>
-          <p><span className='brand'>Soft</span>Moz | Todos direitos reservados {newYear} </p>
+          <p><span className='brand'>Powered by Soft</span>Moz | Todos direitos reservados {newYear} </p>
        </div>
     </div>
   )

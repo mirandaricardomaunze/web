@@ -8,10 +8,12 @@ text-align: left;
 padding: 20px ;
 margin: 0 auto;
 height: fit-content;
+padding-bottom: 70px;
 }
 .title-first{
 font-size: 50px;
 color: royalblue;
+text-align: center;
 }
     
 .title-second{
@@ -21,15 +23,18 @@ padding: 10px 0 10px 0;
 text-align: left;
 }
 .title-service{
-color: #ffffff;
-font-size: 40px;
+color: black;
+font-size: 50px;
+text-align: center;
 }
 .text-service{
 font-size: 20px;
 color: #555;
+text-align: center;
 }
 .container-service-main-second{
-background-color:  #3e6feb; 
+background:rgb(2,0,36);
+background: linear-gradient(90deg,rgb(2,0,36,1)0%, rgba(9,9,121,1)35%,rgba(0,212,255,1)100%);
 padding: 50px;  
 }
     
@@ -44,16 +49,16 @@ padding: 50px;
 }
 .services{
 width: 250px;
-height: 350px;
+height: 320px;
 border-radius: 10px;
 padding: 20px;
 text-align: left;
 box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-background-color: white;
 margin:0 auto;
+background-color: rgb(81, 107, 223);
 }
 .container-p{
-color: #555;
+color: #111010;
 font-size: 20px;
 }    
 .container-image-service{
@@ -66,12 +71,13 @@ margin:0 auto;
 width: 100px;
 height: 80px;
 border: none;
+color: white;
 }
   
 .container-service-contact{
 padding: 40px 40px 100px 40px;
 width: 700px;
-text-align: left;
+text-align: center;
 margin: 0 auto;
 }
 .title-service-contact{

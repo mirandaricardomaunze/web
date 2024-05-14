@@ -36,17 +36,24 @@ background-color: #e6e2f3;
 margin:0 auto;
 padding: 20px;
 }
-
+.title-about{
+font-size: 50px;
+color: royalblue;
+padding: 20px 0 10px 0px;
+text-align: center;
+}
+.title-about-second{
+font-size: 50px;
+color: rgb(20, 20, 20);
+padding: 20px 0 10px 0px;
+text-align: center;
+}
 .text-about{
 font-size: 20px;
 padding: 20px 0 20px 0;
-color: #555;
+color: #1d1c1c;
 }
 
-.title-about{
-color: #555;
-padding: 20px 0 10px 0px;
-}
 .container-about-join{
 width:800px ;
 margin: 0 auto;

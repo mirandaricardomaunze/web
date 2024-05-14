@@ -8,13 +8,14 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  
 }
 
 *{
 padding: 0px;
 margin: 0px;
+font-family: sans-serif;
 }
 p{font-size: 19px;}
 h4{font-size: 20px;}
+h1,h2,h3,span{font-family: serif; font-weight: bolder;}

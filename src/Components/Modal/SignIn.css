@@ -101,6 +101,18 @@
     }
     .erro{
     color: red;
+    font-size: 12px;
+    padding: 10px;
+    }
+    .erro-pass{
+    color: red;
+    font-size: 12px;
+    padding: 10px;
+    }
+    .success-login{
+    color: blue;
     font-size: 15px;
     }
-    
+    .icon-success{
+     margin-left: 5px;
+    }

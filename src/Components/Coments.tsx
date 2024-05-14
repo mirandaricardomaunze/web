@@ -50,10 +50,7 @@ useEffect(()=>{
                       {comment.text} <FontAwesomeIcon className='quote-right' icon={faQuoteRight}/></p>
                       <h4 className='name-com'>- {comment.nome}</h4>
                       <p className='star'>
-                        <FontAwesomeIcon icon={faStar}/>
-                        <FontAwesomeIcon icon={faStar}/>
-                        <FontAwesomeIcon icon={faStar}/>
-                        <FontAwesomeIcon icon={faStar}/>
+                         <span>{comment.rev}</span>
                         <FontAwesomeIcon icon={faStar}/>
                       </p>
                   </div>
@@ -61,7 +58,7 @@ useEffect(()=>{
            </div>
            ))}
          </div>
-         <div>
+         <div className='container-dot-btn'>
             {comments.map((comment,index)=>(
               <div key={comment.id} className='container-dot'>
                  <button  onClick={()=>toComments(index)} 

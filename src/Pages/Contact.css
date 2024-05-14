@@ -5,9 +5,16 @@ gap: 10px;
 margin:0 auto;
 padding: 40px;
 width: 900px;
+background-image: url(../Assets/mansmile.png);
+background-position: 600px;
+background-size: 300px;
+background-repeat: no-repeat;
+background-position-y: 230px;
 }
 .container-contact-bg{
-background-color: royalblue;
+
+    background:rgb(2,0,36);
+    background: linear-gradient(90deg,rgb(2,0,36,1)0%, rgba(9,9,121,1)35%,rgba(0,212,255,1)100%);
 }
 .contact{
 width: 510px;
@@ -18,18 +25,29 @@ height: fit-content;
 }
 .container-contact-text{
 padding: 20px;
-width: 800px;
+width: 700px;
 margin:0 auto;
 color: #555;
 text-align: left;
 }
 
-.text-contact{
+.text-contact-text{
 font-size: 20px;
+text-align: center;
+padding:0 0 50px 0;
 }
 .title-contact{
 padding: 20px 0px 20px 0px;
 color: rgb(15, 16, 19);
+font-size: 50px;
+color: royalblue;
+text-align: center;
+}
+
+.title-cont{
+padding: 20px 0px 20px 0px;
+color: rgb(15, 16, 19);
+font-size: 40px;
 }
 
 .container-form-contact{
@@ -70,5 +88,6 @@ padding: 50px;
 
 .erro{
 color: red;
-font-size: 15px;
+font-size: 12px;
+padding: 10px;
 }

@@ -103,5 +103,11 @@ background-color: rgb(22, 71, 218);
 
 .erro{
 color: red;
-font-size: 15px;
+font-size: 12px;
+}
+
+.erro-pass{
+width: 400px;
+color: red;
+font-size: 12px;
 }

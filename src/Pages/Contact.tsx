@@ -1,4 +1,4 @@
-import React, {  useState } from 'react'
+import React, {  useEffect, useState } from 'react'
 import './Contact.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {  faEnvelope, faMobile } from '@fortawesome/free-solid-svg-icons'
@@ -17,7 +17,26 @@ const[email,setEmail]=useState<string>('')
 const [subject,setSubject]=useState<string>('')
 const [erro,setEerror]=useState<boolean>(false)
 const [emptyInput,setEmptyInput]=useState<boolean>(false)
+const [errorRegexEmail,setErrorRegexEmail]=useState<boolean>(false)
 
+
+
+useEffect(()=>{ 
+  document.title='Pagina de contacto'
+})
+
+
+
+
+const errorEmail='Deve ser email valido'
+useEffect(()=>{
+  const emailRegex:RegExp=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email) && email.length>0) {
+    setErrorRegexEmail(true)
+} else {
+  setErrorRegexEmail(false)
+}
+},[email])
 
 const inputEmpty=()=>{
   if (email.length>0) {
@@ -91,21 +110,23 @@ const handleSubmit=async(e:React.FormEvent<HTMLFormElement>)=>{
   return (
     <div className='container-contact-main'>
           <div className='container-contact-text'>
-            <h1 className='title'>Entre em Contato Conosco</h1>
-            <p className='text-contact'>
-               Estamos aqui para ajudar você a transformar suas ideias em realidade.
-               Se você tem alguma pergunta, precisa de mais informações ou deseja discutir 
-               um projeto, entre em contato conosco. Nossa equipe está pronta para oferecer
-               suporte personalizado e soluções sob medida para suas necessidades.
-            </p>
+            <h1 className='title-contact'>Entre em Contato Conosco</h1>
+            <div className='text-contact-text'>
+              <p className=''>
+                Estamos aqui para ajudar você a transformar suas ideias em realidade.
+                Se você tem alguma pergunta, precisa de mais informações ou deseja discutir 
+                um projeto, entre em contato conosco. Nossa equipe está pronta para oferecer
+                suporte personalizado e soluções sob medida para suas necessidades.
+             </p>
+            </div>
           </div>
           <div className='container-contact-bg'>
           <div className='container-contact'>
          <div className='contact'>
-              <h2 className='title-contact'>Formulario de contato</h2>
+              <h2 className='title-cont'>Formulario de contato</h2>
               <p className='text-contact'>Para sua conveniência, preencha o formulário abaixo e entraremos em contato com você em breve:</p>
              <div className='form'>
-                <h1 className='title-contact'>Contacta-nos </h1>
+                <h1 className='title-cont'>Contacta-nos </h1>
                 <form action=""  onSubmit={handleSubmit}>
                    <div>
                      <label htmlFor="name" className='text-contact'>Nome:</label>
@@ -124,6 +145,7 @@ const handleSubmit=async(e:React.FormEvent<HTMLFormElement>)=>{
                       value={email}  onChange={handleChangeEmail}
                        placeholder='Degite o email' />
                         {emptyInput? <p  className='erro'>Preecha os espacos vazios</p>:null}
+                        {errorRegexEmail?<p className='erro'>{errorEmail}</p>:null}
                    </div>
                    <div>
                      <label htmlFor="subject" className='text-contact'>Assunto:</label>
@@ -142,7 +164,7 @@ const handleSubmit=async(e:React.FormEvent<HTMLFormElement>)=>{
              </div>
           </div>
           <div className='contact'>
-            <h2 className='title-contact'>Informações de Contato</h2>
+            <h2 className='title-cont'>Informações de Contato</h2>
             <p className='text-contact '><FontAwesomeIcon icon={faMobile}/><b> Telefone:</b>  847750120</p>
             <p className='text-contact'><FontAwesomeIcon icon={faEnvelope}/><b>  Email:</b>  mirandamaunze@122gmail.com</p>
           </div>

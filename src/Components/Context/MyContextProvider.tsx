@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from "axios";
 import React, { useContext, useState } from "react";
 import { createContext } from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate} from "react-router-dom";
 
 
 
@@ -27,6 +27,8 @@ errorCredentials:boolean
 setErrorCredentials:React.Dispatch<boolean>
 token:boolean
 setToken:React.Dispatch<boolean>
+successLogin:boolean
+setSuccessLogin:React.Dispatch<boolean>
 login:({name,email,password}:Credentials)=>Promise<void>
 logout:()=>void
 }
@@ -40,19 +42,24 @@ const AuthContext=createContext<{
   setErrorCredentials:React.Dispatch<boolean>
   setToken:React.Dispatch<boolean>
   token:boolean
+  successLogin:boolean
+  setSuccessLogin:React.Dispatch<boolean>
   login: ({name,email, password}:Credentials) => Promise<void>;
   logout:()=>void;
 }>({} as AuthContextType);
 
 const MyContextProvider = ({children}:any) =>{
 
-
 const [user, setUser] = useState<User | null>(null);
 const [token,setToken]=useState<boolean>(false)
 const [errorCredentials,setErrorCredentials]=useState<boolean>(false)
 const [inputEmptyError,setInputEmptyError]=useState<boolean>(false)
+const [successLogin,setSuccessLogin]=useState<boolean>(false)
+
 
 const login=async({name,email, password}:Credentials)=>{
+
+
    try {
      const Base_Url:string='http://localhost:4000/login/login'
      const response:AxiosResponse=await axios.post<User>(Base_Url,{name,email,password})
@@ -67,7 +74,7 @@ const login=async({name,email, password}:Credentials)=>{
         if (itemToken) {
           setToken(true)
         }
-       
+        setSuccessLogin(true)
         setErrorCredentials(false)
         localStorage.setItem('Nome',name)
      }
@@ -77,6 +84,7 @@ const login=async({name,email, password}:Credentials)=>{
     console.log( 'Nao foi possivel a conexao')
     if (error) {
       setErrorCredentials(true)
+      setSuccessLogin(false)
     }
      throw error
    }
@@ -102,7 +110,9 @@ localStorage.removeItem('Token')
       errorCredentials,
       setErrorCredentials,
       setInputEmptyError,
-      inputEmptyError
+      inputEmptyError,
+      successLogin,
+      setSuccessLogin
       }} >
         {children}
     </AuthContext.Provider>

@@ -1,44 +1,94 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import './SignIn.css'
 import { useAuthContext } from '../Context/MyContextProvider'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {  faUser } from '@fortawesome/free-solid-svg-icons'
+import {  faCheck, faUser } from '@fortawesome/free-solid-svg-icons'
+
+
+
 
 
 const SignIn = () => {
 
-   const {login,errorCredentials}=useAuthContext()
+   const {login,errorCredentials,successLogin,setSuccessLogin}=useAuthContext()
 
-   const [showHideModal,setShowHideModal]=useState<boolean>(false)
-   const [name,setName]=useState<string>('')
-   const [email,setEmail]=useState<string>('')
-   const [password,setPassword]=useState<string>('')
-   const [emptyInput,setEmptyInput]=useState<boolean>(false)
+const [showHideModal,setShowHideModal]=useState<boolean>(false)
+const [name,setName]=useState<string>('')
+const [email,setEmail]=useState<string>('')
+const [password,setPassword]=useState<string>('')
+const [emptyInputName,setEmptyInputName]=useState<boolean>(false)
+const [emptyInputEmail,setEmptyInputEmail]=useState<boolean>(false)
+const [emptyInputPass,setEmptyInputPass]=useState<boolean>(false)
+const[errorRegexEmail,setErrorRegexEmail]=useState<boolean>(false)
+const[errorRegexPassword,setErrorRegexPassword]=useState<boolean>(false)
 
-const inputEmpty=()=>{
-   if (email.length>0) {
+
+useEffect(()=>{ 
+   document.title='Pagina de login'
+})
+
+const handleTimeout=()=>{
+    if (successLogin===true) {
+      setSuccessLogin(false)
+    }
+}
+useEffect(()=>{
+   const timeout=4000
+  setTimeout(handleTimeout, timeout);
+})
+
+
+
+
+const  errorPassword='A senha deve pelo menos ter 8 caracteres, incluindo letras maisuculas,minusculas e numeros';
+const errorEmail='Email deve ser valido';
+
+
+useEffect(()=>{
+
+   const emailRegex:RegExp=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+   if (!emailRegex.test(email) && email.length>0) {
+      setErrorRegexEmail(true)
+   }else{
+      setErrorRegexEmail(false) 
+   }
+   
+   const passwordRegex:RegExp=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
+   if (!passwordRegex.test(password) && password.length>0) {   
+     setErrorRegexPassword(true)
+   }else{
+      setErrorRegexPassword(false)
+   }
+},[email,password])
+
+const handleEmptyInput=()=>{
+   if (email.length>0 && email) {
       console.log('esta preechido'); 
-      setEmptyInput(false)
+      setEmptyInputEmail(false)
    }else{
       console.log('nao preechido');
-      setEmptyInput(true)  
+      setEmptyInputEmail(true)  
    }
    if (name.length>0) {
       console.log('esta preechido'); 
-      setEmptyInput(false)
+      setEmptyInputName(false)
    }else{
       console.log('nao preechido');
-      setEmptyInput(true)  
+      setEmptyInputName(true)  
    }
    if (password.length>0) {
       console.log('esta preechido'); 
-      setEmptyInput(false)
+      setEmptyInputPass(false)
    }else{
       console.log('nao preechido');
-      setEmptyInput(true)  
-   }
-}
+      setEmptyInputPass(true)  
+   }  
+ }
+
+
+
+ 
 
 const handleModal=()=>{
        setShowHideModal(!showHideModal)
@@ -66,7 +116,7 @@ const handleClear=()=>{
 
 const handleLogin=async():Promise<void>=>{
    handleClear();
-   inputEmpty()
+  
      try {
       await login({name,email,password})
      } catch (error) {
@@ -75,9 +125,11 @@ const handleLogin=async():Promise<void>=>{
 }
 
 
+
 const handleSubmit=(e:React.FormEvent<HTMLFormElement>)=>{
 e.preventDefault();
 handleLogin()
+handleEmptyInput()
 console.log('Nome:', name);
 console.log('Email:', email);
 console.log('Senha:', password);
@@ -93,6 +145,7 @@ console.log('Senha:', password);
        <div className='containair-btn-modal'>
            <Link className='link-signIn'  onClick={handleModal} to=''>
             <FontAwesomeIcon  icon={faUser}/> 
+            Clica aqui para entrar
            </Link>
        </div>
          {showHideModal?
@@ -111,7 +164,7 @@ console.log('Senha:', password);
                     <input className='input' id='name' name='name' value={name}
                      onChange={handleChangeName}
                     type="text" placeholder='Degite o seu nome'/>
-                    {emptyInput? <p className='erro'>Preencha os espacos vazios</p>:null}
+                    {emptyInputName? <p className='erro'>Preencha os espacos vazios</p>:null}
                  </div>
                  <div className='label'>
                     <label htmlFor="email">Email:</label>
@@ -120,7 +173,8 @@ console.log('Senha:', password);
                     <input className='input' id='email' value={email} type="email" name='email'
                      onChange={handleChangeEmail}
                     placeholder='Degite o seu email'/>
-                    {emptyInput? <p className='erro'>Preencha os espacos vazios</p>:null}
+                    {emptyInputEmail? <p className='erro'>Preencha os espacos vazios</p>:null}
+                    {errorRegexEmail?<p className='erro'>{errorEmail}</p>:null}
                  </div>
                  <div className='label'>
                     <label htmlFor="password">Senha:</label>
@@ -129,18 +183,21 @@ console.log('Senha:', password);
                     <input className='input' id='password' value={password} type="password"  name='email'
                       onChange={handleChangePassword}
                     placeholder='Degite a sua senha'/>
-                    {emptyInput? <p className='erro'>Preencha os espacos vazios</p>:null}
+                    {emptyInputPass? <p className='erro'>Preencha os espacos vazios</p>:null}
+                    {errorRegexPassword?<p className='erro-pass'>{errorPassword} </p>:null}
                  </div>
                   <div className='container-checkbox'>
                      <input type="checkbox"  className='input-checkbox' required/>
                      <p>  Aceita nossos termos</p>
                   </div>
                  {errorCredentials?<p className='erro'>O password ou o email nao estao corretos</p>:null}
+                 {successLogin?<p className='success-login'>Entrou com sucesso 
+                 <FontAwesomeIcon className='icon-success'  icon={faCheck}/></p>:null}
                   <div>
                      <button type='submit'  className='btn'  >Enviar</button>
                   </div>
                   <div className='text-regist'>
-                     <p>Ainda nao tem conta ? </p> <Link to='/SignUp'>Registar</Link>
+                     <p>Ainda nao tem conta ?  </p><Link  to='/SignUp' >Registar</Link>
                   </div>
                 </div>
               </form>

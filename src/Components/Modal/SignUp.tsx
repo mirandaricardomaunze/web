@@ -1,23 +1,19 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './SignUp.css'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import axios, { AxiosResponse } from 'axios'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {  faXmarkSquare } from '@fortawesome/free-solid-svg-icons'
+import {  faUserPlus } from '@fortawesome/free-solid-svg-icons'
 
 interface User{
   name:string
   email:string
   password:string
 }
-interface Errors{
-   name:string
-   email:string
-   password:string
-}
+
 
 const SignUp = ():React.JSX.Element => {
-const navegate=useNavigate()
+
 
 const [name,setName]=useState<string>('')
 const [email,setEmail]=useState<string>('')
@@ -25,29 +21,37 @@ const [password,setPassword]=useState<string>('')
 const [emptyInput,setEmptyInput]=useState<boolean>(false)
 const [showHide,setShowHide]=useState<boolean>(false)
 const [error,setEerror]=useState<boolean>(false)
-const [errorsRegex,setEerrorsRegex]=useState<Errors>(
-   {
-    name:'',
-    email:'',
-    password:''
+const [erroMsg,setErroMsg]=useState<boolean>(false)
+const [erroMsgPass,setErroMsgPass]=useState<boolean>(false)
+const [successMsg,setSuccessMsg]=useState<string|null>(null)
+
+
+useEffect(()=>{ 
+   document.title='Pagina de registro'
+})
+
+const  errorPassword='A senha deve pelo menos ter 8 caracteres, incluindo letras maisuculas,minusculas e numeros';
+const errorEmail='Email deve ser valido';
+
+useEffect(()=>{
+   const emailRegex:RegExp=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+   if (!emailRegex.test(email) && email.length>0) {
+      setErroMsg(true)
+   }else{
+      setErroMsg(false) 
    }
-)
-
-const newErrors:Errors={name,password,email}
-const emailRegex:RegExp=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-if (!emailRegex.test(email)) {
-   newErrors.email='Email invalido'
-}
-const passwordRegex:RegExp=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
-if (!passwordRegex.test(password)) {
-   newErrors.password='A senha e invalida (pelo menos 8 caracteres ,incluindo letras maisuculas,minusculas e numeros) '
-}
-
+   
+   const passwordRegex:RegExp=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
+   if (!passwordRegex.test(password) && password.length>0) {   
+     setErroMsgPass(true)
+   }else{
+      setErroMsgPass(false)
+   }
+},[email,password])
 
 const handleModal=()=>{
     setShowHide(!showHide)
 }
-
 
 const handleInputEmpty=()=>{
    if (email.length>0) {
@@ -72,23 +76,41 @@ const handleInputEmpty=()=>{
       setEmptyInput(true)  
    }
 }
+
+const clearMsgError=()=>{
+  console.log('Mensagem de erro apagado');
+  if (error===true) {
+   setEerror(false)
+  }
+}
+
+useEffect(()=>{
+const timeout=4000
+setTimeout(clearMsgError, timeout);
+})
+
+
 const handleSignUp=async():Promise<void>=>{
 const baseUrl:string='http://localhost:4000/register/register'
  try {
    const response:AxiosResponse = await axios.post<User>(baseUrl,{name,email,password})
 if (response) {
-   navegate('/SignIn')
    console.log(response.data);
    setEerror(false)
+   setSuccessMsg('Foi cadastrado com sucesso!')
  }
  } catch (error) {
   console.log(`Ocorreu erro durante o cadastro: ${error}`);
-  setEerror(true)
+ if(email.length>0 && password.length>0 && name.length>0){
+   setEerror(true)
+ }else{
+   setEerror(false)
  }
- setEerrorsRegex(newErrors)
- if (Object.keys(newErrors).length===0) {
-   handleSignUp() 
+  setSuccessMsg(null)
+  clearMsgError()
  }
+ 
+ 
 
 }
 const handleClear=()=>{
@@ -123,7 +145,10 @@ const handleChangePassword=(e:React.ChangeEvent<HTMLInputElement>)=>{
   return (
     <div>  
        <div className='containair-btn-modal'>
-         <Link className='link-sign'  onClick={handleModal} to=''>Clique aqui para registar-se</Link>
+         <Link className='link-sign'  onClick={handleModal} to=''>
+            <FontAwesomeIcon icon={faUserPlus}/>
+            Clique aqui para registar-se
+         </Link>
        </div>
          {showHide?
         <div className='container-modal'>
@@ -143,7 +168,7 @@ const handleChangePassword=(e:React.ChangeEvent<HTMLInputElement>)=>{
                      onChange={handleChangeName}
                      placeholder='Degite o seu nome'/>
                      {emptyInput?<p  className='erro'>Preencha os espacos vazios</p>:null}
-                     {errorsRegex.name && <span>{errorsRegex.name}</span>}
+                    
                  </div>
                  <div className='label'>
                     <label htmlFor="email">Email:</label>
@@ -153,7 +178,7 @@ const handleChangePassword=(e:React.ChangeEvent<HTMLInputElement>)=>{
                      onChange={handleChangeEmail}
                      placeholder='Degite o seu email'/>
                      {emptyInput?<p  className='erro'>Preencha os espacos vazios</p>:null}
-                     {errorsRegex.email && <span>{errorsRegex.email}</span>}
+                     {erroMsg? <p className='erro'>{errorEmail}</p>:null}
                  </div>
                  <div className='label'>
                     <label htmlFor="password">Senha:</label>
@@ -163,15 +188,18 @@ const handleChangePassword=(e:React.ChangeEvent<HTMLInputElement>)=>{
                      onChange={handleChangePassword} 
                       placeholder='Degite a sua senha'/>
                      {emptyInput?<p  className='erro'>Preencha os espacos vazios</p>:null}
-                     {errorsRegex.password && <span>{errorsRegex.password}</span>}
+                     { erroMsgPass?<p className='erro-pass'> {errorPassword}</p>:null}
                  </div>
                  <div className='container-checkbox'>
                      <input type="checkbox"  className='input-checkbox' required/>
                      <p>  Aceita nossos termos</p>
                   </div>
-                  {error?<p className='erro'>
-                     <FontAwesomeIcon icon={faXmarkSquare} />
-                      Nao foi possivel cadastrar, tente outro email</p>:null}
+                  {error?
+                  <p className='erro'>
+                      Nao foi possivel cadastrar, tente outro email
+                  </p>:null}
+
+                       <p>{successMsg}</p>
                   <div>
                      <button className='btn' type='submit' >Enviar</button>
                   </div>

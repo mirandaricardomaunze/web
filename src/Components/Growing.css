@@ -16,7 +16,6 @@ width: 700px;
 .icon-grow{
 padding: 10px;
 font-size: 40px;
-background-color: blueviolet;
 color: white;
 border-radius: 5px;
 }
@@ -24,12 +23,14 @@ border-radius: 5px;
 .grow{
 width: 150px;
 padding: 40px;
-border-radius: 5px;
+border-radius:10px;
 background-color:transparent;
 font-weight: 1000;
-z-index: 1;
-background-color: white;
+text-align: center;
+background-color: royalblue;
 box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+color: white;
+font-family: serif;
 }
 
 .title-grow{
