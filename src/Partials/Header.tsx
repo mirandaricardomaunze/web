@@ -10,7 +10,7 @@ import SignIn from '../Components/Modal/SignIn'
 import SignUp from '../Components/Modal/SignUp'
 import { useAuthContext } from '../Components/Context/MyContextProvider'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSignOut, faUserCircle } from '@fortawesome/free-solid-svg-icons'
+import { faSignOut } from '@fortawesome/free-solid-svg-icons'
 import PrivateRoute from '../Components/Private/PrivateRoute'
 import ResetPassword from '../Components/ResetPassword'
 import NewPassword from '../Components/NewPassword'
@@ -33,7 +33,7 @@ const {token,logout}=useAuthContext()
             <NavLink className='nav-link' to='/SignUp'>Registro</NavLink>
            {token? <Link to='/SignIn' className='link-logout' onClick={logout} >Sair <FontAwesomeIcon icon={faSignOut} /></Link>:
            <NavLink  className='nav-link' to='/SignIn'>Entrar</NavLink>}
-           {token?<Link to='' className='user-icon'><FontAwesomeIcon className='' icon={faUserCircle}/>  </Link>:null}
+           {token?<Link to='' className='user-icon'>Bem vindo </Link>:null}
           
           
          <Routes>

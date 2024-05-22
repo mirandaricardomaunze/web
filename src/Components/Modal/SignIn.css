@@ -1,118 +1,137 @@
+.container-btn-modal{
+width: 100%;
+margin-top: 10px;
+}
 .container-modal{
-    position: fixed;
-    width: 100%;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    }
+position: fixed;
+width: 100%;
+z-index: 1;
+left: 0;
+top: 0;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.5);
+display: flex;
+align-items: center;
+justify-content: center;
+}
     
-    .title-signIn{
-    font-size: 40px;
-    color: royalblue;
-    }
+.title-signIn{
+font-size: 40px;
+color: royalblue;
+}
     
-    .modal{
-    text-align: left;
-    background-color: white;
-    padding: 30px;
-    width: fit-content;
-    border-radius: 5px;
-    
-    }
-    .link-signIn{
-    text-decoration: none;
-    background-color: royalblue;
-    color: white;
-    padding: 20px;
-    font-size: 20px;
-    border-radius: 5px;
-    }
-    .link-signIn:hover{
-     background-color: blue;
-     color: white;
-    }
-    .text-regist{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    }
-    .container-checkbox{
-    display: flex;
-    padding: 10px;
-    }
-    .input-checkbox{
-    border: none;
-    margin-right: 10px;
-    }
-    .containair-btn-modal{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 500px;
-    }   
-    .btn-modal-close{
-    background-color:transparent;
-    border: none;
-    cursor: pointer;
-    float: right;
-    padding: 10px;
-    }
+.modal{
+text-align: left;
+background-color: white;
+padding: 30px;
+width: fit-content;
+border-radius: 5px; 
+}
+.link-signIn{
+text-decoration: none;
+background-color: royalblue;
+color: white;
+padding: 20px;
+font-size: 20px;
+border-radius: 5px;
+}
+
+.link-signIn:hover{
+background-color: blue;
+color: white;
+}
+.text-regist{
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.redirect-link{
+font-size: 15px;
+}
+.link-redirect{
+margin-left: 10px;
+font-size: 15px;
+}
+.container-checkbox{
+display: flex;
+padding: 10px;
+}
+.input-checkbox{
+border: none;
+margin-right: 10px;
+}
+.containair-btn-modal{
+display: flex;
+align-items: center;
+justify-content: center;
+height: 500px;
+}   
+.btn-modal-close{
+background-color:transparent;
+border: none;
+cursor: pointer;
+float: right;
+padding: 10px;
+}
    
-    .label{
-    margin-top: 10px;
-    margin-bottom: 6px;
-    }
+.label{
+margin-top: 10px;
+margin-bottom: 6px;
+}
     
-    .input{
-    border: none;
-    outline: none;
-    background-color: aliceblue;
-    padding: 15px;
-    font-size: 15px;
-    border-radius: 5px;
-    width: 400px;
-    transition: 0.7s ease;
-    }
+.input{
+border: none;
+outline: none;
+background-color: aliceblue;
+padding: 15px;
+font-size: 15px;
+border-radius: 5px;
+width: 400px;
+transition: 0.7s ease;
+}
     
-    .input:focus{
-    box-shadow:0px 0px 0px 3px royalblue;
-    }
+.input:focus{
+box-shadow:0px 0px 0px 3px royalblue;
+}
     
-    .btn{
-    background-color: royalblue;
-    color: white;
-    padding: 15px;
-    border-radius: 5px;
-    border: none;
-    margin-top: 10px;
-    font-size: 17px;
-    }
-    .btn:focus{
-    box-shadow:0px 0px 0px 2px royalblue;
-    }
+.btn{
+background-color: royalblue;
+color: white;
+padding: 15px;
+border-radius: 5px;
+border: none;
+margin-top: 10px;
+font-size: 17px;
+}
+.btn:focus{
+box-shadow:0px 0px 0px 2px royalblue;
+}
     
-    .btn:hover{
-    background-color: rgb(22, 71, 218);
+.btn:hover{
+background-color: rgb(22, 71, 218);
+}
+.erro{
+color: red;
+font-size: 12px;
+padding: 10px;
+}
+.erro-pass{
+color: red;
+font-size: 12px;
+padding: 10px;
+}
+.success-login{
+color: blue;
+font-size: 15px;
+}
+.icon-success{
+margin-left: 5px;
+}
+
+.icon-modal{
+margin-right: 10px;
     }
-    .erro{
-    color: red;
-    font-size: 12px;
-    padding: 10px;
-    }
-    .erro-pass{
-    color: red;
-    font-size: 12px;
-    padding: 10px;
-    }
-    .success-login{
-    color: blue;
-    font-size: 15px;
-    }
-    .icon-success{
-     margin-left: 5px;
-    }
+
+@media only screen and (max-width:600px) {
+
+}

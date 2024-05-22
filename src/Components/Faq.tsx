@@ -26,11 +26,14 @@ const handleFaqForth=()=>{
   return (
     <div className='container-faq-main'>
        <div className='container-faq'>
-              <h1 className='title-faq'>Perguntas frequentes </h1>
-              <p className='text-first-faq'>
-                Veja algumas perguntas frequentemente  feitas pelos nossos clientes sobre os nossos serviços.
-
-              </p>
+            <div className='container-text-faq'>
+               <h1 className='title-faq'>Perguntas frequentes </h1>
+               <p className='text-first-faq'>
+                 Veja algumas perguntas frequentemente  
+                 feitas pelos nossos 
+                 clientes sobre os nossos serviços.
+               </p>
+            </div>
            <div className='faq'>
               <div className='faq-quetion'>
                 <p className=''>Posso atualizar meu site após o lançamento? </p>

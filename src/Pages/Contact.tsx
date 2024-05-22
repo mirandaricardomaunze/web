@@ -1,7 +1,7 @@
 import React, {  useEffect, useState } from 'react'
 import './Contact.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {  faEnvelope, faMobile } from '@fortawesome/free-solid-svg-icons'
+import {  faCheck, faEnvelope, faMobile } from '@fortawesome/free-solid-svg-icons'
 import axios, { AxiosResponse } from 'axios'
 
 interface Client{
@@ -18,13 +18,28 @@ const [subject,setSubject]=useState<string>('')
 const [erro,setEerror]=useState<boolean>(false)
 const [emptyInput,setEmptyInput]=useState<boolean>(false)
 const [errorRegexEmail,setErrorRegexEmail]=useState<boolean>(false)
-
+const [success,setSuccess]=useState<boolean>(false)
 
 
 useEffect(()=>{ 
   document.title='Pagina de contacto'
 })
 
+
+const sent:string='Mensagem enviada com sucesso'
+const failed:string='Falhou o envio da  mensagem '
+
+const handleTimeout=()=>{
+  if (success===true) {
+    setSuccess(false)
+  }
+}
+
+useEffect(()=>{
+  const timeout:number=4000
+  setTimeout(
+    handleTimeout, timeout);
+})
 
 
 
@@ -88,12 +103,16 @@ const handleSendingSubject=async()=>{
   const BASE_URL:string='http://localhost:4000/subject/subject'
   const response:AxiosResponse<Client>=await axios.post<Client>(BASE_URL,{name,email,subject})
   if (response) {
-    setEerror(false)
+    if (email.length>0 && name.length>0 && setSubject.length>0) {
+      setEerror(false)
+      setSuccess(true)
+    }
     console.log('Mensagem enviada com sucesso'); 
   }
  } catch (error) {
   console.log(`Ocorreu falha na conexao com servidor: ${error}`);
   setEerror(true)
+  setSuccess(false)
  }
 }
 
@@ -123,16 +142,18 @@ const handleSubmit=async(e:React.FormEvent<HTMLFormElement>)=>{
           <div className='container-contact-bg'>
           <div className='container-contact'>
          <div className='contact'>
-              <h2 className='title-cont'>Formulario de contato</h2>
-              <p className='text-contact'>Para sua conveniência, preencha o formulário abaixo e entraremos em contato com você em breve:</p>
-             <div className='form'>
+          <div className='cont-text-form'>
+             <h2 className='title-cont'>Formulario de contato</h2>
+             <p className='text-contact'>Para sua conveniência, preencha o formulário abaixo e entraremos em contato com você em breve:</p>
+          </div>
+             <div className='form-contact'>
                 <h1 className='title-cont'>Contacta-nos </h1>
                 <form action=""  onSubmit={handleSubmit}>
                    <div>
                      <label htmlFor="name" className='text-contact'>Nome:</label>
                    </div>
                    <div>
-                      <input className='input' type="text" name='name' id='name'
+                      <input className='input-contact' type="text" name='name' id='name'
                        value={name}  onChange={handleChangeName}
                        placeholder='Degite o nome' />
                       {emptyInput? <p className='erro'>Preecha os espacos vazios</p>:null}
@@ -141,7 +162,7 @@ const handleSubmit=async(e:React.FormEvent<HTMLFormElement>)=>{
                      <label htmlFor="email" className='text-contact'>Email:</label>
                    </div>
                    <div>
-                      <input className='input' type="text" name='email' id='email'
+                      <input className='input-contact' type="text" name='email' id='email'
                       value={email}  onChange={handleChangeEmail}
                        placeholder='Degite o email' />
                         {emptyInput? <p  className='erro'>Preecha os espacos vazios</p>:null}
@@ -151,12 +172,13 @@ const handleSubmit=async(e:React.FormEvent<HTMLFormElement>)=>{
                      <label htmlFor="subject" className='text-contact'>Assunto:</label>
                    </div>
                    <div>
-                      <textarea className='input textarea'  name="subject" id="subject" 
+                      <textarea className='input-contact textarea'  name="subject" id="subject" 
                       value={subject}  onChange={handleChangeSubject}
                       placeholder='Escreva o assunto' ></textarea>
                        {emptyInput? <p  className='erro'>Preecha os espacos vazios</p>:null}
                    </div>
-                     { erro?<p>Nao foi possivel enviar</p>:null}
+                     { erro?<p>{failed}</p>:null}
+                     {success? <p className='success-msg'>{sent} <FontAwesomeIcon className='icon-check' icon={faCheck}/></p>:null}
                     <div>
                        <button className='btn'>Enviar</button>
                     </div>

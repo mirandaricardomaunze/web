@@ -25,16 +25,16 @@ const About = () => {
  
 
   return (
-    <div className='container-main-about'>
-      <h1 className='title-about'>Construa a Sua Presença Online</h1>
-       <div className='cont-text-about'>
+    <div className='container-main-about' >
+     
+         <h1 className='title-about'>Construa a Sua Presença Online</h1>
          <p className='text-about'>
           Seu site é a porta de entrada para o mundo virtual. Na era digital, 
           é crucial ter uma presença online que não apenas impressione, mas também encante 
           e engaje seu público-alvo. Aqui, no nosso serviço de desenvolvimento de sites,
           estamos dedicados a transformar sua visão em realidade digital.
          </p>
-       </div>
+      
        <div className='container-about-main'>
          <div>
             <h2 className='title-about-second '>Por que Escolher Nossos Serviços?</h2>
@@ -103,10 +103,12 @@ const About = () => {
            </div>
         </div>
         <div className='container-about-join'>
-           <p className='text-about'>Junte-se a nós e dê o próximo passo em direção a uma presença online de sucesso. Entre em contato hoje 
+           <p className='text-about-join'>Junte-se a nós e dê o próximo passo em direção a uma presença online de sucesso. Entre em contato hoje 
              para começar sua jornada digital conosco!
            </p>
-           <Link className='link-about' to='/Contact'>Contacta-nos agora</Link> 
+           <div className='cont-link-join'>
+             <Link className='link-about' to='/Contact'>Contacta-nos agora</Link>
+           </div> 
         </div>
         </div>
         

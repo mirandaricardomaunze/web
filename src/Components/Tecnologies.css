@@ -9,7 +9,7 @@ display: grid;
 gap: 10px;
 grid-template-columns: repeat(3,1fr);
 padding: 20px;
-width: fit-content;
+width:fit-content;
 }
 .title-tecno{
 color: royalblue;
@@ -25,14 +25,17 @@ text-align: center;
 }
 .title-home-tecno{
 font-size: 50px;
-
+text-align: center;
 }
 
+.title-tecno-h2{
+color: rgb(14, 6, 90);
+}
 .tecno{
 box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-width: 315px;
+width: 300px;
 height: 320px;
-border-radius: 10px;
+border-radius: 15px;
 padding: 20px;
 text-align: center;
 background-color: royalblue;
@@ -62,5 +65,46 @@ color: blueviolet;
 }
 
 .text-tecno-p{
-color: rgb(31, 29, 29);
+color: rgb(14, 6, 90);
 }
+
+@media only screen and (max-width:1150px) {
+.container-tecno{
+display:grid;
+grid-template-columns: repeat(2,1fr);
+height:auto;
+gap: 10px;
+width: auto;
+ } 
+.tecno{
+width: auto;
+height: fit-content;
+}
+}
+
+@media  screen and (max-width:800px) {
+.container-tecno{
+display:grid;
+grid-template-columns: repeat(1,1fr);
+height: fit-content;
+padding: 10px 10px 40px 10px;
+ } 
+
+.container-tecno-title{
+padding: 10px;
+margin-bottom: 20px;
+margin-top: 20px;
+}
+.tecno{
+margin:0 auto;
+}
+.container-main-tecno{
+border: none;
+padding: 0px;
+}
+}
+
+
+
+
+

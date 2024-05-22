@@ -1,6 +1,8 @@
 .main-container-footer{
 background-color:#d3d1d1;
 padding: 30px 0 0 0px;
+background-color: #1a1818;
+box-sizing: border-box;
 }
 
 .container-footer{
@@ -79,7 +81,6 @@ width: 30px;
 height: 25px;
 margin-top: 2px;
 color:rgb(110, 13, 86);
-
 }
 
 .midia-youtube{
@@ -98,4 +99,35 @@ text-align: center;
 font-size: 20px;
 padding: 10px;
 border-radius: 5px;
+color: #555;
+}
+
+@media only screen and (max-width:1150px) {
+.container-footer{
+display:grid;
+grid-template-columns: repeat(2,1fr);
+height: auto;
+width:fit-content;
+ } 
+.main-container-footer{
+width: auto;
+ }
+ .footer{
+margin:0 auto;
+width: fit-content;
+ }
+}
+
+@media only screen and (max-width:800px) {
+.container-footer{
+display:grid;
+grid-template-columns: repeat(1,1fr);
+width: fit-content;
+} 
+.main-container-footer{
+width: auto;
+ }
+ .footer{
+margin:0 auto;
+ }
 }

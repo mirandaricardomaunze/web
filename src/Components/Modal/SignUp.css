@@ -50,11 +50,11 @@ background-color:blue;
 color: white;
 }
 
-.containair-btn-modal{
+.container-btn-modal{
 display: flex;
 align-items: center;
 justify-content: center;
-height: 500px;
+height: 400px;
 }
 .btn-modal-close{
 background-color:transparent;
@@ -110,4 +110,21 @@ font-size: 12px;
 width: 400px;
 color: red;
 font-size: 12px;
+}
+
+.redirect-link{
+font-size: 15px;
+}
+.link-redirect{
+margin-left: 10px;
+font-size: 15px;
+}
+
+.icon-modal{
+margin-right: 10px;
+}
+
+@media only screen and (max-width:600px) {
+
+
 }

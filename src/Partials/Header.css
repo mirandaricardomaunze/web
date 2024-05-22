@@ -1,6 +1,6 @@
 .nav-bar{
-text-align: right;
 padding-top: 30px;
+text-align: right;
 }
 
 .nav-link{
@@ -56,12 +56,23 @@ color: white;
 }
 
 .user-icon{
-display: flex;
-justify-content: center;
-float: right;
-padding-right: 10px;
 text-decoration: none;
 cursor: none;
 font-size: 20px;
 color: royalblue;
+margin-top: -50px;
+padding: 20px;
+}
+
+@media only screen and (max-width:600px) {
+.nav-bar{
+display: flex;
+flex-direction: column;
+height: fit-content;
+text-align: center;
+padding: 0 0 40px 0;
+}
+.user-icon{
+margin-top: 20px;
+}
 }

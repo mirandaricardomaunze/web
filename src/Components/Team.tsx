@@ -24,7 +24,7 @@ const Team = ({contents}:Cont) => {
                  <img src="b" alt="" />
               </div>
           </div>
-        <div className='contaneir-team'>
+        <div className='container-team'>
             {contents.map((team)=>(
                 <div key={team.id} className='team'>
                     <div className='container-img-team'>

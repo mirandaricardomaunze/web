@@ -14,6 +14,7 @@ padding-bottom: 70px;
 font-size: 50px;
 color: royalblue;
 text-align: center;
+padding: 40px 0px 20px 0px;
 }
     
 .title-second{
@@ -31,6 +32,7 @@ text-align: center;
 font-size: 20px;
 color: #555;
 text-align: center;
+padding: 0px 100px 100px 100px;
 }
 .container-service-main-second{
 background:rgb(2,0,36);
@@ -45,7 +47,7 @@ gap: 10px;
 width: fit-content;
 border-radius: 5%;
 margin:0 auto;
-padding: 50px;
+padding: 50px 10px 10px 10px;
 }
 .services{
 width: 250px;
@@ -76,7 +78,7 @@ color: white;
   
 .container-service-contact{
 padding: 40px 40px 100px 40px;
-width: 700px;
+width: auto;
 text-align: center;
 margin: 0 auto;
 }
@@ -105,5 +107,62 @@ font-size: 20px;
 background-color: blue;
 }
 
+@media  screen and (max-width:1150px){
+.container-service{
+display: grid;
+grid-template-columns: repeat(2,1fr);
+width: fit-content;
+}
+.container-service-contact{
+width: fit-content;
+padding:50px 50px 40px 50px;
+}
+}
 
+@media  screen and (max-width:800px)  {
+.container-service{
+display: flex;
+flex-direction: column;
+width: fit-content;
+}
 
+.text-service{
+width: auto;
+margin-left: auto;
+margin-right: auto;
+text-align: left;
+}
+.services{
+width: auto;
+margin:0 auto;
+height: auto;
+}
+.title-service{
+width: auto;
+margin: 0 auto;
+}
+.title-service-contact{
+width: auto;
+margin: 0 auto;
+}
+.text-service-contact{
+width:auto;
+margin:0 auto;
+}
+.container-service-main{
+padding: 0px;
+}
+.container-text-service{
+width: fit-content;
+padding: 10px 10px 40px 10px;
+}
+.container-service-main-second{
+padding: 40px 10px 10px 10px;
+width: auto;
+}
+
+.container-service-contact{
+width: fit-content;
+padding: 10px 50px 40px 50px;
+}
+}

@@ -13,8 +13,7 @@ const Footer = () => {
 
   return (
     <div className='main-container-footer'>
-       <h1 style={{textAlign:'left',color:'black',marginLeft:20}}>
-         <span style={{color:'blueviolet'}}>Soft</span>Moz</h1>
+       
          <hr />
        <div className='container-footer'>
           <div className='footer'>

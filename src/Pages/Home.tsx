@@ -14,11 +14,15 @@ import manblack from '../Assets/manblack.png'
 import client1 from '../Assets/client1.jpg'
 import client2 from '../Assets/client2.jpg'
 import client3 from '../Assets/client3.jpg'
+import teamimg from '../Assets/team.png'
+import teamimage from '../Assets/colegas.png'
+import teamimgeman from '../Assets/lookat.png'
+
+
 const slides=[
-{id:1,img:'https://images.pexels.com/photos/5862375/pexels-photo-5862375.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'},
-{id:2,img:'https://images.pexels.com/photos/3888151/pexels-photo-3888151.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'},
-{id:3,img:'https://images.pexels.com/photos/4245915/pexels-photo-4245915.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'},
-{id:4,img:'https://images.pexels.com/photos/7648226/pexels-photo-7648226.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'}
+{id:1,img:teamimg},
+{id:2,img:teamimage},
+{id:3,img:teamimgeman}
 ]
 
 
@@ -52,11 +56,9 @@ const Home = () => {
 
   return (
     <div className='container-home'>
+       <div>
        <Slide slide={slides}/> 
-       
-         <FirstAboutHome/>
-         
-         <div>
+          <FirstAboutHome/>
             <Tecnologies /> 
             <WorkWithUs/>
             <Team contents={team}/>

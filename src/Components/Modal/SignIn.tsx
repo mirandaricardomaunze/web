@@ -11,7 +11,7 @@ import {  faCheck, faUser } from '@fortawesome/free-solid-svg-icons'
 
 const SignIn = () => {
 
-   const {login,errorCredentials,successLogin,setSuccessLogin}=useAuthContext()
+const {login,errorCredentials,setErrorCredentials,successLogin,setSuccessLogin}=useAuthContext()
 
 const [showHideModal,setShowHideModal]=useState<boolean>(false)
 const [name,setName]=useState<string>('')
@@ -28,25 +28,12 @@ useEffect(()=>{
    document.title='Pagina de login'
 })
 
-const handleTimeout=()=>{
-    if (successLogin===true) {
-      setSuccessLogin(false)
-    }
-}
-useEffect(()=>{
-   const timeout=4000
-  setTimeout(handleTimeout, timeout);
-})
-
-
-
 
 const  errorPassword='A senha deve pelo menos ter 8 caracteres, incluindo letras maisuculas,minusculas e numeros';
 const errorEmail='Email deve ser valido';
 
 
 useEffect(()=>{
-
    const emailRegex:RegExp=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
    if (!emailRegex.test(email) && email.length>0) {
       setErrorRegexEmail(true)
@@ -54,7 +41,7 @@ useEffect(()=>{
       setErrorRegexEmail(false) 
    }
    
-   const passwordRegex:RegExp=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
+const passwordRegex:RegExp=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
    if (!passwordRegex.test(password) && password.length>0) {   
      setErrorRegexPassword(true)
    }else{
@@ -86,9 +73,29 @@ const handleEmptyInput=()=>{
    }  
  }
 
+ const handleTimeout=()=>{
+   if (successLogin===true) {
+     setSuccessLogin(false)
+   }
+   if (emptyInputName===true) {
+      setEmptyInputName(false)
+   }
+   if (emptyInputEmail===true) {
+      setEmptyInputEmail(false)
+   }
+   if (emptyInputPass===true) {
+      setEmptyInputPass(false)
+   }
+ if (errorCredentials===true) {
+    setErrorCredentials(false)
+ }
+}
 
+useEffect(()=>{
+  const timeout=4000
+ setTimeout(handleTimeout, timeout);
+})
 
- 
 
 const handleModal=()=>{
        setShowHideModal(!showHideModal)
@@ -125,7 +132,6 @@ const handleLogin=async():Promise<void>=>{
 }
 
 
-
 const handleSubmit=(e:React.FormEvent<HTMLFormElement>)=>{
 e.preventDefault();
 handleLogin()
@@ -136,15 +142,11 @@ console.log('Senha:', password);
 
 } 
 
-
-
-
-
   return (
     <div>
-       <div className='containair-btn-modal'>
+       <div className='container-btn-modal'>
            <Link className='link-signIn'  onClick={handleModal} to=''>
-            <FontAwesomeIcon  icon={faUser}/> 
+            <FontAwesomeIcon className='icon-modal'  icon={faUser}/> 
             Clica aqui para entrar
            </Link>
        </div>
@@ -154,8 +156,8 @@ console.log('Senha:', password);
          <div className='modal'>
          <button className='btn-modal-close' onClick={handleModal}>x</button>
            <h1 className='title-signIn'>Entrar</h1> 
-           <div>
-              <form onSubmit={handleSubmit}>
+           <div className=''>
+              <form  onSubmit={handleSubmit}>
                 <div>
                  <div className='label'>
                     <label  htmlFor="name">Nome:</label>
@@ -190,14 +192,19 @@ console.log('Senha:', password);
                      <input type="checkbox"  className='input-checkbox' required/>
                      <p>  Aceita nossos termos</p>
                   </div>
-                 {errorCredentials?<p className='erro'>O password ou o email nao estao corretos</p>:null}
+                 {errorCredentials?<p  className='erro'>O password ou o email nao estao corretos</p>:null}
                  {successLogin?<p className='success-login'>Entrou com sucesso 
                  <FontAwesomeIcon className='icon-success'  icon={faCheck}/></p>:null}
                   <div>
                      <button type='submit'  className='btn'  >Enviar</button>
                   </div>
                   <div className='text-regist'>
-                     <p>Ainda nao tem conta ?  </p><Link  to='/SignUp' >Registar</Link>
+                     <p className='redirect-link'>Ainda nao tem conta ? </p>
+                     <Link className='link-redirect' to='/SignUp' > Registar</Link>
+                  </div>
+                  <div className='text-regist'>
+                     <p className='redirect-link'>Esqueceu a senha ?  </p>
+                     <Link className='link-redirect'  to='/ResetPassword' > Recuperar</Link>
                   </div>
                 </div>
               </form>

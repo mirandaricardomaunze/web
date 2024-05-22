@@ -13,8 +13,7 @@ document.title='Pagina de serviços'
 
   return (
     <div className='container-service-main'>
-       <Tecnologies/>
-       <div className='container-text-service'>
+         <Tecnologies/>
          <h1 className='title-first'> Sites Modernos</h1>
           <p className='text-service'>
             Nossa equipe de especialistas em desenvolvimento web oferece soluções personalizadas
@@ -22,11 +21,9 @@ document.title='Pagina de serviços'
             em React.js, Node.js, Bootstrap, JavaScript e CSS, entregamos sites de alto desempenho 
             e visualmente impressionantes.
           </p>
-       </div>
+      
        <div className='container-service-main-second'>
-           <div >
                <h1 className='title-service'>Tecnologias mais usadas</h1>
-           </div>
        <div className='container-service'>
           <div className='services'>
              <div className='container-image-service'>

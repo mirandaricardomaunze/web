@@ -4,9 +4,9 @@ import imagehome from '../Assets/backgroundweb.png'
 import { Link } from 'react-router-dom'
 const FirstAboutHome = () => {
   return (
-    <div className='container-first-home'>
+    <div className='container-first-home-about'>
         <div className='container-first'>
-             <div className='first'>
+             <div className='first-text'>
                 <h1 className='title-first-h1'>Mundo Digital</h1>
                 <p> 
                   Seu site é a porta de entrada para o mundo virtual. Na era digital, 

@@ -50,8 +50,9 @@ text-align: center;
 }
 .text-about{
 font-size: 20px;
-padding: 20px 0 20px 0;
+padding: 20px 50px 20px 50px;
 color: #1d1c1c;
+text-align: center;
 }
 
 .container-about-join{
@@ -79,3 +80,76 @@ transition: 0.6s ease;
 color: white;
 background-color: rgb(8, 59, 214);
 }
+.cont-link-join{
+margin-top: 20px;
+}
+@media screen and (max-width:1150px) {
+.container-grid-about-second{
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+width: fit-content;
+}
+.about-second{
+width: 300px;
+height: auto;
+padding: 20px;
+}
+}
+
+@media  screen and (max-width:800px) {
+.cont-text-about{
+width: auto;
+ }
+ .title-about{
+width: auto;
+ }
+ .text-about{
+width: auto;
+ }
+.title-about-second{
+width:auto;
+margin:0 auto;
+}
+.container-grid-about{
+display: grid;
+grid-template-columns: repeat(1,1fr);
+width: auto;
+padding: 10px;
+}
+.container-about-main{
+padding: 40px 10px 10px 10px;
+}
+.container-grid-about-second{
+display: grid;
+grid-template-columns: repeat(1,1fr);
+width: auto; 
+padding: 10px;
+}
+.container-grid-about-second-main{
+padding: 0px 0px 40px 0px;
+}
+.about-second{
+width: auto;
+}
+.container-about-join{
+width: auto;
+padding: 20px;
+text-align: left;
+}
+.title-about-second{
+padding: 0px;
+width: auto;
+}
+.about{
+width: auto;
+margin:0 auto;
+}
+.text-about-join{
+text-align: left;
+width: auto;
+}
+.cont-link-join{
+margin-top: 20px;
+}
+}
+

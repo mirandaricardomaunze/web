@@ -63,3 +63,42 @@ margin:0 auto;
 text-align: center;
 padding: 40px;
 }
+
+@media only screen and (max-width:800px) {
+.container-faq{
+width: auto;
+padding:40px;
+height: fit-content;
+}
+#btn-faq2{
+margin-left: auto;
+}
+#btn-faq1{
+margin-left: auto;
+}
+#btn-faq3{
+margin-left:auto;
+}
+#btn-faq4{
+margin-left:auto;
+}
+.faq{
+width: auto;
+}
+.container-text-faq{
+width:auto;
+margin:0 auto;
+text-align: center;
+padding: 0px;
+}
+.title-faq{
+padding: 0px;
+font-size: 40px;
+margin-top: 20px;
+}
+.text-first-faq{
+padding: 10px;
+width: auto;
+margin:0 auto;
+}
+}

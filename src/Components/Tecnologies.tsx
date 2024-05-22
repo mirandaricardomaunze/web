@@ -9,7 +9,7 @@ const Tecnologies = () => {
   return (
     <div className='container-main-tecno'>
         <div className='container-tecno-title'>
-            <h1 className='title-home-tecno' >Nossos <span className='title-color'>Servicos</span> </h1> 
+             <h1 className='title-home-tecno' >Nossos <span className='title-color'>Servicos</span> </h1> 
         </div>
         <div className='container-tecno'>
             <div className="tecno">
@@ -17,7 +17,7 @@ const Tecnologies = () => {
                 <FontAwesomeIcon className='icon-server' icon={faCode}/>
                </div>
                <div className=''>
-                   <h2>Desenvolvimento Web Profissional</h2>
+                   <h2 className='title-tecno-h2'>Desenvolvimento Web Profissional</h2>
                </div>
                <p className='text-tecno-p'>
                 Transformamos ideias em realidade digital. Com anos de experiência em desenvolvimento web, 
@@ -30,7 +30,7 @@ const Tecnologies = () => {
                   <FontAwesomeIcon className='icon-server' icon={faPaintBrush}/>
                 </div>
                 <div >
-                  <h2>Design Personalizado e Criativo</h2>
+                  <h2 className='title-tecno-h2'>Design Personalizado e Criativo</h2>
                 </div>
                 <p className='text-tecno-p'>
                   Nos acreditamos que o design é a primeira impressão que seu site faz aos visitantes. 
@@ -43,7 +43,7 @@ const Tecnologies = () => {
                   <FontAwesomeIcon className='icon-server' icon={faChartLine}/>
               </div>
               <div>
-                <h2>Otimização para Mecanismos de Busca (SEO)</h2>
+                <h2 className='title-tecno-h2'>Otimização para Mecanismos de Busca (SEO)</h2>
               </div>
               <p className='text-tecno-p'>
                Nossos especialistas em SEO trabalham para otimizar seu site, 
@@ -57,7 +57,7 @@ const Tecnologies = () => {
                   <FontAwesomeIcon className='icon-server' icon={faShoppingCart}/>
               </div>
               <div>
-                <h2>E-Commerce e Soluções de Comércio Eletrônico</h2>
+                <h2 className='title-tecno-h2'>E-Commerce e Soluções de Comércio Eletrônico</h2>
               </div>
               <p className='text-tecno-p'>
                 Somos especializados em desenvolvimento de comércio eletrônico e 
@@ -71,7 +71,7 @@ const Tecnologies = () => {
                   <FontAwesomeIcon className='icon-server' icon={faTools}/>
               </div>
               <div>
-                <h2>Manutenção e Suporte Contínuo</h2>
+                <h2 className='title-tecno-h2'>Manutenção e Suporte Contínuo</h2>
               </div>
               <p className='text-tecno-p'>
                 Nosso compromisso não termina com o lançamento do seu site. 
@@ -85,7 +85,7 @@ const Tecnologies = () => {
                   <FontAwesomeIcon className='icon-server' icon={faLightbulb}/>
               </div>
               <div>
-                <h2>Consultoria e Estratégia Digital</h2>
+                <h2 className='title-tecno-h2'>Consultoria e Estratégia Digital</h2>
               </div>
               <p className='text-tecno-p'>
                 Entendemos que cada negócio é único, por isso oferecemos serviços de consultoria 

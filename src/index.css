@@ -5,17 +5,16 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
 
-code {
-  
 }
 
 *{
 padding: 0px;
 margin: 0px;
 font-family: sans-serif;
+clear: both;
 }
+
 p{font-size: 19px;}
 h4{font-size: 20px;}
 h1,h2,h3,span{font-family: serif; font-weight: bolder;}
