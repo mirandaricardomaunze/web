@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import './NewPassword.css'
-import { useParams } from 'react-router-dom'
+import { Navigate, useLocation } from 'react-router-dom'
 import axios, { AxiosResponse } from 'axios'
+
 
 interface Password{
   password:string
@@ -9,7 +10,9 @@ interface Password{
 
 const NewPassword = () => {
 const [password,setPassword]=useState<string>('')
-const {token}=useParams();
+const location=useLocation()
+const token=new URLSearchParams(location.search).get('token')
+
 const [sentMsg,setSentMsg]=useState<boolean>(false)
 const [errorSent,setErrorSent]=useState<boolean>(false)
 const [input,setInput]=useState<boolean>(false)
@@ -30,7 +33,7 @@ useEffect(()=>{
    }
 },[password])
 
-const sent:string='O password foi atualizado com sucesso'
+const sent:string='O password foi atualizado com sucesso, entra agora'
 const sentFailed:string='Nao foi possivel atualizar'
 
 
@@ -56,17 +59,18 @@ const handleChangePassword=(e:React.ChangeEvent<HTMLInputElement>)=>{
         console.log(`Password:  ${password}`); 
      }
 
-
 const handleUpadatePassword=async()=>{
   try {
-  const Base_Url:string=`http://localhost:4000/newPassword/newPassword/${token}`
-  const response:AxiosResponse<Password>=await axios.post<Password>(Base_Url,{password}) 
+  const Base_Url:string=`http://localhost:4000/newPassword`
+  const response:AxiosResponse<Password>=await axios.post<Password>(Base_Url,{password,token}) 
   if (response) {
-    setSentMsg(true)
-    setErrorSent(false)
+    setSentMsg(true);
+    setErrorSent(false);
+    <Navigate to='/SignIn'/> 
      console.log('Conectado com sucesso');
-     
-  } 
+     console.log(token);
+    
+} 
   } catch (error) {
     setSentMsg(false)
     setErrorSent(true)

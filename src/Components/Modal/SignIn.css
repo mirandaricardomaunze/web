@@ -127,7 +127,9 @@ font-size: 15px;
 .icon-success{
 margin-left: 5px;
 }
-
+.icon-error{
+margin-left: 5px;
+}
 .icon-modal{
 margin-right: 10px;
     }

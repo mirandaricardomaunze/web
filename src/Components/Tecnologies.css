@@ -6,13 +6,13 @@ padding: 50px;
 .container-tecno{
 margin:0 auto;
 display: grid;
-gap: 10px;
+gap: 15px;
 grid-template-columns: repeat(3,1fr);
 padding: 20px;
 width:fit-content;
 }
 .title-tecno{
-color: royalblue;
+color: rgb(153, 154, 235);
 }
 .text-tecno{
 font-size: 20px;
@@ -26,21 +26,27 @@ text-align: center;
 .title-home-tecno{
 font-size: 50px;
 text-align: center;
+color:rgb(153, 154, 235);
 }
 
 .title-tecno-h2{
-color: rgb(14, 6, 90);
+color:rgb(153, 154, 235);
 }
+/*box-shadow: 0px 5px 15px rgba(40, 40, 139, 0.1);*/
 .tecno{
-box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+box-shadow: 0px 5px 15px rgba(40, 40, 139, 0.1);
 width: 300px;
-height: 320px;
-border-radius: 15px;
+height: auto;
+border-radius: 20px;
 padding: 20px;
 text-align: center;
-background-color: royalblue;
+border: 1px solid white;
 }
-
+.tecno:hover{
+background-image: linear-gradient(to right ,rgb(10, 10, 10),rgb(10, 4, 88));
+transform:  scale( 1.04);
+transition: 0.8s ease-out;
+}
 .container-text{
 text-align: left;
 padding: 20px;
@@ -65,7 +71,7 @@ color: blueviolet;
 }
 
 .text-tecno-p{
-color: rgb(14, 6, 90);
+color:rgb(153, 154, 235);
 }
 
 @media only screen and (max-width:1150px) {

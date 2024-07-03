@@ -9,7 +9,7 @@ const Tecnologies = () => {
   return (
     <div className='container-main-tecno'>
         <div className='container-tecno-title'>
-             <h1 className='title-home-tecno' >Nossos <span className='title-color'>Servicos</span> </h1> 
+             <h1 className='title-home-tecno' >Nossos <span className='title-color'>Serviços</span> </h1> 
         </div>
         <div className='container-tecno'>
             <div className="tecno">

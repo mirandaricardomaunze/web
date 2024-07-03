@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import Slide from '../Components/Slide'
 import './Home.css'
-import Tecnologies from '../Components/Tecnologies'
 import WorkWithUs from '../Components/WorkWithUs'
 import Team from '../Components/Team'
 import Growing from '../Components/Growing'
@@ -17,6 +16,7 @@ import client3 from '../Assets/client3.jpg'
 import teamimg from '../Assets/team.png'
 import teamimage from '../Assets/colegas.png'
 import teamimgeman from '../Assets/lookat.png'
+import Projects from '../Components/Projects'
 
 
 const slides=[
@@ -37,11 +37,11 @@ text:'Sou desenvolvedor e Designer Grafico',nome:' Richard Muller'}
 ]
 
 const comment=[
-{id:1,image:client1,
+{id:1, image:client1,
 text:'Sou muito grato a vossa empresa, o meu site ficou incrivel',nome:'Jhon Milton',rev:4.7},
-{id:2,image:client2,
+{id:2, image:client2,
 text:'Apenas a vossa empresa, conseguiu transformar ideias em site incrivel',nome:'Elton Milton',rev:4.8},
-{id:3,image:client3,
+{id:3, image:client3,
 text:'Foi exatamente o que eu queria, o meu site ficou incrivel',nome:'Leonel  Mackdown',rev:4.9},
 ]
 
@@ -59,9 +59,9 @@ const Home = () => {
        <div>
        <Slide slide={slides}/> 
           <FirstAboutHome/>
-            <Tecnologies /> 
             <WorkWithUs/>
             <Team contents={team}/>
+            <Projects/>
             <Growing/>
             <Coments comments={comment}/>
             <Faq/>

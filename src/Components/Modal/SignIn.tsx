@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import './SignIn.css'
 import { useAuthContext } from '../Context/MyContextProvider'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {  faCheck, faUser } from '@fortawesome/free-solid-svg-icons'
+import {  faCheck, faUser, faX } from '@fortawesome/free-solid-svg-icons'
 
 
 
@@ -11,7 +11,13 @@ import {  faCheck, faUser } from '@fortawesome/free-solid-svg-icons'
 
 const SignIn = () => {
 
-const {login,errorCredentials,setErrorCredentials,successLogin,setSuccessLogin}=useAuthContext()
+const {
+   login,
+   setErrorServer,
+   errorServer,
+   successServer,
+   setSuccessServer
+   }=useAuthContext()
 
 const [showHideModal,setShowHideModal]=useState<boolean>(false)
 const [name,setName]=useState<string>('')
@@ -73,10 +79,8 @@ const handleEmptyInput=()=>{
    }  
  }
 
- const handleTimeout=()=>{
-   if (successLogin===true) {
-     setSuccessLogin(false)
-   }
+ const handleTimeoutClear=()=>{
+   
    if (emptyInputName===true) {
       setEmptyInputName(false)
    }
@@ -86,14 +90,18 @@ const handleEmptyInput=()=>{
    if (emptyInputPass===true) {
       setEmptyInputPass(false)
    }
- if (errorCredentials===true) {
-    setErrorCredentials(false)
+
+ if (errorServer !=='') {
+   setErrorServer('')
+ }
+ if (successServer!=='') {
+   setSuccessServer('')
  }
 }
 
 useEffect(()=>{
   const timeout=4000
- setTimeout(handleTimeout, timeout);
+ setTimeout(handleTimeoutClear, timeout);
 })
 
 
@@ -191,10 +199,13 @@ console.log('Senha:', password);
                   <div className='container-checkbox'>
                      <input type="checkbox"  className='input-checkbox' required/>
                      <p>  Aceita nossos termos</p>
-                  </div>
-                 {errorCredentials?<p  className='erro'>O password ou o email nao estao corretos</p>:null}
-                 {successLogin?<p className='success-login'>Entrou com sucesso 
-                 <FontAwesomeIcon className='icon-success'  icon={faCheck}/></p>:null}
+                  </div>  
+                     <p className='success-login'>{successServer} 
+                       {successServer.length>0 && <FontAwesomeIcon className='icon-success'  icon={faCheck}/>}
+                     </p>
+                     <p className='erro'>{errorServer}
+                        {errorServer.length>0 && <FontAwesomeIcon className='icon-success' icon={faX}/>}
+                     </p>
                   <div>
                      <button type='submit'  className='btn'  >Enviar</button>
                   </div>

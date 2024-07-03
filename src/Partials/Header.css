@@ -1,6 +1,11 @@
+.container-nav{
+margin-top: 30px;
+}
+
 .nav-bar{
 padding-top: 30px;
 text-align: right;
+background-image: linear-gradient(to right ,rgb(10, 10, 10),rgb(10, 4, 88));
 }
 
 .nav-link{
@@ -9,19 +14,19 @@ color: royalblue;
 padding: 10px;
 border-radius: 5px;
 transition: 0.7s ease;
-gap: 20px;
+gap:20px;
 font-size: 20px;
 font-weight: 100px;
-margin: 5px;
+margin-top: 15px ;
+margin: 10px;
 }
 .nav-brand{
 text-decoration: none;
 font-weight: bold;
 background-color: transparent;
-float: left;
 margin-left: 30px;
 font-size: 30px;
-color: black;
+color: royalblue;
 }
 .brand{
 color: blueviolet;
@@ -29,6 +34,7 @@ color: blueviolet;
 .nav-link:hover{
 background-color: royalblue;
 color: white;
+transition: 0.8s ease;
 }
 .active{
 background-color: royalblue;
@@ -51,28 +57,59 @@ margin: 5px;
 }
 
 .link-logout:hover{
-background-color: rgb(90, 81, 82);
+background-color: rgb(175, 34, 50);
 color: white;
 }
 
 .user-icon{
 text-decoration: none;
-cursor: none;
+cursor: text;
 font-size: 20px;
-color: royalblue;
+width:fit-content;
+height:fit-content;
+color:white;
 margin-top: -50px;
-padding: 20px;
+padding: 5px;
+background-color: royalblue;
+border-radius: 390px;
+margin-right: 10px;
+}
+.container-brand{
+padding: 10px;
+margin-bottom: -70px;
 }
 
-@media only screen and (max-width:600px) {
+.btn-toggle{
+display: none;
+}
+
+@media only screen and (max-width:800px) {
 .nav-bar{
 display: flex;
 flex-direction: column;
 height: fit-content;
-text-align: center;
+text-align: left;
 padding: 0 0 40px 0;
+}
+.icon-toggle{
+font-size: 20px;
+}
+.btn-toggle{
+display: block;
+color: #fff;
+background: royalblue;
+border: none;
+padding: 10px;
+border-radius: 5px;
+margin-left: auto;
+float: right;
 }
 .user-icon{
 margin-top: 20px;
+width: fit-content;
+margin-left: 20px;
+}
+.container-brand{
+margin-bottom: 0px;
 }
 }

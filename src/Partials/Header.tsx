@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, NavLink, Route, Routes } from 'react-router-dom'
 import Home from '../Pages/Home'
 import Contact from '../Pages/Contact'
@@ -10,32 +10,62 @@ import SignIn from '../Components/Modal/SignIn'
 import SignUp from '../Components/Modal/SignUp'
 import { useAuthContext } from '../Components/Context/MyContextProvider'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSignOut } from '@fortawesome/free-solid-svg-icons'
+import { faClose, faNavicon, faSignOut } from '@fortawesome/free-solid-svg-icons'
 import PrivateRoute from '../Components/Private/PrivateRoute'
 import ResetPassword from '../Components/ResetPassword'
 import NewPassword from '../Components/NewPassword'
 
 
+
 const Header = () => {
+const [togle,setTogle]=useState<boolean>(true)
+const [user,setUser]=useState<string>()
 
-const {token,logout}=useAuthContext()
+const {token,nameStorage,setNameStorage, logout}=useAuthContext()
 
+useEffect(()=>{
+  const checkNameUserLoged=()=>{
+    const nameStorages=localStorage.getItem('Name')
+  if (nameStorages) {
+    setNameStorage(true)
+  }else{
+    setNameStorage(false)
+  }
+  const nameFirstLetter=nameStorages?.charAt(0)
+  if (nameFirstLetter) {
+    setUser(nameFirstLetter)
+  }
+  }
+checkNameUserLoged()
+},[nameStorage,setNameStorage])
+
+
+const handleShowMenu=()=>{
+setTogle(!togle)
+}
 
 
   return (
-    <div>
-        <nav className='nav-bar'>
-            <Link   className='nav-brand'  to='/' ><span className='brand'>Soft</span>Moz</Link>  
+    <div className='container-nav'>
+       <div className='container-brand' >
+          <Link   className='nav-brand'  to='/' ><span className='brand'>Soft</span>Moz</Link>
+           <button className='btn-toggle'
+           onClick={handleShowMenu}
+           >
+            {togle? <FontAwesomeIcon className='icon-toggle' icon={faNavicon}/>:
+            <FontAwesomeIcon className='icon-toggle' icon={faClose}/>}
+          </button>
+       </div>
+        {togle && <nav className='nav-bar' >
             <NavLink  className='nav-link'  to='/' >Inicio</NavLink>
-            <NavLink className='nav-link' to='/Services'>Servicos</NavLink>
+            <NavLink className='nav-link' to='/Services'>Serviços</NavLink>
             <NavLink className='nav-link' to='/Contact'>Contato</NavLink>
             <NavLink className='nav-link' to='/About'>Sobre</NavLink>
-            <NavLink className='nav-link' to='/SignUp'>Registro</NavLink>
+            <NavLink className='nav-link' to='/SignUp'>Registro</NavLink> 
            {token? <Link to='/SignIn' className='link-logout' onClick={logout} >Sair <FontAwesomeIcon icon={faSignOut} /></Link>:
            <NavLink  className='nav-link' to='/SignIn'>Entrar</NavLink>}
-           {token?<Link to='' className='user-icon'>Bem vindo </Link>:null}
-          
-          
+           {nameStorage && <Link to='' className='user-icon' title={user}>{user} </Link>}
+                    
          <Routes>
             <Route path='/'  Component={Home} />
             <Route path='/Services' Component={Services}/>
@@ -47,7 +77,7 @@ const {token,logout}=useAuthContext()
             <Route path='/ResetPassword'Component={ResetPassword}/>
             <Route path='/NewPassword'Component={NewPassword}/>
          </Routes> 
-    </nav>
+    </nav>}
     </div>
   )
 }

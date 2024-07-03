@@ -5,6 +5,7 @@ import axios, { AxiosResponse } from 'axios'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {  faUserPlus } from '@fortawesome/free-solid-svg-icons'
 
+
 interface User{
   name:string
   email:string
@@ -25,7 +26,8 @@ const [showHide,setShowHide]=useState<boolean>(false)
 const [error,setEerror]=useState<boolean>(false)
 const [erroMsg,setErroMsg]=useState<boolean>(false)
 const [erroMsgPass,setErroMsgPass]=useState<boolean>(false)
-const [successMsg,setSuccessMsg]=useState<string|null>(null)
+const [errorServer,setErrorServer]=useState<string>('')
+const [successServer,setSuccessServer]=useState<string>('')
 
 
 useEffect(()=>{ 
@@ -96,6 +98,12 @@ const clearMsgError=()=>{
  if (emptyInputPassword===true) {
    setEmptyInputPassword(false)
  }
+ if (errorServer !=='') {
+   setErrorServer('')
+ }
+ if (successServer !=='') {
+   setSuccessServer('')
+ }
 }
 
 useEffect(()=>{
@@ -105,27 +113,33 @@ setTimeout(clearMsgError, timeout);
 
 
 const handleSignUp=async():Promise<void>=>{
-const baseUrl:string='http://localhost:4000/register/register'
+const baseUrl:string='http://localhost:4000/register'
  try {
    const response:AxiosResponse = await axios.post<User>(baseUrl,{name,email,password})
 if (response) {
-   console.log(response.data);
-   setEerror(false)
-   setSuccessMsg('Foi cadastrado com sucesso!')
+   const resJsonSuccess=response.data.message;
+   console.log(`Success: ${resJsonSuccess}`);
+   JSON.stringify(resJsonSuccess)
+   setSuccessServer(resJsonSuccess)
+ 
+   setEerror(false) 
  }
- } catch (error) {
+
+ } catch (error:any) {
+   const resJson=error.response.data.message;
+    console.log(`Sever error: ${resJson}`);
+    JSON.stringify(resJson)
+    setErrorServer(resJson)
   console.log(`Ocorreu erro durante o cadastro: ${error}`);
  if(email.length>0 && password.length>0 && name.length>0){
    setEerror(true)
  }else{
    setEerror(false)
  }
-  setSuccessMsg(null)
+  
   clearMsgError()
  }
  
- 
-
 }
 const handleClear=()=>{
    setName('')
@@ -171,7 +185,8 @@ const handleChangePassword=(e:React.ChangeEvent<HTMLInputElement>)=>{
          <button className='btn-modal-close' onClick={handleModal}>x</button>
            <h1 className='title-signup'>Regista-se</h1> 
            <div>
-              <form  onSubmit={handleSubmitForm} >
+              <form  onSubmit={handleSubmitForm}>
+                
                 <div>
                  <div className='label'>
                     <label  htmlFor="name">Nome:</label>
@@ -206,13 +221,9 @@ const handleChangePassword=(e:React.ChangeEvent<HTMLInputElement>)=>{
                  <div className='container-checkbox'>
                      <input type="checkbox"  className='input-checkbox' required/>
                      <p>  Aceita nossos termos</p>
-                  </div>
-                  {error?
-                  <p className='erro'>
-                      Nao foi possivel cadastrar, tente outro email
-                  </p>:null}
-
-                       <p>{successMsg}</p>
+                  </div>           
+                       <p className='success'>{successServer}</p>
+                       <p className={errorServer.length>0? 'erro':''}>{errorServer}</p>
                   <div>
                      <button className='btn' type='submit' >Enviar</button>
                   </div>

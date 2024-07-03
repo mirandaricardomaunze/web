@@ -63,7 +63,7 @@ const handleChangeEmail=(e:React.ChangeEvent<HTMLInputElement>)=>{
 
 const handleResetPassword=async()=>{
   try {
-    const Base_Url:string='http://localhost:4000/reset/reset'
+    const Base_Url:string='http://localhost:4000/reset'
     const response:AxiosResponse<Email>=await axios.post<Email>(Base_Url,{email}) 
     if (response) {
 

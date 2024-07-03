@@ -1,7 +1,6 @@
 import React from 'react'
 import './Team.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFacebookSquare, faYoutubeSquare } from '@fortawesome/free-brands-svg-icons'
 import { faQuoteLeft, faQuoteRight } from '@fortawesome/free-solid-svg-icons'
 
 
@@ -31,21 +30,14 @@ const Team = ({contents}:Cont) => {
                         <img className='img-team' src={team.image} alt="" />
                     </div>
                     <div className='container-team-text'>
-                        <p className='txt-team'>
+                        <p className='txt'>
                           <FontAwesomeIcon className='icon-teamleft' icon={faQuoteLeft}/>
                             {team.text}
                             <FontAwesomeIcon className='icon-team' icon={faQuoteRight}/>
                         </p>
-                        <h4 className='titl-team'>{team.nome}</h4>
+                        <h4 className='titl'>{team.nome}</h4>
                     </div>
-                    <div className='team-icon'>
-                       <a href="http://www.facebook.com" target="_blank" rel="noopener noreferrer">
-                        <FontAwesomeIcon className='facebook-team' icon={faFacebookSquare}/>
-                        </a>
-                       <a href="http://www.youtube.com" target="_blank" rel="noopener noreferrer">
-                       <FontAwesomeIcon className='youtube-team' icon={faYoutubeSquare}/>
-                       </a>
-                    </div>
+                   
                 </div>
             ))}
         </div> 

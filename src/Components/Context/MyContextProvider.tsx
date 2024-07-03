@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from "axios";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { createContext } from "react";
 import { Navigate} from "react-router-dom";
 
@@ -23,14 +23,16 @@ user:User|null
 setUser:React.Dispatch<User|null>
 inputEmptyError:boolean
 setInputEmptyError:React.Dispatch<boolean>
-errorCredentials:boolean
-setErrorCredentials:React.Dispatch<boolean>
 token:boolean
 setToken:React.Dispatch<boolean>
-successLogin:boolean
-setSuccessLogin:React.Dispatch<boolean>
+successServer:string
+setSuccessServer:React.Dispatch<string>
+errorServer:string
+setErrorServer:React.Dispatch<string>
 login:({name,email,password}:Credentials)=>Promise<void>
 logout:()=>void
+nameStorage:boolean
+setNameStorage:React.Dispatch<boolean>
 }
 
 const AuthContext=createContext<{
@@ -38,66 +40,82 @@ const AuthContext=createContext<{
   setUser:React.Dispatch<User|null>
   inputEmptyError:boolean
   setInputEmptyError:React.Dispatch<boolean>
-  errorCredentials:boolean
-  setErrorCredentials:React.Dispatch<boolean>
   setToken:React.Dispatch<boolean>
   token:boolean
-  successLogin:boolean
-  setSuccessLogin:React.Dispatch<boolean>
+  successServer:string
+  setSuccessServer:React.Dispatch<string>
+  errorServer:string
+  setErrorServer:React.Dispatch<string>
   login: ({name,email, password}:Credentials) => Promise<void>;
   logout:()=>void;
+  nameStorage:boolean
+  setNameStorage:React.Dispatch<boolean>
 }>({} as AuthContextType);
 
 const MyContextProvider = ({children}:any) =>{
 
 const [user, setUser] = useState<User | null>(null);
 const [token,setToken]=useState<boolean>(false)
-const [errorCredentials,setErrorCredentials]=useState<boolean>(false)
 const [inputEmptyError,setInputEmptyError]=useState<boolean>(false)
-const [successLogin,setSuccessLogin]=useState<boolean>(false)
-
+const [nameStorage,setNameStorage]=useState<boolean>(false)
+const [errorServer,setErrorServer]=useState<string>('')
+const [successServer,setSuccessServer]=useState<string>('')
 
 const login=async({name,email, password}:Credentials)=>{
 
 
    try {
-     const Base_Url:string='http://localhost:4000/login/login'
+     const Base_Url:string='http://localhost:4000/login'
      const response:AxiosResponse=await axios.post<User>(Base_Url,{name,email,password})
      const result= response.data
      console.log(result);
      const jwtToken= response.data.token
     if (response) {
-        <Navigate to='/'/>
+        <Navigate to='/' />
+
+        const success=response.data.message 
+         JSON.stringify(success)
+         setSuccessServer(success)
+        localStorage.setItem('Name',name)
+        
         console.log( `Entrou com sucesso, token gerado: ${jwtToken}`);
         localStorage.setItem('Token',jwtToken)
-        const itemToken=localStorage.getItem('Token')
-        if (itemToken) {
-          setToken(true)
-        }
-        setSuccessLogin(true)
-        setErrorCredentials(false)
-        localStorage.setItem('Nome',name)
+        setToken(true)
+        setNameStorage(true)
      }
-    
-}catch (error) {  
+
+}catch (error:any) {  
     console.log(`Erro ocorrido:  ${error}`);
     console.log( 'Nao foi possivel a conexao')
-    if (error) {
-      setErrorCredentials(true)
-      setSuccessLogin(false)
-    }
+
+    const errMsg=error.response.data.message
+    console.log(`Backend error : ${errMsg}`);
+       JSON.stringify(errMsg)
+      setErrorServer(errMsg)
+    
      throw error
    }
 }
 
-const logout=()=>{
-localStorage.removeItem('Token')
-  setUser(null)
-  setToken(false)
-  return <Navigate to='/SignIn'/>
-   
+useEffect(()=>{
+const checkNameUserLoged=()=>{
+  const getToken=localStorage.getItem('Token')
+  if (getToken) {
+    setToken(true)
+  }else{
+    setToken(false)
+  }
 }
+checkNameUserLoged()
+},[setToken])
 
+const logout= async()=>{
+  localStorage.removeItem('Token')
+  setToken(false)
+  localStorage.removeItem('Name')
+  setNameStorage(false)
+return <Navigate to='/SignIn'/> 
+}
 
   return (
     <AuthContext.Provider value={
@@ -107,17 +125,17 @@ localStorage.removeItem('Token')
       setToken,
       login,
       logout,
-      errorCredentials,
-      setErrorCredentials,
       setInputEmptyError,
       inputEmptyError,
-      successLogin,
-      setSuccessLogin
+      nameStorage,
+      setNameStorage,
+      errorServer,
+      setErrorServer,
+      successServer,
+      setSuccessServer
       }} >
         {children}
-    </AuthContext.Provider>
-
-    
+    </AuthContext.Provider>  
   )
 }
 export default MyContextProvider

@@ -1,6 +1,6 @@
 .container-comment-main{
 padding: 50px 0 50px 0;
-background-color:  #3e6feb;
+background-image: linear-gradient(to right ,rgb(10, 10, 10),rgb(10, 4, 88));
 }
 .container-comment-in{
 display: flex;
@@ -10,7 +10,8 @@ padding: 40px;
 margin:0 auto;
 border-radius: 10px;
 text-align: left;
-background-color: royalblue;
+background-image: linear-gradient(to right ,rgb(10, 10, 10),rgb(10, 4, 88));
+border: 1px solid rgb(153, 154, 235);
 }
 .container-comment{
 display: flex;
@@ -61,7 +62,7 @@ display: inline-block;
 text-align: center;
 }
 .title-coments{
-color: rgb(25, 1, 247);
+color:rgb(153, 154, 235);
 font-size: 50px;
 padding: 20px;
 text-align: center;
@@ -165,4 +166,8 @@ font-size: 18px;
 .comment{
 padding: 5px;
 }
+.btn-next,
+.btn-prev{
+margin-top: -2%;
+}  
 }

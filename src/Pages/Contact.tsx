@@ -8,6 +8,7 @@ interface Client{
   name:string
   email:string
   subject:string
+  message:any
 }
 
 
@@ -15,10 +16,11 @@ const Contact = () => {
 const[name,setName]=useState<string>('')
 const[email,setEmail]=useState<string>('')
 const [subject,setSubject]=useState<string>('')
-const [erro,setEerror]=useState<boolean>(false)
+const [erro,setEerror]=useState<string>('')
+const [serverSuccess,setServerSuccess]=useState<string>('')
 const [emptyInput,setEmptyInput]=useState<boolean>(false)
 const [errorRegexEmail,setErrorRegexEmail]=useState<boolean>(false)
-const [success,setSuccess]=useState<boolean>(false)
+
 
 
 useEffect(()=>{ 
@@ -26,27 +28,29 @@ useEffect(()=>{
 })
 
 
-const sent:string='Mensagem enviada com sucesso'
-const failed:string='Falhou o envio da  mensagem '
-
 const handleTimeout=()=>{
-  if (success===true) {
-    setSuccess(false)
+  if (emptyInput===true) {
+     setEmptyInput(false)
+  }
+  if (erro!=='') {
+    setEerror('')
+  }
+  if (serverSuccess!=='') {
+     setServerSuccess('')
   }
 }
 
 useEffect(()=>{
-  const timeout:number=4000
+  const timeout:number=5000
   setTimeout(
     handleTimeout, timeout);
 })
 
 
-
 const errorEmail='Deve ser email valido'
 useEffect(()=>{
   const emailRegex:RegExp=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(email) && email.length>0) {
+  if (!emailRegex.test(email) && email.length>0 ) {
     setErrorRegexEmail(true)
 } else {
   setErrorRegexEmail(false)
@@ -100,19 +104,23 @@ const clearAllInput=()=>{
 
 const handleSendingSubject=async()=>{
  try {
-  const BASE_URL:string='http://localhost:4000/subject/subject'
+  const BASE_URL:string='http://localhost:4000/subject'
   const response:AxiosResponse<Client>=await axios.post<Client>(BASE_URL,{name,email,subject})
   if (response) {
+     const server=response.data.message
+     JSON.stringify(server)
+     setServerSuccess(server)
+     
     if (email.length>0 && name.length>0 && setSubject.length>0) {
-      setEerror(false)
-      setSuccess(true)
+      setEerror('')
     }
     console.log('Mensagem enviada com sucesso'); 
   }
- } catch (error) {
+ } catch (error:any) {
+  const errorServer=error.response.data.message
+  JSON.stringify(errorServer)
+  setEerror(errorServer)
   console.log(`Ocorreu falha na conexao com servidor: ${error}`);
-  setEerror(true)
-  setSuccess(false)
  }
 }
 
@@ -177,8 +185,10 @@ const handleSubmit=async(e:React.FormEvent<HTMLFormElement>)=>{
                       placeholder='Escreva o assunto' ></textarea>
                        {emptyInput? <p  className='erro'>Preecha os espacos vazios</p>:null}
                    </div>
-                     { erro?<p>{failed}</p>:null}
-                     {success? <p className='success-msg'>{sent} <FontAwesomeIcon className='icon-check' icon={faCheck}/></p>:null}
+                     <p className='erro'>{erro}</p>
+                     <p className='success-msg' >{serverSuccess}
+                       {serverSuccess.length>0 && <FontAwesomeIcon className='icon-check' icon={faCheck}/>}
+                     </p>
                     <div>
                        <button className='btn'>Enviar</button>
                     </div>

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import './About.css'
 import Coments from '../Components/Coments'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faDesktop, faHandHolding, faHands, faLaptop, faMobileAndroid, faPen, faPerson, faSearch } from '@fortawesome/free-solid-svg-icons'
+import { faChartLine, faDesktop, faHandHolding, faHands, faLaptop, faMobileAndroid, faPen, faPerson} from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 import client1 from '../Assets/client1.jpg'
 import client2 from '../Assets/client2.jpg'
@@ -76,28 +76,28 @@ const About = () => {
         <div className='container-grid-about-second'>
            <div className='about-second'>
            <p className='icon'><FontAwesomeIcon icon={faDesktop}/></p>
-            <p className='text-about'>1. <b> Design Responsivo: </b>
+            <p className='text-about-second'>1. <b> Design Responsivo: </b>
               Garantimos que seu site tenha uma aparência impressionante em todos os dispositivos, desde 
               desktops até smartphones e tablets.
             </p>
            </div >
            <div className='about-second'>
            <p className='icon'><FontAwesomeIcon icon={faPerson}/></p>
-            <p className='text-about'>2. <b> Desenvolvimento Personalizado: </b>
+            <p className='text-about-second'>2. <b> Desenvolvimento Personalizado: </b>
               Nossos desenvolvedores talentosos criam soluções sob medida para atender às suas necessidades 
               específicas de negócios.
             </p>
            </div>
            <div className='about-second'>
-           <p className='icon'><FontAwesomeIcon icon={faSearch}/></p>
-            <p className='text-about'>3. <b> Otimização para Motores de Busca (SEO): </b>
+           <p className='icon'><FontAwesomeIcon icon={faChartLine}/></p>
+            <p className='text-about-second'>3. <b> Otimização para Motores de Busca (SEO): </b>
               Maximizamos a visibilidade do seu site nos mecanismos de busca para garantir que sua marca seja 
               encontrada facilmente online.
             </p>
            </div>
            <div className='about-second'>
            <p className='icon'><FontAwesomeIcon icon={faMobileAndroid}/></p>
-            <p className='text-about'>4. <b> Integração de Mídias Sociais:  </b>
+            <p className='text-about-second'>4. <b> Integração de Mídias Sociais:  </b>
               Conectamos seu site às principais plataformas de mídia social para ampliar seu alcance e engajamento.
             </p>
            </div>

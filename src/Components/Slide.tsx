@@ -40,7 +40,7 @@ const timer=  setInterval(()=>
     <div>
         <div className='container-slide'>
           <div className='container-text-slide'>
-            <h1 className='title'>Servicos de criação de sites</h1>
+            <h1 className='title'>Serviços de criação de sites</h1>nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
           <p className='text'>
             Bem-vindo à nossa plataforma dedicada à criação de sites que refletem a 
             essência e a visão única do seu negócio. Nossa equipe de especialistas 
@@ -48,7 +48,9 @@ const timer=  setInterval(()=>
             em uma presença online cativante e funcional.
         </p>
         <div className='container-link-main'>
-            <Link to='/Contact' className='link-slide'>Contacta-nos</Link>
+           <div className='div-link'>
+              <Link to='/Contact' className='link-slide'>Contacta-nos</Link>
+           </div>
         </div>
           </div>
            {slide.map((slides,index)=>(

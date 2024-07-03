@@ -1,3 +1,7 @@
+.container-contact-main{
+margin-top: 100px;
+}
+
 .container-contact{
 display: grid;
 grid-template-columns: repeat(2,1fr);
@@ -12,8 +16,7 @@ background-repeat: no-repeat;
 background-position-y: 230px;
 }
 .container-contact-bg{
-background:rgb(2,0,36);
-background: linear-gradient(90deg,rgb(2,0,36,1)0%, rgba(9,9,121,1)35%,rgba(0,212,255,1)100%);
+background-image: linear-gradient(to right ,rgb(10, 10, 10),rgb(10, 4, 88));
 }
 
 .label{
@@ -30,10 +33,13 @@ font-size: 15px;
 border-radius: 5px;
 transition: 0.7s ease;
 width: 92%;
+background-image: linear-gradient(to right ,rgb(10, 10, 10),rgb(52, 44, 161));
+color: rgb(153, 154, 235);
 }
     
-.input:focus{
-box-shadow:0px 0px 0px 3px royalblue;
+.input-contact:focus{
+box-shadow:0px 0px 0px 3px rgb(136, 130, 192);
+
 }
     
 .btn{
@@ -66,23 +72,27 @@ margin:0 auto;
 color: #555;
 text-align: left;
 }
+.text-contact{
+color: rgb(153, 154, 235);
+}
 
 .text-contact-text{
 font-size: 20px;
 text-align: center;
 padding:0 0 50px 0;
+color: rgb(153, 154, 235);
 }
+
 .title-contact{
 padding: 20px 0px 20px 0px;
-color: rgb(15, 16, 19);
 font-size: 50px;
-color: royalblue;
+color: rgb(153, 154, 235);
 text-align: center;
 }
 
 .title-cont{
 padding: 20px 0px 20px 0px;
-color: rgb(15, 16, 19);
+color:rgb(153, 154, 235);
 font-size: 40px;
 }
 
@@ -98,11 +108,15 @@ padding: 40px ;
 border-radius: 10px;
 margin-top: 20px;
 box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-background-color: white;
+background-image: linear-gradient(to right ,rgb(10, 10, 10),rgb(10, 4, 88));
 }
 .textarea{
 resize: none;
 font-family:  serif;
+scroll-behavior: none;
+}
+#subject{
+background-color: aliceblue;
 }
 .cont-text-form{
 width: auto;
@@ -112,7 +126,8 @@ padding: 0 40px 40px 40px;
 }
 .visit-contact{
 width: auto;
-background-color:aliceblue;
+max-width: 780px;
+background-image: linear-gradient(to right ,rgb(10, 10, 10),rgb(10, 4, 88));
 margin:0 auto;
 padding: 40px;
 border-radius: 10px;
@@ -121,7 +136,8 @@ text-align: left;
 }
 .title-visit{
 padding: 20px 0px 0px 0px;
-color: royalblue;
+color: rgb(153, 154, 235);
+font-size: 30px;
 }
 .container-visit-contact{
 padding: 50px;

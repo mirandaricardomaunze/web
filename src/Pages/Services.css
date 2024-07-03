@@ -12,31 +12,34 @@ padding-bottom: 70px;
 }
 .title-first{
 font-size: 50px;
-color: royalblue;
+color: rgb(153, 154, 235);
 text-align: center;
 padding: 40px 0px 20px 0px;
 }
     
 .title-second{
 font-size: 30px;
-color: royalblue;
+color: rgb(153, 154, 235);
 padding: 10px 0 10px 0;
 text-align: left;
 }
 .title-service{
-color: black;
+color:rgb(153, 154, 235);
 font-size: 50px;
 text-align: center;
 }
 .text-service{
 font-size: 20px;
-color: #555;
+color: rgb(153, 154, 235);
 text-align: center;
 padding: 0px 100px 100px 100px;
+max-width: 750px;
+width: auto;
+margin:0 auto;
 }
+
 .container-service-main-second{
-background:rgb(2,0,36);
-background: linear-gradient(90deg,rgb(2,0,36,1)0%, rgba(9,9,121,1)35%,rgba(0,212,255,1)100%);
+background-image: linear-gradient(to right ,rgb(10, 10, 10),rgb(10, 4, 88));
 padding: 50px;  
 }
     
@@ -51,16 +54,22 @@ padding: 50px 10px 10px 10px;
 }
 .services{
 width: 250px;
-height: 320px;
+height: auto;
 border-radius: 10px;
 padding: 20px;
 text-align: left;
-box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+box-shadow: 0px 5px 15px rgba(40, 40, 139, 0.1);
 margin:0 auto;
-background-color: rgb(81, 107, 223);
+border: 1px solid white;
 }
+.services:hover{
+background-image: linear-gradient(to right ,rgb(10, 10, 10),rgb(10, 4, 88));
+transform:  scale( 1.04);
+transition: 0.8s ease;
+}
+
 .container-p{
-color: #111010;
+color: rgb(153, 154, 235);
 font-size: 20px;
 }    
 .container-image-service{
@@ -70,25 +79,32 @@ border: none;
 margin:0 auto;
 }
 .image-service{
-width: 100px;
-height: 80px;
+width: 50px;
+height: 50px;
 border: none;
-color: white;
+color:white;
+background-color: blue;
+padding: 5px;
+border-radius: 5px;
 }
   
 .container-service-contact{
 padding: 40px 40px 100px 40px;
 width: auto;
+max-width: 700px;
 text-align: center;
 margin: 0 auto;
 }
 .title-service-contact{
 font-size: 45px;
-color: royalblue;
+color: rgb(153, 154, 235);
 }
 .text-service-contact{
 font-size: 20px;
-color: #555;
+color:rgb(153, 154, 235);
+width: auto;
+max-width: 700px;
+margin:0 auto;
 }
 .container-link-service{
 padding: 20px 0 0 0;
@@ -114,8 +130,8 @@ grid-template-columns: repeat(2,1fr);
 width: fit-content;
 }
 .container-service-contact{
-width: fit-content;
-padding:50px 50px 40px 50px;
+width:auto;
+padding:0px;
 }
 }
 
@@ -147,7 +163,7 @@ margin: 0 auto;
 }
 .text-service-contact{
 width:auto;
-margin:0 auto;
+text-align:center;
 }
 .container-service-main{
 padding: 0px;
@@ -162,7 +178,7 @@ width: auto;
 }
 
 .container-service-contact{
-width: fit-content;
-padding: 10px 50px 40px 50px;
+width: auto;
+padding: 10px ;
 }
 }

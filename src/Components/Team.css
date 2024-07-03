@@ -1,11 +1,11 @@
 .contaneir-main-team{
-background-color:#eeecec;
 padding: 20px 50px 90px 50px;
 text-align: center;
 width: auto;
+background-image: linear-gradient(to right ,rgb(10, 10, 10),rgb(10, 4, 88));
 }
 .title-team{
-color:black;
+color: rgb(153, 154, 235);
 padding: 20px;
 font-size: 50px;
 }
@@ -14,7 +14,15 @@ width: 600px;
 margin:0 auto;
 padding: 20px;
 font-size: 22px;
+color: rgb(153, 154, 235);
+font-family: sans-serif;
+}
 
+.txt-team{
+font-size: 20px;
+margin: 2px;
+font-family: sans-serif;
+color: rgb(153, 154, 235);
 }
 .container-team{
 width: fit-content;
@@ -26,15 +34,7 @@ grid-template-columns: repeat(3,1fr);
 padding: 10px;
 }
 
-.text-team{
-color: rgb(26, 26, 27);
-font-family: sans-serif;
-}
-.txt-team{
-font-size: 20px;
-margin: 2px;
-font-family: sans-serif;
-}
+
 .icon-team{
 margin-left: 4px;
 }
@@ -42,21 +42,31 @@ margin-left: 4px;
 margin-right: 4px;
 }
 .titl-team{
-color: rgb(16, 16, 80);
+color: rgb(153, 154, 235);
 }
 .team{
-box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+box-shadow: 0px 5px 15px rgba(40, 40, 139, 0.1);
 width: 305px;
-height: 290px;
-background-color:royalblue;
+height: auto;
 border-radius: 20px;
-padding: 15px;
-color: rgb(16, 16, 80);
+padding: 15px 0px 0px 0px;
+border: 1px solid white;
+}
+.team:hover{
+background-image: linear-gradient(to right ,rgb(10, 10, 10),rgb(10, 4, 88));
+transform:  scale( 1.04);
+transition: 0.8s ease-out;
+color: blue;
 }
 .container-team-text{
-padding: 20px;
+padding: 15px;
+border-radius: 0px 0px 20px 20px;
+color: rgb(153, 154, 235);
+text-align: center;
 }
-
+.container-team-text:hover{
+background-color: transparent;
+}
 .container-img-team{
 width: 130px;
 height: 130px;
@@ -72,6 +82,7 @@ background-color: royalblue;
 width: 90px;
 height: 115px;
 border-radius: 5px;
+
 }
 .bar{
 background-color: rgb(43, 116, 226);
@@ -102,6 +113,11 @@ display:grid;
 grid-template-columns: repeat(2,1fr);
 height: fit-content;
  } 
+.container-team-text{
+padding: 10px;
+background-image: linear-gradient(to right ,rgb(10, 10, 10),rgb(10, 4, 88));
+border-radius: 0px 0px 20px 20px;
+}
 }
 
 @media only screen and (max-width:800px) {
@@ -113,6 +129,11 @@ height: fit-content;
  } 
 .contaneir-main-team{
 padding: 0px;
+}
+.container-team-text{
+padding: 10px;
+background-image: linear-gradient(to right ,rgb(10, 10, 10),rgb(10, 4, 88));
+border-radius: 0px 0px 20px 20px;
 }
 .text-team{
 width: auto;

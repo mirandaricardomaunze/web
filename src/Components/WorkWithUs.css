@@ -1,5 +1,5 @@
 .container-main-work{
-background-color:black;
+background-image: linear-gradient(to right ,rgb(10, 10, 10),rgb(10, 4, 88));
 width: 100%;
 }
 
@@ -11,15 +11,15 @@ width: fit-content;
 padding: 90px;
 }
 .work-first{
-width: 500px;
-height: 520px;
+width: auto;
+height: fit-content;
 text-align: left;
 border-top-left-radius:10px;
 border-bottom-left-radius:10px;
 }
 .work{
 width: fit-content;
-height:500px;
+height:auto;
 border-top-right-radius: 10px;
 border-bottom-right-radius: 10px;
 border-radius: 10px;
@@ -29,12 +29,12 @@ align-items: center;
 }
 
 .image-work{
-width: 500px;
-height: 450px;
+width: 410px;
+height: 410px;
 border-radius: 10px;
-background-color: aliceblue;
 z-index: 1;
 background-color:royalblue;
+border-radius: 360px;
 }
 .span-title{
 color: blueviolet;
@@ -44,20 +44,31 @@ font-size: 60px;
 text-align: center;
 color: white;
 }
+.icon-text-work{
+background-color: white;
+padding: 2px 5px 2px 5px;
+font-size: 16px;
+border-radius: 5px;
+margin-right: 5px;
+color: blueviolet;
+}
 .in-work{
 padding: 23px;
 }
 .title-work{
-color: royalblue;
+color: rgb(153, 154, 235);
 font-size: 50px;
 }
 .text-work{
 font-size: 20px;
-color: rgb(17, 41, 109);
+color: rgb(153, 154, 235);
+margin-top: 5px;
 }
+
 .link-container{
 margin-top: 10px;
 padding-top:20px;
+margin-bottom: 30px;
 }
 .link-work{
 background-color: royalblue;
@@ -111,6 +122,12 @@ display: grid;
 grid-template-columns: repeat(1, 1fr);
 width: auto;
 }
+.in-work{
+display: grid;
+grid-template-columns: repeat(1,1fr);
+}
+
+
 .work{
 margin:0 auto;
 width: auto;

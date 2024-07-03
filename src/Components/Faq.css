@@ -12,6 +12,9 @@ margin-top: 10px;
 .faq-quetion{
 display: flex;
 border-left:5px royalblue solid;
+background-image: linear-gradient(to right ,rgb(10, 10, 10),rgb(10, 4, 88));
+color:rgb(153, 154, 235);
+border-radius: 5px 5px 0 0 ;
 }
 #btn-faq1{
 margin-left: 200px;
@@ -30,7 +33,7 @@ border: none;
 padding: 3px;
 float: right;
 border-radius: 2px;
-color: #555;
+color:rgb(153, 154, 235);
 margin-left: 50px;
 background-color: transparent;
 cursor: pointer;
@@ -42,10 +45,10 @@ background-color: #f9f9f9;
 padding: 10px;
 }
 .text-faq{
-background-color: #f9f9f9;
+background-image: linear-gradient(to right ,rgb(10, 10, 10),rgb(10, 4, 88));
 padding: 20px;
 font-size: 16px;
-color: #555;
+color: rgb(153, 154, 235);
 border-radius: 10px;
 transition: 0.9s ease;
 transition-delay: 5s;
@@ -53,7 +56,7 @@ transition-delay: 5s;
 
 .title-faq{
 font-size: 50px;
-color: royalblue;
+color:rgb(153, 154, 235);
 text-align: center;
 }
 
@@ -62,6 +65,7 @@ width: 500px;
 margin:0 auto;
 text-align: center;
 padding: 40px;
+color:rgb(153, 154, 235);
 }
 
 @media only screen and (max-width:800px) {
