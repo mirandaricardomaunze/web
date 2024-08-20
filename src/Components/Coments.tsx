@@ -2,6 +2,9 @@ import React, { useCallback, useEffect, useState } from 'react'
 import './Coments.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleRight, faQuoteLeft, faQuoteRight, faStar } from '@fortawesome/free-solid-svg-icons';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 
 interface Comments{
 comments:any[];
@@ -9,6 +12,12 @@ comments:any[];
 
 
 const Coments = ({comments}:Comments) => {
+  useEffect(()=>{
+    AOS.init({ duration: 1000 });
+  })
+
+
+
   const [comentCurrent,setCommentCurrent]=useState<number>(0)
     
    const nextComent=useCallback(()=>{
@@ -34,8 +43,12 @@ useEffect(()=>{
 
   return (
     <div className='container-comment-main'>
-          <h1 className='title-coments'>Avaliação dos clientes</h1>
-         <div className='container-comment'>
+          <h1 className='title-coments'
+           data-aos="fade-up" data-aos-anchor-placement="top-bottom"
+          >Avaliação dos clientes</h1>
+         <div className='container-comment'
+          data-aos="fade-up" data-aos-anchor-placement="top-bottom"
+         >
            {comments.map((comment,index)=>(
            <div key={comment.id} 
              className={comentCurrent===index?
@@ -62,13 +75,21 @@ useEffect(()=>{
             {comments.map((comment,index)=>(
               <div key={comment.id} className='container-dot'>
                  <button  onClick={()=>toComments(index)} 
-                  className={comentCurrent===index?'dot-active':'dot'}></button >
+                  className={comentCurrent===index?'dot-active':'dot'}
+                   data-aos="fade-up" data-aos-anchor-placement="top-bottom"
+                  ></button >
               </div>
             ))}
          </div>
         
-            <button className='btn-prev' onClick={prevComments}><FontAwesomeIcon icon={faAngleLeft}/></button>
-            <button className='btn-next' onClick={nextComent}><FontAwesomeIcon icon={faAngleRight}/></button>
+            <button className='btn-prev' onClick={prevComments}
+            data-aos="fade-up" data-aos-anchor-placement="top-bottom"
+            >
+            <FontAwesomeIcon icon={faAngleLeft}/></button>
+            <button className='btn-next' onClick={nextComent}
+            data-aos="fade-up" data-aos-anchor-placement="top-bottom"
+            >
+            <FontAwesomeIcon icon={faAngleRight}/></button>
          
     </div>
   )

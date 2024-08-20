@@ -1,5 +1,6 @@
 .container-nav{
 margin-top: 30px;
+background-image: linear-gradient(to right ,rgb(10, 10, 10),rgb(10, 4, 88));
 }
 
 .nav-bar{
@@ -20,6 +21,7 @@ font-weight: 100px;
 margin-top: 15px ;
 margin: 10px;
 }
+
 .nav-brand{
 text-decoration: none;
 font-weight: bold;
@@ -74,16 +76,29 @@ background-color: royalblue;
 border-radius: 390px;
 margin-right: 10px;
 }
+
 .container-brand{
 padding: 10px;
 margin-bottom: -70px;
+margin-left: -20px;
 }
-
+.animate{
+transition:ease-in-out 0.5s;
+opacity: 0;
+}
 .btn-toggle{
 display: none;
 }
-
 @media only screen and (max-width:800px) {
+.nav-bar{
+display: flex;
+flex-direction: column;
+height: fit-content;
+text-align: left;
+padding: 0 0 40px 0;
+}
+}   
+@media only screen and (max-width:900px) {
 .nav-bar{
 display: flex;
 flex-direction: column;

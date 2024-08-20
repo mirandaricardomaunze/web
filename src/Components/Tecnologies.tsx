@@ -1,18 +1,29 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Tecnologies.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {  faChartLine, faCode, faLightbulb, faPaintBrush, faShoppingCart, faTools} from '@fortawesome/free-solid-svg-icons'
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 const Tecnologies = () => {
+
+  useEffect(()=>{
+    AOS.init({ duration: 1000 });
+  })
+
+
   return (
     <div className='container-main-tecno'>
-        <div className='container-tecno-title'>
+        <div className='container-tecno-title'
+          data-aos="fade-up" data-aos-anchor-placement="top-bottom"
+        >
              <h1 className='title-home-tecno' >Nossos <span className='title-color'>Serviços</span> </h1> 
         </div>
         <div className='container-tecno'>
-            <div className="tecno">
+            <div className="tecno"
+              data-aos="fade-right" data-aos-anchor-placement="top-bottom"
+            >
                <div>
                 <FontAwesomeIcon className='icon-server' icon={faCode}/>
                </div>
@@ -25,7 +36,9 @@ const Tecnologies = () => {
                 construir sites de alto desempenho, responsivos e totalmente funcionais.
                </p>
             </div>
-            <div className="tecno">
+            <div className="tecno"
+              data-aos="fade-up" data-aos-anchor-placement="top-bottom"
+            >
               <div>
                   <FontAwesomeIcon className='icon-server' icon={faPaintBrush}/>
                 </div>
@@ -38,7 +51,9 @@ const Tecnologies = () => {
                   um design personalizado que reflita a identidade da sua marca e atraia seu público-alvo. 
                 </p>
               </div>
-            <div className="tecno">
+            <div className="tecno"
+              data-aos="fade-left" data-aos-anchor-placement="top-bottom"
+            >
               <div>
                   <FontAwesomeIcon className='icon-server' icon={faChartLine}/>
               </div>
@@ -52,7 +67,9 @@ const Tecnologies = () => {
                estamos comprometidos em ajudá-lo a alcançar resultados tangíveis.
               </p>
             </div>
-            <div className="tecno">
+            <div className="tecno"
+              data-aos="fade-right" data-aos-anchor-placement="top-bottom"
+            >
               <div>
                   <FontAwesomeIcon className='icon-server' icon={faShoppingCart}/>
               </div>
@@ -66,7 +83,9 @@ const Tecnologies = () => {
                 a implementação de funcionalidades avançadas de gestão de estoque.
               </p>
             </div>
-            <div className="tecno">
+            <div className="tecno"
+              data-aos="fade-up" data-aos-anchor-placement="top-bottom"
+            >
               <div>
                   <FontAwesomeIcon className='icon-server' icon={faTools}/>
               </div>
@@ -80,7 +99,9 @@ const Tecnologies = () => {
                 atualizações de conteúdo.
               </p>
             </div>
-            <div className="tecno">
+            <div className="tecno"
+              data-aos="fade-left" data-aos-anchor-placement="top-bottom"
+            >
               <div>
                   <FontAwesomeIcon className='icon-server' icon={faLightbulb}/>
               </div>

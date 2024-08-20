@@ -17,6 +17,7 @@ import teamimg from '../Assets/team.png'
 import teamimage from '../Assets/colegas.png'
 import teamimgeman from '../Assets/lookat.png'
 import Projects from '../Components/Projects'
+import Pricing from '../Components/Pricing'
 
 
 const slides=[
@@ -62,6 +63,7 @@ const Home = () => {
             <WorkWithUs/>
             <Team contents={team}/>
             <Projects/>
+            <Pricing/>
             <Growing/>
             <Coments comments={comment}/>
             <Faq/>

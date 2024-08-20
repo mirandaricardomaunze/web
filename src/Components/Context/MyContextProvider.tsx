@@ -19,6 +19,12 @@ interface User{
 }
 
 interface AuthContextType{
+errorConnectServer:boolean
+setErrorConnectServer:React.Dispatch<boolean>
+views:number;
+setViews:React.Dispatch<number>
+allUsers:number
+setAllUsers:React.Dispatch<number>
 user:User|null
 setUser:React.Dispatch<User|null>
 inputEmptyError:boolean
@@ -36,7 +42,13 @@ setNameStorage:React.Dispatch<boolean>
 }
 
 const AuthContext=createContext<{
+  errorConnectServer:boolean
+  setErrorConnectServer:React.Dispatch<boolean>
   user: User | null;
+  views:number;
+  setViews:React.Dispatch<number>
+  allUsers:number
+  setAllUsers:React.Dispatch<number>
   setUser:React.Dispatch<User|null>
   inputEmptyError:boolean
   setInputEmptyError:React.Dispatch<boolean>
@@ -60,10 +72,64 @@ const [inputEmptyError,setInputEmptyError]=useState<boolean>(false)
 const [nameStorage,setNameStorage]=useState<boolean>(false)
 const [errorServer,setErrorServer]=useState<string>('')
 const [successServer,setSuccessServer]=useState<string>('')
+const [allUsers,setAllUsers]=useState<number>(0)
+const [views,setViews]=useState<number>(0)
+const [errorConnectServer,setErrorConnectServer]=useState<boolean>(false)
 
+
+useEffect(()=>{
+  const fetchAllNumberUsers=async()=>{
+    const Url='http://localhost:4000/countUsers'
+    try {
+      const response=await axios.post(Url)
+    if (response) {
+      console.log('Conexao com servidor estabelecida');
+      setAllUsers(response.data.number)
+    }
+    } catch (error) {
+    if (error) {
+      console.log('Falhou a conexao');
+      setAllUsers(0)
+    }  
+    }
+  }
+  fetchAllNumberUsers()
+})
+
+useEffect(()=>{
+  
+const fetchViews=async()=>{
+  const URL='http://localhost:4000/views'
+   try {
+  
+   const visited:string|null=localStorage.getItem('Visit')
+    if (!visited) {
+      const response=await axios.post(URL)
+      const data= response.data.count.count
+      setViews(data)
+      console.log('Conectado com sucesso');
+      console.log(response.data);
+      localStorage.setItem('Visit','True')
+    }
+   } catch (error) {
+    if (error) {
+      console.log('Conexao falhou');
+    }
+   }
+}
+fetchViews()
+
+const removeItemInterval=()=>{
+  const getItem=localStorage.getItem('Visit')
+  if (getItem!=='') {
+    localStorage.removeItem('Visit')
+  }
+}
+
+setTimeout(removeItemInterval,10000)
+
+})
 const login=async({name,email, password}:Credentials)=>{
-
-
    try {
      const Base_Url:string='http://localhost:4000/login'
      const response:AxiosResponse=await axios.post<User>(Base_Url,{name,email,password})
@@ -85,10 +151,13 @@ const login=async({name,email, password}:Credentials)=>{
      }
 
 }catch (error:any) {  
+    if (error) {
+      setErrorConnectServer(true)
+    }
     console.log(`Erro ocorrido:  ${error}`);
     console.log( 'Nao foi possivel a conexao')
 
-    const errMsg=error.response.data.message
+    const errMsg=error.response?.data.message
     console.log(`Backend error : ${errMsg}`);
        JSON.stringify(errMsg)
       setErrorServer(errMsg)
@@ -119,7 +188,10 @@ return <Navigate to='/SignIn'/>
 
   return (
     <AuthContext.Provider value={
-      {user,
+      {
+      errorConnectServer,
+      setErrorConnectServer,  
+      user,
       setUser,
       token,
       setToken,
@@ -132,7 +204,11 @@ return <Navigate to='/SignIn'/>
       errorServer,
       setErrorServer,
       successServer,
-      setSuccessServer
+      setSuccessServer,
+      allUsers,
+      setAllUsers,
+      views,
+      setViews
       }} >
         {children}
     </AuthContext.Provider>  

@@ -10,19 +10,15 @@ interface PrivateProps{
 
 
 const PrivateRoute = ({children}:PrivateProps):any => {
-
-
 const token =localStorage.getItem('Token')
 console.log(token);
-
-   
+if(!token){
+  return <Navigate to='/SignIn'/>
+}
     if (token) {
          return children;
        }
-    
-       if(!token){
-         return <Navigate to='/SignIn'/>
-       }
+   
     }
    
 

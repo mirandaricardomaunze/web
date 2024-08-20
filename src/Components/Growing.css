@@ -2,6 +2,7 @@
 padding: 90px;
 height:fit-content;
 background-image: linear-gradient(to right ,rgb(10, 10, 10),rgb(10, 4, 88));
+background-image: url('../Assets/Backgroundimage.jpg');
 }
 
 .container-grow{

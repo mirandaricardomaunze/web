@@ -3,7 +3,8 @@ import './Slide.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleLeft, faAngleRight} from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 
@@ -13,6 +14,11 @@ interface Slides{
 
 
 const Slide = ({slide}:Slides) => {
+  useEffect(()=>{
+    AOS.init({ duration: 1000 });
+  })
+
+
     const[slideCurrent,SetslideCurrent]=useState<number>(0)
     
 const nextSlide=useCallback(()=>{
@@ -40,18 +46,23 @@ const timer=  setInterval(()=>
     <div>
         <div className='container-slide'>
           <div className='container-text-slide'>
-            <h1 className='title'>Serviços de criação de sites</h1>nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
-          <p className='text'>
+            <h1 className='title'
+            data-aos="fade-right" data-aos-anchor-placement="top-bottom"
+            >Serviços de criação de sites</h1>
+          <p className='text'
+           data-aos="fade-left" data-aos-anchor-placement="top-bottom"
+          >
             Bem-vindo à nossa plataforma dedicada à criação de sites que refletem a 
             essência e a visão única do seu negócio. Nossa equipe de especialistas 
             em design e desenvolvimento está pronta para transformar suas ideias 
             em uma presença online cativante e funcional.
         </p>
-        <div className='container-link-main'>
-           <div className='div-link'>
+           <div className='div-link'
+           data-aos="fade-up" data-aos-anchor-placement="top-bottom"
+           >
               <Link to='/Contact' className='link-slide'>Contacta-nos</Link>
            </div>
-        </div>
+       
           </div>
            {slide.map((slides,index)=>(
              <div key={slides.id} className={index===slideCurrent?'active-slide':'slide'}

@@ -3,6 +3,9 @@ display: flex;
 overflow: hidden;
 width: 100%;
 height: 500px;
+background-image: url('../Assets/slide.png');
+background-repeat: no-repeat;
+background-size: cover;
 }
 
 @keyframes animeRight{
@@ -95,19 +98,16 @@ height: fit-content;
 
 .title{
 font-size: 55px;
-color:rgb(104, 106, 231);
+color:rgb(247, 247, 252);
 }
 
 .text{
 font-size: 20px;
-color:rgb(153, 154, 235);
+color:rgb(230, 230, 238);
+z-index: 100;
 }
 
-.container-link-main{
-margin-top: 30px;
-padding: 20px;
-padding-left: 0px;
-}
+
 
 .link-slide{
 background-color:royalblue;
@@ -116,6 +116,8 @@ border-radius: 5px;
 text-decoration: none;
 color: white;
 transition: 0.2s;
+display: block;
+width: fit-content;
 }
 
 .link-slide:hover{

@@ -4,19 +4,26 @@ import './SignIn.css'
 import { useAuthContext } from '../Context/MyContextProvider'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {  faCheck, faUser, faX } from '@fortawesome/free-solid-svg-icons'
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 
 
 const SignIn = () => {
+   useEffect(()=>{
+      AOS.init({ duration: 2000 });
+    })
+
 
 const {
    login,
    setErrorServer,
    errorServer,
    successServer,
-   setSuccessServer
+   setSuccessServer,
+    errorConnectServer,
+    setErrorConnectServer
    }=useAuthContext()
 
 const [showHideModal,setShowHideModal]=useState<boolean>(false)
@@ -37,18 +44,18 @@ useEffect(()=>{
 
 const  errorPassword='A senha deve pelo menos ter 8 caracteres, incluindo letras maisuculas,minusculas e numeros';
 const errorEmail='Email deve ser valido';
-
+const error='Desculpa, houve falha ao conectar com servidor !'
 
 useEffect(()=>{
    const emailRegex:RegExp=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-   if (!emailRegex.test(email) && email.length>0) {
+   if (!emailRegex.test(email) && email?.length>0) {
       setErrorRegexEmail(true)
    }else{
       setErrorRegexEmail(false) 
    }
    
 const passwordRegex:RegExp=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
-   if (!passwordRegex.test(password) && password.length>0) {   
+   if (!passwordRegex.test(password) && password?.length>0) {   
      setErrorRegexPassword(true)
    }else{
       setErrorRegexPassword(false)
@@ -56,21 +63,21 @@ const passwordRegex:RegExp=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
 },[email,password])
 
 const handleEmptyInput=()=>{
-   if (email.length>0 && email) {
+   if (email?.length>0 && email) {
       console.log('esta preechido'); 
       setEmptyInputEmail(false)
    }else{
       console.log('nao preechido');
       setEmptyInputEmail(true)  
    }
-   if (name.length>0) {
+   if (name?.length>0) {
       console.log('esta preechido'); 
       setEmptyInputName(false)
    }else{
       console.log('nao preechido');
       setEmptyInputName(true)  
    }
-   if (password.length>0) {
+   if (password?.length>0) {
       console.log('esta preechido'); 
       setEmptyInputPass(false)
    }else{
@@ -96,6 +103,9 @@ const handleEmptyInput=()=>{
  }
  if (successServer!=='') {
    setSuccessServer('')
+ }
+ if (errorConnectServer===true) {
+   setErrorConnectServer(false)
  }
 }
 
@@ -152,7 +162,9 @@ console.log('Senha:', password);
 
   return (
     <div>
-       <div className='container-btn-modal'>
+       <div className='container-btn-modal' 
+        data-aos="fade-right" data-aos-anchor-placement="top-bottom"
+        >
            <Link className='link-signIn'  onClick={handleModal} to=''>
             <FontAwesomeIcon className='icon-modal'  icon={faUser}/> 
             Clica aqui para entrar
@@ -201,10 +213,13 @@ console.log('Senha:', password);
                      <p>  Aceita nossos termos</p>
                   </div>  
                      <p className='success-login'>{successServer} 
-                       {successServer.length>0 && <FontAwesomeIcon className='icon-success'  icon={faCheck}/>}
+                       {successServer?.length>0 && <FontAwesomeIcon className='icon-success'  icon={faCheck}/>}
                      </p>
                      <p className='erro'>{errorServer}
-                        {errorServer.length>0 && <FontAwesomeIcon className='icon-success' icon={faX}/>}
+                        {errorServer?.length>0 && <FontAwesomeIcon className='icon-success' icon={faX}/>}
+                     </p>
+                     <p className='erro'>
+                       {errorConnectServer && error}
                      </p>
                   <div>
                      <button type='submit'  className='btn'  >Enviar</button>

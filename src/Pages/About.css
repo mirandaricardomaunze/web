@@ -1,6 +1,11 @@
 .container-main-about{
 margin-top: 100px;
 }
+
+.contairner-first-text{
+padding-bottom: 50px;
+}
+
 .cont-text-about{
 width: 900px;
 padding: 20px;
@@ -35,6 +40,9 @@ transform:  scale( 1.04);
 
 .container-grid-about-second-main{
 padding: 50px;
+background-image: url('../Assets/Backgroundimage.jpg');
+background-repeat: no-repeat;
+background-size: cover;
 }
 .container-grid-about-second{
 display: grid;
@@ -103,20 +111,25 @@ transition: 0.5s ease;
 }
 
 .link-about{
+display: block;
 padding: 20px;
 color: white;
 background-color: royalblue;
 border-radius: 5px;
 text-decoration: none;
 transition: 0.6s ease;
+margin-top: 20px;
+width: fit-content;
 }
+
 .link-about:hover{
 color: white;
 background-color: rgb(8, 59, 214);
 }
 .cont-link-join{
-margin-top: 30px;
+
 }
+
 @media screen and (max-width:1150px) {
 .container-grid-about-second{
 display: grid;

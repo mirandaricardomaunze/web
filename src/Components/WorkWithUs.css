@@ -1,6 +1,9 @@
 .container-main-work{
 background-image: linear-gradient(to right ,rgb(10, 10, 10),rgb(10, 4, 88));
 width: 100%;
+background-image: url('../Assets/work.png');
+background-repeat: no-repeat;
+background-size: cover;
 }
 
 .container-work{
@@ -28,16 +31,23 @@ justify-content: center;
 align-items: center;
 }
 
+.circle-work{
+width: 400px;
+height: 400px;
+border-radius: 50%;
+}
+
 .image-work{
 width: 410px;
 height: 410px;
 border-radius: 10px;
 z-index: 1;
-background-color:royalblue;
-border-radius: 360px;
+background-color:rgb(33, 6, 184);
+border-radius: 50%;
+border: 2px solid white;
 }
 .span-title{
-color: blueviolet;
+color: rgb(7, 30, 240);
 }
 .icon{
 font-size: 60px;
@@ -45,23 +55,23 @@ text-align: center;
 color: white;
 }
 .icon-text-work{
-background-color: white;
+background-color: rgb(47, 44, 197);
 padding: 2px 5px 2px 5px;
 font-size: 16px;
 border-radius: 5px;
 margin-right: 5px;
-color: blueviolet;
+color: rgb(236, 233, 238);
 }
 .in-work{
 padding: 23px;
 }
 .title-work{
-color: rgb(153, 154, 235);
+color: white;
 font-size: 50px;
 }
 .text-work{
 font-size: 20px;
-color: rgb(153, 154, 235);
+color:white;
 margin-top: 5px;
 }
 
@@ -71,7 +81,7 @@ padding-top:20px;
 margin-bottom: 30px;
 }
 .link-work{
-background-color: royalblue;
+background-color: rgb(39, 83, 214);
 padding: 20px;
 border-radius: 5px;
 text-decoration: none;
@@ -100,7 +110,7 @@ margin-bottom: 20px;
 padding: 10px;
 }
 .image-work{
-width:auto;
+width:320px;
 height: 320px;
 padding: 10px;
 margin-top: 0px;
@@ -137,6 +147,8 @@ margin:0 auto;
 width: auto;
 }
 .image-work{
-width: auto;}
+width:320px;
+height: 320px;
+}
 }
 

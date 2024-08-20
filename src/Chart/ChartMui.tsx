@@ -1,9 +1,12 @@
 
 import './Chart.css'
-import {  LineChart } from '@mui/x-charts'
+import {  PieChart } from '@mui/x-charts'
 import React from 'react'
+import { useAuthContext } from '../Components/Context/MyContextProvider'
 
 const ChartMui = () => {
+const {views,allUsers}=useAuthContext()
+
 const date=new Date()
 const month:number=date.getMonth()
 
@@ -25,18 +28,21 @@ console.log(months[month]);
 const nowMonth=months[month]
 console.log(nowMonth);
 
-const dataClientes=[1,2,4,5,8,2,8,11]
-const dataProjects=[2,4,6,9,4,7,9,10]
   return (
-    <div className='chart'>
-      <LineChart 
+    <div >
+      
+    <PieChart
       series={[
-        { data: [...dataClientes], stack: 'A', label: 'Clientes' },
-        { data: [...dataProjects], stack: 'B', label: 'Servicos concluidos' },
-      ]}
-      xAxis={[{scaleType:'band',data:months}]}
-      width={472}
-      height={400}
+        {
+          data: [
+            { id: 0, value:views, label: 'Visitas' },
+            { id: 1, value:allUsers, label: 'Usuarios'},
+          ],
+        },
+      ]
+    } 
+      width={400}
+      height={200}
     />   
     </div>
   )

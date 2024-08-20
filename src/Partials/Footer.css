@@ -1,6 +1,6 @@
 .main-container-footer{
 padding: 30px 0 0 0px;
-background-image: linear-gradient(to right ,rgb(10, 10, 10),rgb(10, 4, 88));
+background-image: linear-gradient(to right ,rgb(10, 10, 10),rgb(7, 3, 68));
 box-sizing: border-box;
 }
 .container-footer{
@@ -49,7 +49,6 @@ transition: 0.8s ease-out;
 }
 
 .p-allright{
-background-image: linear-gradient(to right ,rgb(10, 10, 10),rgb(10, 4, 88));
 padding: 20px;
 text-align: center;
 color: antiquewhite;

@@ -1,0 +1,105 @@
+.main-container-pricing{
+background-image: url(../Assets/Azul-escuro.jpg);
+background-size: cover;
+background-repeat: no-repeat;
+padding-top: 50px;
+padding-bottom: 50px;
+text-align: center;
+box-sizing: border-box;
+}
+.title-price{
+color: rgb(232, 228, 238);
+text-align: center;
+padding-bottom: 50px;
+font-size: 50px;
+}
+.container-price{
+display: grid;
+grid-template-columns: repeat(3,1fr);
+gap: 10px;
+margin:0 auto;
+width: fit-content;
+border-radius: 50px;
+transition: 2s;
+}
+
+.icon-price{
+background-color: rgb(235, 236, 240);
+padding: 2px;
+margin-right: 5px;
+border-radius: 2px;
+color: rgb(65, 8, 156);
+}
+.h1{
+padding: 10px;
+font-weight: bold;
+}
+
+.container-price div:nth-child(2){
+background-color: rgb(65, 8, 156);
+height: 486px;
+color: white;
+margin-top: -43px;
+}
+.card-price{
+color: rgb(243, 245, 247);
+border-radius: 10px;
+padding: 20px;
+border: 1px solid white;
+height:400px;
+width: 300px;
+background-color: rgb(65, 8, 156);
+}
+.card-price:hover{
+background-image: linear-gradient(to right ,rgb(10, 10, 10),rgb(10, 4, 88));    
+}
+
+.link-price-div{
+margin-top: 10px;
+}
+
+.link-price{
+margin-top: 10px;
+background-color: rgb(241, 238, 238);
+padding: 15px;
+border-radius: 5px;
+text-decoration: none;
+color: rgb(120, 55, 224);
+transition: 1s;
+margin-top: 20px;
+}
+
+.link-price:hover{
+background-color:royalblue;
+color: white;
+
+}
+
+.text{
+padding-bottom: 20px;
+}
+.datails{
+text-align: left;
+}
+
+@media only screen and (max-width:1150px) {
+.container-price{
+display:grid;
+grid-template-columns: repeat(2,1fr);
+
+} 
+
+}
+
+@media only screen and (max-width:800px) {
+.container-price{
+display:grid;
+grid-template-columns: repeat(1,1fr);
+ } 
+.card-price{
+margin:0 auto;
+}
+.container-price div:nth-child(2){
+margin-top: 5px;
+}
+}

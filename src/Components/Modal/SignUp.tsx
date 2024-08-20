@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import axios, { AxiosResponse } from 'axios'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {  faUserPlus } from '@fortawesome/free-solid-svg-icons'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 interface User{
@@ -14,6 +16,9 @@ interface User{
 
 
 const SignUp = ():React.JSX.Element => {
+   useEffect(()=>{
+      AOS.init({ duration: 2000 });
+    })
 
 
 const [name,setName]=useState<string>('')
@@ -28,6 +33,7 @@ const [erroMsg,setErroMsg]=useState<boolean>(false)
 const [erroMsgPass,setErroMsgPass]=useState<boolean>(false)
 const [errorServer,setErrorServer]=useState<string>('')
 const [successServer,setSuccessServer]=useState<string>('')
+const [errorConnectServer,setErrorConnectServer]=useState(false)
 
 
 useEffect(()=>{ 
@@ -36,6 +42,7 @@ useEffect(()=>{
 
 const  errorPassword='A senha deve pelo menos ter 8 caracteres, incluindo letras maisuculas,minusculas e numeros';
 const errorEmail='Email deve ser valido';
+const errorRequest='Desculpa, houve falha ao conectar com servidor !'
 
 useEffect(()=>{
    const emailRegex:RegExp=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -104,6 +111,9 @@ const clearMsgError=()=>{
  if (successServer !=='') {
    setSuccessServer('')
  }
+ if (errorConnectServer===true) {
+   setErrorConnectServer(false)
+ }
 }
 
 useEffect(()=>{
@@ -117,21 +127,23 @@ const baseUrl:string='http://localhost:4000/register'
  try {
    const response:AxiosResponse = await axios.post<User>(baseUrl,{name,email,password})
 if (response) {
-   const resJsonSuccess=response.data.message;
+   const resJsonSuccess=response?.data.message;
    console.log(`Success: ${resJsonSuccess}`);
    JSON.stringify(resJsonSuccess)
    setSuccessServer(resJsonSuccess)
- 
    setEerror(false) 
  }
 
  } catch (error:any) {
-   const resJson=error.response.data.message;
+   if (error) {
+      setErrorConnectServer(true)
+   }
+   const resJson=error.response?.data.message;
     console.log(`Sever error: ${resJson}`);
     JSON.stringify(resJson)
     setErrorServer(resJson)
   console.log(`Ocorreu erro durante o cadastro: ${error}`);
- if(email.length>0 && password.length>0 && name.length>0){
+ if(email?.length>0 && password?.length>0 && name?.length>0){
    setEerror(true)
  }else{
    setEerror(false)
@@ -171,8 +183,10 @@ const handleChangePassword=(e:React.ChangeEvent<HTMLInputElement>)=>{
 }
  
   return (
-    <div>  
-       <div className='containair-btn-modal'>
+    <div className='container-signup'>  
+       <div className='container-btn-modal'
+        data-aos="fade-right" data-aos-anchor-placement="top-bottom"
+       >
          <Link className='link-sign'  onClick={handleModal} to=''>
             <FontAwesomeIcon className='icon-modal' icon={faUserPlus}/>
             Clique aqui para registar-se
@@ -223,8 +237,11 @@ const handleChangePassword=(e:React.ChangeEvent<HTMLInputElement>)=>{
                      <p>  Aceita nossos termos</p>
                   </div>           
                        <p className='success'>{successServer}</p>
-                       <p className={errorServer.length>0? 'erro':''}>{errorServer}</p>
-                  <div>
+                       <p className={errorServer?.length>0? 'erro':''}>{errorServer}</p>
+                       <p className='erro'>
+                       {errorConnectServer && errorRequest}
+                     </p>
+                  <div className='cont-btn-form'>
                      <button className='btn' type='submit' >Enviar</button>
                   </div>
                   <div className='text-regist'>

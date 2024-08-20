@@ -1,5 +1,8 @@
 .container-contact-main{
-margin-top: 100px;
+margin-top: 50px;
+background-image: url(../Assets/Backgroundimage.jpg);
+background-repeat: no-repeat;
+object-fit: cover;
 }
 
 .container-contact{
@@ -15,31 +18,30 @@ background-size: 300px;
 background-repeat: no-repeat;
 background-position-y: 230px;
 }
-.container-contact-bg{
-background-image: linear-gradient(to right ,rgb(10, 10, 10),rgb(10, 4, 88));
-}
+
 
 .label{
 margin-top: 10px;
 margin-bottom: 6px;
 }
-    
+.form-contact div:nth-child(6){
+margin-bottom: 0px;
+}  
+
 .input-contact{
 border: none;
 outline: none;
-background-color: aliceblue;
 padding: 15px;
 font-size: 15px;
 border-radius: 5px;
 transition: 0.7s ease;
 width: 92%;
-background-image: linear-gradient(to right ,rgb(10, 10, 10),rgb(52, 44, 161));
-color: rgb(153, 154, 235);
+margin-bottom:5px;
 }
     
 .input-contact:focus{
-box-shadow:0px 0px 0px 3px rgb(136, 130, 192);
-
+box-shadow:0px 0px 0px 3px rgb(68, 53, 207);
+background-color: white;
 }
     
 .btn{
@@ -48,13 +50,15 @@ color: white;
 padding: 15px;
 border-radius: 5px;
 border: none;
-margin-top: 10px;
 font-size: 17px;
 }
 .btn:focus{
 box-shadow:0px 0px 0px 2px royalblue;
 }
-    
+
+.cont-btn-contact{
+margin-top: -20px;
+}   
 .btn:hover{
 background-color: rgb(22, 71, 218);
 }
@@ -74,6 +78,7 @@ text-align: left;
 }
 .text-contact{
 color: rgb(153, 154, 235);
+margin: 0 auto;
 }
 
 .text-contact-text{
@@ -110,11 +115,14 @@ margin-top: 20px;
 box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
 background-image: linear-gradient(to right ,rgb(10, 10, 10),rgb(10, 4, 88));
 }
+ 
 .textarea{
 resize: none;
 font-family:  serif;
 scroll-behavior: none;
+background-color: white;
 }
+
 #subject{
 background-color: aliceblue;
 }
@@ -185,21 +193,22 @@ padding: 0px 0 40px 0;
 }
 .contact{
 width: auto;
-padding: 10px;
+padding: 0px;
 margin:0 auto;
 }
 .container-contact-text{
 width: auto;
-
 }
 .container-form-contact{
 padding: 0px;
 margin:0 auto;
 }
 .form-contact{
-padding: 20px;
-width: 340px;
+padding:15px;
+width:fit-content;
 margin:0 auto;
+border:1px solid white;
+margin-top: -50px;
 }
 .input-contact{
 width: 310px;;
@@ -209,5 +218,22 @@ padding: 10px;
 }
 .visit-contact{
 width: 320px;
+}
+.visit-contact{
+padding: 5%;
+box-sizing: border-box;
+}
+.input-contact{
+width: 280px;
+}
+.title-cont{
+text-align: center;
+}
+#text-contact{
+padding: 15px;
+text-align: center;
+}
+.cont-text-form{
+padding-bottom: 150px;
 }
 }

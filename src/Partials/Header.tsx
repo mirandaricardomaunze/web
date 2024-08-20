@@ -14,6 +14,7 @@ import { faClose, faNavicon, faSignOut } from '@fortawesome/free-solid-svg-icons
 import PrivateRoute from '../Components/Private/PrivateRoute'
 import ResetPassword from '../Components/ResetPassword'
 import NewPassword from '../Components/NewPassword'
+import Dashboard from '../Components/Dashboard/Dashboard'
 
 
 
@@ -43,8 +44,6 @@ checkNameUserLoged()
 const handleShowMenu=()=>{
 setTogle(!togle)
 }
-
-
   return (
     <div className='container-nav'>
        <div className='container-brand' >
@@ -56,28 +55,31 @@ setTogle(!togle)
             <FontAwesomeIcon className='icon-toggle' icon={faClose}/>}
           </button>
        </div>
-        {togle && <nav className='nav-bar' >
+        <nav className='nav-bar'>
+          {togle &&  <div className={`${{togle}?'':'animate'} nav-bar`} id='nav'> 
             <NavLink  className='nav-link'  to='/' >Inicio</NavLink>
             <NavLink className='nav-link' to='/Services'>Serviços</NavLink>
             <NavLink className='nav-link' to='/Contact'>Contato</NavLink>
             <NavLink className='nav-link' to='/About'>Sobre</NavLink>
             <NavLink className='nav-link' to='/SignUp'>Registro</NavLink> 
+            <NavLink className='nav-link' to='/Dashboard'>Painel</NavLink>
            {token? <Link to='/SignIn' className='link-logout' onClick={logout} >Sair <FontAwesomeIcon icon={faSignOut} /></Link>:
            <NavLink  className='nav-link' to='/SignIn'>Entrar</NavLink>}
            {nameStorage && <Link to='' className='user-icon' title={user}>{user} </Link>}
-                    
+           </div>         }
          <Routes>
             <Route path='/'  Component={Home} />
             <Route path='/Services' Component={Services}/>
-            <Route path='/Contact'element={<PrivateRoute> <Contact/> </PrivateRoute>}/>
+            <Route path='/Contact'element={ <Contact/> }/>
             <Route path='/About' Component={About}/>
             <Route path='/*'Component={NotFound}/>
             <Route path='/SignUp'Component={SignUp}/>
             <Route path='/SignIn'Component={SignIn}/>
+            <Route path='/Dashboard' element={<PrivateRoute><Dashboard/></PrivateRoute>}/>
             <Route path='/ResetPassword'Component={ResetPassword}/>
             <Route path='/NewPassword'Component={NewPassword}/>
          </Routes> 
-    </nav>}
+    </nav>
     </div>
   )
 }

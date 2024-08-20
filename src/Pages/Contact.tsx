@@ -3,6 +3,9 @@ import './Contact.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {  faCheck, faEnvelope, faMobile } from '@fortawesome/free-solid-svg-icons'
 import axios, { AxiosResponse } from 'axios'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 
 interface Client{
   name:string
@@ -13,6 +16,12 @@ interface Client{
 
 
 const Contact = () => {
+  useEffect(()=>{
+    AOS.init({ duration: 1000 });
+  })
+
+
+
 const[name,setName]=useState<string>('')
 const[email,setEmail]=useState<string>('')
 const [subject,setSubject]=useState<string>('')
@@ -107,17 +116,17 @@ const handleSendingSubject=async()=>{
   const BASE_URL:string='http://localhost:4000/subject'
   const response:AxiosResponse<Client>=await axios.post<Client>(BASE_URL,{name,email,subject})
   if (response) {
-     const server=response.data.message
+     const server=response?.data.message
      JSON.stringify(server)
      setServerSuccess(server)
      
-    if (email.length>0 && name.length>0 && setSubject.length>0) {
+    if (email?.length>0 && name?.length>0 && setSubject?.length>0) {
       setEerror('')
     }
     console.log('Mensagem enviada com sucesso'); 
   }
  } catch (error:any) {
-  const errorServer=error.response.data.message
+  const errorServer=error.response?.data.message
   JSON.stringify(errorServer)
   setEerror(errorServer)
   console.log(`Ocorreu falha na conexao com servidor: ${error}`);
@@ -137,9 +146,13 @@ const handleSubmit=async(e:React.FormEvent<HTMLFormElement>)=>{
   return (
     <div className='container-contact-main'>
           <div className='container-contact-text'>
-            <h1 className='title-contact'>Entre em Contato Conosco</h1>
+            <h1 className='title-contact'
+              data-aos="fade-up" data-aos-anchor-placement="top-bottom"
+            >Entre em Contato Conosco</h1>
             <div className='text-contact-text'>
-              <p className=''>
+              <p className=''
+                data-aos="fade-up" data-aos-anchor-placement="top-bottom"
+              >
                 Estamos aqui para ajudar você a transformar suas ideias em realidade.
                 Se você tem alguma pergunta, precisa de mais informações ou deseja discutir 
                 um projeto, entre em contato conosco. Nossa equipe está pronta para oferecer
@@ -151,12 +164,22 @@ const handleSubmit=async(e:React.FormEvent<HTMLFormElement>)=>{
           <div className='container-contact'>
          <div className='contact'>
           <div className='cont-text-form'>
-             <h2 className='title-cont'>Formulario de contato</h2>
-             <p className='text-contact'>Para sua conveniência, preencha o formulário abaixo e entraremos em contato com você em breve:</p>
+             <h2 className='title-cont'
+               data-aos="fade-up" data-aos-anchor-placement="top-bottom"
+             >Formulario de contato</h2>
+             <p className='text-contact'
+               data-aos="fade-up" data-aos-anchor-placement="top-bottom"
+             >Para sua conveniência, preencha o formulário abaixo e entraremos em contato com você em breve:</p>
           </div>
-             <div className='form-contact'>
-                <h1 className='title-cont'>Contacta-nos </h1>
-                <form action=""  onSubmit={handleSubmit}>
+             <div className='form-contact'
+              data-aos="fade-up" data-aos-anchor-placement="top-bottom"
+             >
+                <h1 className='title-cont'
+                  data-aos="fade-up" data-aos-anchor-placement="top-bottom"
+                >Contacta-nos </h1>
+                <form action="" onSubmit={handleSubmit}
+                 data-aos="fade-up" data-aos-anchor-placement="top-bottom"
+                >
                    <div>
                      <label htmlFor="name" className='text-contact'>Nome:</label>
                    </div>
@@ -187,29 +210,56 @@ const handleSubmit=async(e:React.FormEvent<HTMLFormElement>)=>{
                    </div>
                      <p className='erro'>{erro}</p>
                      <p className='success-msg' >{serverSuccess}
-                       {serverSuccess.length>0 && <FontAwesomeIcon className='icon-check' icon={faCheck}/>}
+                       {serverSuccess?.length>0 && <FontAwesomeIcon className='icon-check' icon={faCheck}/>}
                      </p>
-                    <div>
-                       <button className='btn'>Enviar</button>
+                    <div className='cont-btn-contact'>
+                       <button className='btn'
+                       data-aos="fade-up" data-aos-anchor-placement="top-bottom"
+                       >
+                         Enviar
+                       </button>
                     </div>
                 </form>
              </div>
           </div>
-          <div className='contact'>
-            <h2 className='title-cont'>Informações de Contato</h2>
-            <p className='text-contact '><FontAwesomeIcon icon={faMobile}/><b> Telefone:</b>  847750120</p>
-            <p className='text-contact'><FontAwesomeIcon icon={faEnvelope}/><b>  Email:</b>  mirandamaunze@122gmail.com</p>
+          <div className='contact' 
+            data-aos="fade-up" data-aos-anchor-placement="top-bottom"
+          >
+            <h2 className='title-cont'
+             data-aos="fade-up" data-aos-anchor-placement="top-bottom"
+            >
+              Informações de Contato
+            </h2>
+            <p className='text-contact ' id='text-contact'>
+              <FontAwesomeIcon icon={faMobile}/>
+              <b> Telefone:</b>  847750120</p>
+            <p className='text-contact' id='text-contact'>
+              <FontAwesomeIcon icon={faEnvelope}/>
+              <b>  Email:</b>  mirandamaunze@122gmail.com
+            </p>
           </div>
           </div>
           </div>
-      <div className='container-visit-contact'>  
-       <div className='visit-contact'>
-          <h2 className='title-visit'>Visite-nos</h2>
-          <p className='text-contact'>Se preferir um contato pessoal, sinta-se à vontade para nos visitar em nosso escritório.
+      <div className='container-visit-contact'
+       data-aos="fade-up" data-aos-anchor-placement="top-bottom"
+      >  
+       <div className='visit-contact'
+        data-aos="fade-up" data-aos-anchor-placement="top-bottom"
+       >
+          <h2 className='title-visit'
+            data-aos="fade-up" data-aos-anchor-placement="top-bottom"
+          >Visite-nos</h2>
+          <p className='text-contact'
+             data-aos="fade-up" data-aos-anchor-placement="top-bottom"
+          >
+            Se preferir um contato pessoal, sinta-se à vontade para nos visitar em nosso escritório.
             Estamos ansiosos para conhecê-lo e discutir 
             como podemos ajudar a impulsionar sua presença online
           </p>
-          <p className='text-contact'>Não hesite em nos contatar. Estamos aqui para ajudar você a alcançar seus objetivos online.</p>
+          <p className='text-contact'
+            data-aos="fade-up" data-aos-anchor-placement="top-bottom"
+          >
+            Não hesite em nos contatar. Estamos aqui para ajudar você a alcançar seus objetivos online.</p>
         </div>
         </div>
     </div>

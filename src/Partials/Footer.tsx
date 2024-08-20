@@ -1,12 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Footer.css'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebookSquare, faInstagramSquare, faYoutubeSquare } from '@fortawesome/free-brands-svg-icons'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 
 const Footer = () => {
+   useEffect(()=>{
+      AOS.init({ duration: 2000 });
+    })
+  
+
+
   const date=new Date()
   const newYear=date.getFullYear();
   const month:number=date.getMonth()
@@ -30,8 +38,6 @@ const Footer = () => {
 
   return (
     <div className='main-container-footer'>
-       
-         <hr />
        <div className='container-footer'>
           <div className='footer'>
               <h2 className='footer-title'>Links uteis</h2>
@@ -52,19 +58,25 @@ const Footer = () => {
           <div className='footer'>
               <h2 className='footer-title ' >Siga-nos</h2>
               <div className='container-midia text-footer' id='footer-follow'>
-                 <div className='midia'>
+                 <div className='midia'
+                 data-aos="fade-right" data-aos-anchor-placement="top-bottom"
+                 >
                     <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
                        <FontAwesomeIcon className='midia-facebook'  icon={faFacebookSquare}/> 
                     </a>
                  </div>
-                 <div className='midia'>
+                 <div className='midia'
+                 data-aos="fade-up" data-aos-anchor-placement="top-bottom"
+                 >
                     <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
                       <FontAwesomeIcon className='midia-instagram' icon={faInstagramSquare}/>
                     </a>
                  </div>
-                 <div className='midia'>
+                 <div className='midia'
+                  data-aos="fade-left" data-aos-anchor-placement="top-bottom"
+                 >
                     <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon className='midia-youtube'  icon={faYoutubeSquare}/>
+                    <FontAwesomeIcon className='midia-youtube' icon={faYoutubeSquare}/>
                     </a>
                  </div>
               </div>
