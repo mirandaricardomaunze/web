@@ -53,7 +53,7 @@ const handleFaqForth=()=>{
               </div>
                 <hr className='hr' />
               {textShow?
-                <p className='text-faq'> 
+                <p className={`text-faq ${textShow?'open':''}`}> 
                    Sim, você pode atualizar e modificar seu site sempre que necessário.
                    Oferecemos serviços de manutenção e suporte contínuo para garantir que
                    seu site esteja sempre atualizado e funcionando corretamente. Se precisar
@@ -70,7 +70,7 @@ const handleFaqForth=()=>{
               </div>
                  <hr  className='hr'/>
               {textShowSecond?
-              <p className='text-faq'>
+              <p className={`text-faq ${textShow?'open':''}`}>
                  Os custos de criar um site dependem de vários fatores, como o tamanho do site,
                  recursos adicionais (como loja virtual ou blog), design personalizado, entre outros. 
                  Oferecemos pacotes personalizados para atender às necessidades e orçamento de cada cliente.
@@ -87,7 +87,7 @@ const handleFaqForth=()=>{
               </div>
                  <hr  className='hr'/>
               {textShowthirt?
-              <p className='text-faq' >
+              <p className={`text-faq ${textShow?'open':''}`} >
                   Sim, todos os sites que criamos são otimizados para mecanismos de busca (SEO). 
                   Isso significa que seu site terá uma boa chance de aparecer nos resultados de 
                   pesquisa do Google e outros mecanismos de busca,
@@ -106,7 +106,7 @@ const handleFaqForth=()=>{
               </div>
                  <hr  className='hr'/>
               {textShowforth?
-              <p className='text-faq' >
+              <p className={`text-faq ${textShow?'open':''}`}>
                   Sim, oferecemos serviços de hospedagem para seu site. Nossa equipe pode ajudá-lo 
                   a escolher o plano de hospedagem mais adequado às suas necessidades e garantir 
                   que seu site esteja sempre disponível e seguro.

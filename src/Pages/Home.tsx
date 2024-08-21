@@ -43,7 +43,7 @@ text:'Sou muito grato a vossa empresa, o meu site ficou incrivel',nome:'Jhon Mil
 {id:2, image:client2,
 text:'Apenas a vossa empresa, conseguiu transformar ideias em site incrivel',nome:'Elton Milton',rev:4.8},
 {id:3, image:client3,
-text:'Foi exatamente o que eu queria, o meu site ficou incrivel',nome:'Leonel  Mackdown',rev:4.9},
+text:'Foi exatamente o que eu queria, o meu site ficou incrivel',nome:'Leonel  Mackdown',rev:5},
 ]
 
 

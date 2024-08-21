@@ -63,8 +63,13 @@ useEffect(()=>{
                       {comment.text} <FontAwesomeIcon className='quote-right' icon={faQuoteRight}/></p>
                       <h4 className='name-com'>- {comment.nome}</h4>
                       <p className='star'>
-                         <span>{comment.rev}</span>
                         <FontAwesomeIcon icon={faStar}/>
+                        <FontAwesomeIcon icon={faStar}/>
+                        <FontAwesomeIcon icon={faStar}/>
+                        <FontAwesomeIcon icon={faStar}/>
+                        <FontAwesomeIcon className={comment.rev<5?'star-icon':''} icon={faStar}/>
+                        <span> - </span>
+                        <span>{comment.rev}</span>
                       </p>
                   </div>
                 </div>

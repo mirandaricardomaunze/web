@@ -22,7 +22,7 @@ const Pricing = () => {
          data-aos="fade-right" data-aos-anchor-placement="top-bottom"
         >
             <p>Site Basico</p>
-            <h1 className='h1'>15.000,00 MT</h1>
+            <h1 className='h1'>$200</h1>
             <h1 className='h1'>Detalhes:</h1>
            <div className='datails'>
             <p className='text'>
@@ -54,7 +54,7 @@ const Pricing = () => {
          data-aos="fade-up" data-aos-anchor-placement="top-bottom"
         >
         <p>Site Premium</p>
-            <h1 className='h1'>40.000,00 MT</h1>
+            <h1 className='h1'>$400</h1>
             <h1 className='h1'>Detalhes:</h1>
            <div className='datails'>
             <p className='text'>
@@ -90,7 +90,7 @@ const Pricing = () => {
          data-aos="fade-left" data-aos-anchor-placement="top-bottom"
         >
         <p>Site Avancado</p>
-            <h1 className='h1'>20.000,00 MT</h1>
+            <h1 className='h1'>$250</h1>
             <h1 className='h1'>Detalhes:</h1>
            <div className='datails'>
             <p className='text'>

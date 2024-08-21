@@ -29,7 +29,7 @@ const [erro,setEerror]=useState<string>('')
 const [serverSuccess,setServerSuccess]=useState<string>('')
 const [emptyInput,setEmptyInput]=useState<boolean>(false)
 const [errorRegexEmail,setErrorRegexEmail]=useState<boolean>(false)
-
+const [errorServerConnect,SetErrorServerConnect]=useState<boolean>(false)
 
 
 useEffect(()=>{ 
@@ -47,6 +47,9 @@ const handleTimeout=()=>{
   if (serverSuccess!=='') {
      setServerSuccess('')
   }
+  if (errorServerConnect===true) {
+    SetErrorServerConnect(false)
+  }
 }
 
 useEffect(()=>{
@@ -55,7 +58,7 @@ useEffect(()=>{
     handleTimeout, timeout);
 })
 
-
+const errorConnect='Desculpa, ocorreu problema com servidor';
 const errorEmail='Deve ser email valido'
 useEffect(()=>{
   const emailRegex:RegExp=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -88,6 +91,7 @@ const inputEmpty=()=>{
      console.log('nao preechido');
      setEmptyInput(true)  
   }
+
 }
 
 
@@ -119,7 +123,6 @@ const handleSendingSubject=async()=>{
      const server=response?.data.message
      JSON.stringify(server)
      setServerSuccess(server)
-     
     if (email?.length>0 && name?.length>0 && setSubject?.length>0) {
       setEerror('')
     }
@@ -130,6 +133,7 @@ const handleSendingSubject=async()=>{
   JSON.stringify(errorServer)
   setEerror(errorServer)
   console.log(`Ocorreu falha na conexao com servidor: ${error}`);
+  SetErrorServerConnect(true)
  }
 }
 
@@ -211,6 +215,9 @@ const handleSubmit=async(e:React.FormEvent<HTMLFormElement>)=>{
                      <p className='erro'>{erro}</p>
                      <p className='success-msg' >{serverSuccess}
                        {serverSuccess?.length>0 && <FontAwesomeIcon className='icon-check' icon={faCheck}/>}
+                     </p>
+                     <p className='erro'>
+                       {errorServerConnect&& errorConnect}
                      </p>
                     <div className='cont-btn-contact'>
                        <button className='btn'

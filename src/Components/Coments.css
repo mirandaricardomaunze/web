@@ -140,6 +140,9 @@ color: royalblue;
 .star{
 color: rgb(167, 170, 6);
 }
+.star-icon{
+color: white;
+}
 
 @media only screen and (max-width:800px) {
 .container-comment-in{

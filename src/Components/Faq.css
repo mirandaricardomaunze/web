@@ -1,7 +1,10 @@
 
 .container-faq{
 padding: 90px;
-background-image: url('../Assets/footer.png');
+background-image: url('../Assets/back.png');
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
 }
 
 .faq{
@@ -45,16 +48,23 @@ font-weight: lighter;
 background-color: #f9f9f9;
 padding: 10px;
 }
-.text-faq{
-background-image: linear-gradient(to right ,rgb(10, 10, 10),rgb(10, 4, 88));
-padding: 20px;
-font-size: 16px;
-color: rgb(153, 154, 235);
-border-radius: 10px;
-transition: 0.9s ease;
-transition-delay: 5s;
+
+.text-faq {
+  background-image: linear-gradient(to right, rgb(10, 10, 10), rgb(10, 4, 88));
+  padding: 20px;
+  color: rgb(153, 154, 235);
+  border-radius: 10px;
+  border: #f9f9f9 solid 1px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 10s ease-out, padding 3s ease-out;
+  
 }
 
+.text-faq.open {
+  max-height: 200px; /* Ajuste conforme necessário */
+  padding: 20px; /* Mantém o padding ao abrir */
+}
 .title-faq{
 font-size: 50px;
 color:rgb(153, 154, 235);
