@@ -206,10 +206,12 @@ const handleChangePassword=(e:React.ChangeEvent<HTMLInputElement>)=>{
                     <label  htmlFor="name">Nome:</label>
                  </div>
                  <div>
-                    <input className='input' type="text" value={name} name='name'
+                    <input className='input' type="text"
+                     value={name} name='name'
                      onChange={handleChangeName}
+                     required
                      placeholder='Degite o seu nome'/>
-                     {emptyInputName?<p  className='erro'>Preencha os espacos vazios</p>:null}
+                     {emptyInputName?<span className='erro'>Preencha os espaços vazios</span>:null}
                     
                  </div>
                  <div className='label'>
@@ -218,9 +220,10 @@ const handleChangePassword=(e:React.ChangeEvent<HTMLInputElement>)=>{
                  <div>
                     <input className='input' type="email" value={email} name='email'
                      onChange={handleChangeEmail}
+                     required
                      placeholder='Degite o seu email'/>
-                     {emptyInputEmail?<p  className='erro'>Preencha os espacos vazios</p>:null}
-                     {erroMsg? <p className='erro'>{errorEmail}</p>:null}
+                     {emptyInputEmail?<span  className='erro'>Preencha os espaços vazios</span>:null}
+                     {erroMsg? <span className='erro'>{errorEmail}</span>:null}
                  </div>
                  <div className='label'>
                     <label htmlFor="password">Senha:</label>
@@ -228,24 +231,26 @@ const handleChangePassword=(e:React.ChangeEvent<HTMLInputElement>)=>{
                  <div>
                     <input className='input' type="password" value={password} name='password'
                      onChange={handleChangePassword} 
+                     required
                       placeholder='Degite a sua senha'/>
-                     {emptyInputPassword?<p  className='erro'>Preencha os espacos vazios</p>:null}
-                     { erroMsgPass?<p className='erro-pass'> {errorPassword}</p>:null}
+                     {emptyInputPassword?<span className='erro'>Preencha os espaços vazios</span>:null}
+                     { erroMsgPass?<span className='erro-pass'> {errorPassword}</span>:null}
+                     <br />
+                      <span className='success'>{successServer}</span>
+                      <span className={errorServer?.length>0? 'erro':''}>{errorServer}</span> 
+                      <span className='erro'>
+                      {errorConnectServer && errorRequest}
+                      </span>
                  </div>
                  <div className='container-checkbox'>
                      <input type="checkbox"  className='input-checkbox' required/>
                      <p>  Aceita nossos termos</p>
                   </div>           
-                       <p className='success'>{successServer}</p>
-                       <p className={errorServer?.length>0? 'erro':''}>{errorServer}</p>
-                       <p className='erro'>
-                       {errorConnectServer && errorRequest}
-                     </p>
                   <div className='cont-btn-form'>
                      <button className='btn' type='submit' >Enviar</button>
                   </div>
                   <div className='text-regist'>
-                     <p className='redirect-link'>Ja tem conta ? </p> 
+                     <p className='redirect-link'>Já tem conta ? </p> 
                      <Link className='link-redirect' to='/SignIn'>Entrar</Link>
                   </div>
                 </div>

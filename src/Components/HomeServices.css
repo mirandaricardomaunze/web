@@ -1,0 +1,143 @@
+.container-first-home-about{
+padding: 50px 10px 50px 10px;
+background-image: linear-gradient(to right ,rgb(10, 10, 10),rgb(10, 4, 88));
+box-sizing: border-box;
+}
+.container-first{
+display: grid;
+width: fit-content;
+gap: 10px;
+margin: 0 auto;
+grid-template-columns: repeat(2,1fr);
+border-radius: 10px;
+}
+.title-first-h1{
+font-size: 50px;
+color: rgb(153, 154, 235);
+margin-bottom: 10px;
+}
+.second-title{
+font-size: 25px;
+}
+
+.text-card{
+color: aliceblue;
+padding: 10px;
+width: auto;
+text-align: center;
+}
+.container-first div:nth-child(2){
+background-image: none;
+}
+.first{
+height: 400px;
+text-align: center;
+width: 500px;
+border-radius: 15px;
+padding: 10px;
+color: rgb(153, 154, 235);
+margin:0 auto;
+background-image: url(../Assets/Macbook.png);
+background-position:bottom;
+background-size:400px;
+background-repeat: no-repeat;
+}
+
+.container-first .first:nth-child(2){
+border: none;
+max-width: 400px;
+padding-top: 50px;
+text-align: left;
+}
+.card-home-service{
+margin-top: 40px;
+display: flex;
+}
+.card-home-service p{
+font-size: 20px;
+}
+.icon-home-service{
+padding: 5px;
+margin-right: 3px;
+background-color: rgb(5, 5, 236);
+border-radius: 50%;
+color: white;
+width: 30px;
+height: 30px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.container-card-home{
+margin-top: 50px;
+}
+.link-home{
+text-decoration: none;
+padding: 20px;
+color:white;
+background-color: royalblue;
+border-radius: 5px;
+}
+.link-home:hover{
+background-color:blue;
+}
+
+.container-link-home{
+padding: 30px 0 0 0;
+}
+
+
+.imge-home{
+width: 200px;
+height: 40px;
+object-fit: cover;
+border-radius: 15px;
+transition:2s ease;
+
+}
+
+
+
+.card-home-service p{
+font-size: medium;
+}
+
+@media only screen and (max-width:1150px) {
+.container-first{
+display:grid;
+grid-template-columns: repeat(2,1fr);
+height:fit-content ;
+width: 720px;
+margin:0 auto;
+padding: 0px;
+ }
+.first{
+width: fit-content;
+margin:0 auto;
+}
+.imge-home{
+width: 100%;
+margin:0 auto;
+}
+}
+
+@media only screen and (max-width:800px) {
+.container-first{
+display:grid;
+grid-template-columns: repeat(1,1fr);
+height:fit-content ;
+width: auto;
+margin:0 auto;
+padding: 0px;
+ }
+.first{
+width: 340px;
+height: auto;
+}
+.container-first .first:nth-child(1){
+height: 350px;
+}
+.imge-home{
+width: 320px;
+}
+}

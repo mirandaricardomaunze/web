@@ -3,7 +3,7 @@ display: flex;
 overflow: hidden;
 width: 100%;
 height: 500px;
-background-image: url('../Assets/slide.png');
+background-image: url(../Assets/Bannerservice.png);
 background-repeat: no-repeat;
 background-size: cover;
 }
@@ -20,7 +20,6 @@ background-size: cover;
 
 .slide{
 position: absolute;
-border: 1px solid;
 height: 500px;
 opacity:0;
 }
@@ -92,27 +91,26 @@ color: royalblue;
 
 .container-title-main{
 margin-top: 5%;
-padding: 100px;
-text-align: left;
+text-align:center;
 width: 50%;
 height: fit-content;
 }
 
 .title{
 font-size: 55px;
-color:rgb(14, 14, 212);
+color:rgb(21, 21, 150);
 }
 
 .text{
 font-size: 20px;
-color:white;
+color: rgb(191, 191, 224);
 z-index: 100;
 }
 
 
 
 .link-slide{
-background-color:royalblue;
+background-color:rgb(20, 56, 163);
 padding: 20px;
 border-radius: 5px;
 text-decoration: none;
@@ -168,4 +166,7 @@ height: fit-content;
  .btn-bar{
   opacity: 0;
  } 
+ .next,.prev{
+display: none;
+ }
 }

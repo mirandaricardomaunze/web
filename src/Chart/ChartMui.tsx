@@ -29,7 +29,7 @@ const nowMonth=months[month]
 console.log(nowMonth);
 
   return (
-    <div >
+    <div className='container-chart'>
       
     <PieChart
       series={[
@@ -41,8 +41,8 @@ console.log(nowMonth);
         },
       ]
     } 
-      width={400}
-      height={200}
+      width={200}
+      height={100}
     />   
     </div>
   )

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './Faq.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {  faAngleDown, faAngleUp} from '@fortawesome/free-solid-svg-icons'
+import {  faMinus, faPlus} from '@fortawesome/free-solid-svg-icons'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -48,10 +48,10 @@ const handleFaqForth=()=>{
            >
               <div className='faq-quetion' >
                 <p className=''>Posso atualizar meu site após o lançamento? </p>
-                {textShow?<button className='btn-faq' id='btn-faq1' onClick={handleFaqfirst}><FontAwesomeIcon icon={faAngleDown}/></button>:
-                <button className='btn-faq' id='btn-faq1' onClick={handleFaqfirst}><FontAwesomeIcon icon={faAngleUp}/></button>}
+                {textShow?<button className='btn-faq' id='btn-faq1' onClick={handleFaqfirst}><FontAwesomeIcon icon={faMinus}/></button>:
+                <button className='btn-faq' id='btn-faq1' onClick={handleFaqfirst}><FontAwesomeIcon icon={faPlus}/></button>}
               </div>
-                <hr className='hr' />
+             
               {textShow?
                 <p className={`text-faq ${textShow?'open':''}`}> 
                    Sim, você pode atualizar e modificar seu site sempre que necessário.
@@ -65,10 +65,9 @@ const handleFaqForth=()=>{
            >
               <div className='faq-quetion' >
                 <p>Quanto tempo leva para criar um site? </p>
-                {textShowSecond?<button className='btn-faq' id='btn-faq2' onClick={handleFaqSecond}><FontAwesomeIcon icon={faAngleDown}/></button>:
-                <button className='btn-faq' id='btn-faq2' onClick={handleFaqSecond}><FontAwesomeIcon icon={faAngleUp}/></button>}
+                {textShowSecond?<button className='btn-faq' id='btn-faq2' onClick={handleFaqSecond}><FontAwesomeIcon icon={faMinus}/></button>:
+                <button className='btn-faq' id='btn-faq2' onClick={handleFaqSecond}><FontAwesomeIcon icon={faPlus}/></button>}
               </div>
-                 <hr  className='hr'/>
               {textShowSecond?
               <p className={`text-faq ${textShow?'open':''}`}>
                  Os custos de criar um site dependem de vários fatores, como o tamanho do site,
@@ -82,10 +81,9 @@ const handleFaqForth=()=>{
            >
               <div className='faq-quetion'>
                 <p>Meu site será otimizado para mecanismos de busca (SEO)?</p>
-                {textShowthirt?<button className='btn-faq' id='btn-faq3'  onClick={handleFaqThirt}><FontAwesomeIcon icon={faAngleDown}/></button>:
-                <button className='btn-faq' id='btn-faq3' onClick={handleFaqThirt}><FontAwesomeIcon icon={faAngleUp}/></button>}
+                {textShowthirt?<button className='btn-faq' id='btn-faq3'  onClick={handleFaqThirt}><FontAwesomeIcon icon={faMinus}/></button>:
+                <button className='btn-faq' id='btn-faq3' onClick={handleFaqThirt}><FontAwesomeIcon icon={faPlus}/></button>}
               </div>
-                 <hr  className='hr'/>
               {textShowthirt?
               <p className={`text-faq ${textShow?'open':''}`} >
                   Sim, todos os sites que criamos são otimizados para mecanismos de busca (SEO). 
@@ -101,12 +99,11 @@ const handleFaqForth=()=>{
                data-aos="fade-up" data-aos-anchor-placement="top-bottom"
               >
                 <p>Vocês oferecem serviços de hospedagem para meu site?</p>
-                {textShowforth?<button className='btn-faq' id='btn-faq4' onClick={handleFaqForth}><FontAwesomeIcon icon={faAngleDown}/></button>:
-                <button className='btn-faq' id='btn-faq4' onClick={handleFaqForth}><FontAwesomeIcon icon={faAngleUp}/></button>}
+                {textShowforth?<button className='btn-faq' id='btn-faq4' onClick={handleFaqForth}><FontAwesomeIcon icon={faMinus}/></button>:
+                <button className='btn-faq' id='btn-faq4' onClick={handleFaqForth}><FontAwesomeIcon icon={faPlus}/></button>}
               </div>
-                 <hr  className='hr'/>
               {textShowforth?
-              <p className={`text-faq ${textShow?'open':''}`}>
+              <p className={`text-faq ${textShow? 'open':''}`}>
                   Sim, oferecemos serviços de hospedagem para seu site. Nossa equipe pode ajudá-lo 
                   a escolher o plano de hospedagem mais adequado às suas necessidades e garantir 
                   que seu site esteja sempre disponível e seguro.

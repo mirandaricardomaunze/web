@@ -1,3 +1,8 @@
+.container-project-bg{
+background-image: url(../Assets/Banners.png);
+background-size: cover;
+background-attachment: fixed;
+}
 .container-project{
 display: grid;
 grid-template-columns: repeat(2,1fr);
@@ -6,6 +11,7 @@ padding: 20px;
 max-width: 900px;
 margin:0 auto;
 padding-bottom: 100px;
+box-sizing: border-box;
 }
 .project{
 width: 400px;
@@ -13,24 +19,33 @@ height: auto;
 text-align: left;
 padding: 10px;
 }
+
+.fixed{
+background-attachment: fixed;
+}
+
 .title-project{
 font-size: 50px;
-color: rgb(153, 154, 235);
-text-align: center;
+color: rgb(171, 172, 228);
 margin-bottom: 20px;
+border-left:  rgb(65, 8, 156) solid 5px;
+padding-left: 10px;
 }
+
 .text-first-project{
 color: rgb(153, 154, 235);
 font-size: 20px;
 margin-bottom: 20px;
 }
+
 .container-project-in{
 display: grid;
 grid-template-columns: repeat(1,1fr);
 gap: 20px;
 width: fit-content;
-padding: 10px;
+padding: 40px;
 margin:0 auto;
+height: fit-content;
 }
 .project-in{
 width: auto;
@@ -75,6 +90,8 @@ background-color: blue;
 display:grid;
 padding: 10px;
 grid-template-columns: repeat(1,1fr);
+width: auto;
+max-width: none;
 } 
 .container-project-in{
 padding:0 0 20px 0;
@@ -85,12 +102,12 @@ padding-bottom: 30px;
 width: auto;
 }
 .img-project{
-width: 370px;
+width: 300px;
 height: 200px;
 }
 .project-in{
 margin: 0 auto; 
-width: 370px;  
+width: auto;  
 }
 }
 

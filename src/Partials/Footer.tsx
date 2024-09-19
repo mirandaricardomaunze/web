@@ -39,8 +39,17 @@ const Footer = () => {
   return (
     <div className='main-container-footer'>
        <div className='container-footer'>
+       <div className='footer container-brand'>
+              <div className=''>
+               <h2 className='footer-title'>
+                  <Link className='link-brand '  to='/'>
+                    Soft<span className='brand-span'>Moz</span>
+                  </Link>
+               </h2>
+              </div>
+          </div>
           <div className='footer'>
-              <h2 className='footer-title'>Links uteis</h2>
+              <h2 className='footer-title'>Acesse os links</h2>
               <div className='container-link-map'>
                 <Link className='footer-link '  to='/'>Inicio</Link>
                 <Link className='footer-link ' to='/Services'>Serviços</Link>

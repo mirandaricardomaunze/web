@@ -1,9 +1,6 @@
 .container-btn-modal{
 width: 100%;
 margin-top: 40px;
-background-image: url('../../Assets/faq.png');
-background-repeat: no-repeat;
-background-size: cover;
 }
 
 .container-modal{
@@ -24,11 +21,10 @@ font-size: 40px;
 color: royalblue;
 }
     
-.modal{
+.modal-signin{
 text-align: left;
-background-color: white;
-padding:20px 30px 40px 30px;
-width: fit-content;
+padding:10px ;
+width: 400px;
 border-radius: 5px;
 height: fit-content;
 }
@@ -51,11 +47,13 @@ align-items: center;
 justify-content: center;
 }
 .redirect-link{
-font-size: 15px;
+font-size: 10px;
 }
 .link-redirect{
 margin-left: 10px;
-font-size: 15px;
+font-size: 10px;
+text-decoration: none;
+color: blue;
 }
 .container-checkbox{
 display: flex;
@@ -83,52 +81,61 @@ padding: 10px;
 margin-top: 10px;
 margin-bottom: 6px;
 }
-    
-.input{
+.input-signin{
+width:100%;
 border: none;
 outline: none;
 background-color: aliceblue;
-padding: 15px;
+padding: 10px;
 font-size: 15px;
 border-radius: 5px;
-width: 350px;
 transition: 0.7s ease;
-}
-    
-.input:focus{
+box-sizing: border-box;
+}   
+.input-signin:focus{
 box-shadow:0px 0px 0px 3px royalblue;
 }
     
-.btn{
+.btn-signin{
 background-color: royalblue;
 color: white;
-padding: 15px;
+padding: 10px;
 border-radius: 5px;
 border: none;
 margin-top: 10px;
 font-size: 17px;
+width: 100%;
 }
-.btn:focus{
+
+
+.btn-signin:focus{
 box-shadow:0px 0px 0px 2px royalblue;
 }
     
-.btn:hover{
+.btn-signin:hover{
 background-color: rgb(22, 71, 218);
+}
+#btngoogle{
+width:100%;
 }
 .erro{
 color: red;
 font-size: 12px;
 padding: 10px;
+max-width: 200px;
 }
 .erro-pass{
 color: red;
 font-size: 12px;
 padding: 10px;
-max-width: 300px;
+max-width: 200px;
 }
 .success-login{
 color: blue;
 font-size: 15px;
+}
+.icon-google{
+margin-right: 5px;
 }
 .icon-success{
 margin-left: 5px;
@@ -141,14 +148,7 @@ margin-right: 10px;
     }
 
 @media only screen and (max-width:800px) {
-.input{
-width: 290px;
-}
-.modal{
-padding: 20px ;
-height: fit-content;
-}
-.btn{
-margin-bottom: 10px;
+.modal-signin{
+width:auto;
 }
 }

@@ -3,10 +3,8 @@ import Slide from '../Components/Slide'
 import './Home.css'
 import WorkWithUs from '../Components/WorkWithUs'
 import Team from '../Components/Team'
-import Growing from '../Components/Growing'
 import Coments from '../Components/Coments'
 import Faq from '../Components/Faq'
-import FirstAboutHome from '../Components/FirstAboutHome'
 import man from '../Assets/mansmile.png'
 import man1 from '../Assets/man.png'
 import manblack from '../Assets/manblack.png'
@@ -18,6 +16,9 @@ import teamimage from '../Assets/colegas.png'
 import teamimgeman from '../Assets/lookat.png'
 import Projects from '../Components/Projects'
 import Pricing from '../Components/Pricing'
+import HomeServices from '../Components/HomeServices'
+import Statiscs from '../Components/Statiscs'
+import ContactHome from '../Components/ContactHome'
 
 
 const slides=[
@@ -59,12 +60,13 @@ const Home = () => {
     <div className='container-home'>
        <div>
        <Slide slide={slides}/> 
-          <FirstAboutHome/>
+          <HomeServices/>
             <WorkWithUs/>
             <Team contents={team}/>
             <Projects/>
             <Pricing/>
-            <Growing/>
+            <Statiscs/>
+            <ContactHome/>
             <Coments comments={comment}/>
             <Faq/>
             

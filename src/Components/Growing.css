@@ -1,18 +1,15 @@
 .container-grow-main{
-padding: 90px;
+padding: 0px;
 height:fit-content;
 background-image: linear-gradient(to right ,rgb(10, 10, 10),rgb(10, 4, 88));
-background-image: url('../Assets/footer2.png');
+background-image: url('../Assets/footer.png');
 }
 
 .container-grow{
 display: grid;
-grid-template-columns: repeat(3,1fr);
+grid-template-columns: repeat(2,1fr);
 gap: 10px;
-margin:0 auto;
-padding: 50px;
-border-radius: 10px;
-width: fit-content;
+width: 80%;
 }
 
 .icon-grow{
@@ -22,17 +19,58 @@ color: white;
 border-radius: 5px;
 }
 
+.growing{
+background-color: blue;
+width: 300px;
+height: 500px;
+padding: 20px;
+text-align: left;
+}
+.wrap-text{
+text-align: left;
+width: 500px;
+}
+.wrapper-grow{
+padding: 10px;
+display: grid;
+grid-template-columns: repeat(3,1fr);
+height: auto;
+width:800px;
+margin:0 auto;
+}
+
 .grow{
 width: 150px;
-padding: 40px;
-border-radius:10px;
+height:150px;
+padding: 50px;
+border-radius:50%;
 font-weight: 1000;
 text-align: center;
 color: rgb(153, 154, 235);
 font-family: serif;
 box-shadow: 0px 5px 15px rgba(40, 40, 139, 0.1);
-border: 1px solid rgb(153, 154, 235);
+background-color:  rgb(65, 8, 156);
+position: relative;
+gap: 10px;
 }
+.grow::before
+ {
+  content: "";
+  position: absolute;
+  top: -0px;
+  left: -0px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 20px solid ;
+}
+
+.grow::before {
+border-top-color: #f2f4f5; /* 20% da borda com cor azul */
+transform: rotate(72deg); /* Gira para posicionar a cor azul */
+}
+
+
 .grow:hover{
 background-image: linear-gradient(to right ,rgb(10, 10, 10),rgb(10, 4, 88));
 transform:  scale( 1.04);

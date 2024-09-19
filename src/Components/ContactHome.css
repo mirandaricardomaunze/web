@@ -1,0 +1,161 @@
+.container-contactHome{
+display: grid;
+grid-template-columns:repeat(2,1fr);
+gap: 10px;
+padding: 100px 40px 100px 40px;
+margin: auto;
+background-color: rgb(23, 8, 92);
+box-sizing: border-box;
+}
+
+.card-contactHome:nth-child(1){
+background-color: royalblue;
+border-radius: 10px;
+color: white;
+width: auto;
+margin:0 auto;
+}
+
+.card-contactHome{
+width: 500px;
+height: 400px;
+padding: 50px 20px 50px 20px;
+text-align: left;
+color:rgb(56, 56, 143) ;
+}
+.container-text-contactHome{
+width: auto;
+margin:0 auto;
+padding: 20px;
+}
+.title-contacthome{
+font-size: 30px;
+padding: 5px;
+color:rgb(240, 240, 245) ;
+}
+.container-check{
+display: flex;
+padding: 10px 0px 10px 0px;
+color:rgb(150, 150, 199) ;
+}
+.input-contacthome{
+background:transparent;    
+outline: none;
+padding: 15px;
+border: none;
+transition: 0.8s ease;
+width: 100%;
+box-sizing: border-box;
+border-bottom: 1px solid rgb(90, 127, 238);
+color: rgb(150, 150, 199);
+}
+.input-contacthome:focus{
+box-shadow:0px 2px 0px 0px royalblue;
+}
+.btn-form{
+margin-top: 5px;
+padding: 15px;
+border: none;
+background-color: royalblue;
+width: 100%;
+color: white;
+border-radius: 5px;
+transition: 0.5s ease;
+}
+.btn-form:hover{
+background-color: blue;
+}
+.btn-form:focus{
+box-shadow:0px 0px 0px 2px royalblue;
+}
+.container-form{
+text-align: left;
+}
+
+.container-form :nth-child(3){
+margin-top: 4px;
+}
+
+.container-form :nth-child(5){
+margin-top: 4px;
+}
+
+textarea{
+resize: none;
+
+}
+.container-image-contactHome{
+width: 200px;
+height: 200px;
+}
+
+.icon-contacth{
+margin-right: 10px;
+}
+.container-midia{
+display: flex;
+justify-content: space-between;
+margin: auto;
+width: fit-content;
+}
+.link-midia{
+transition: 0.5s ease;
+margin: 5px;
+}
+.link-midia:hover{
+transform: scale(2);
+}
+
+
+@media only screen and (max-width:1150px) {
+.container-contactHome{
+display: grid;
+grid-template-columns: repeat(1,1fr);
+gap: 10;
+}
+.card-contactHome{
+margin:0 auto;
+}
+}
+  
+
+@media only screen and (max-width:800px) {
+.container-contactHome{
+display:grid;
+grid-template-columns: repeat(1,1fr);
+margin:0 auto ;
+gap: 10px;
+padding: 100px 10px 100px 10px;
+}
+.card-contactHome{
+width: auto;
+margin:0 auto;
+padding: 10px;
+}
+
+.container-form{
+width: auto;
+}
+.container-text-contactHome{
+width: auto;
+margin:0 auto;
+padding: 0px;
+}
+
+}
+
+
+@media only screen and (max-width: 480px) {
+  .container-contactHome {
+    padding: 50px 10px;
+  }
+  .title-contacthome {
+    font-size: 24px;
+  }
+  .container-check {
+    flex-direction: column;
+  }
+  .btn-form {
+    padding: 10px;
+  }
+}

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect} from 'react'
 import './Projects.css'
 import webfood from '../Assets/projectwebfood.jpg'
 import webHotel from '../Assets/webHotel.jpg'
@@ -7,16 +7,19 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 
+
 const Projects = ():React.JSX.Element => {
+
+
  useEffect(()=>{
     AOS.init({ duration: 1000 });
   })
 
 
   return (
-    <div>
+    <div className='container-project-bg'>
       <div className='container-project'>
-        <div className='project'>
+        <div className=' project fixed'>
           <h1 className='title-project'
            data-aos="fade-right" data-aos-anchor-placement="top-bottom"
           >Nossos Projectos</h1>
@@ -42,7 +45,7 @@ const Projects = ():React.JSX.Element => {
           <div className='container-link-project'
             data-aos="fade-right" data-aos-anchor-placement="top-bottom"
           >
-              <Link className='link-project' to='/Contact'>Entra em contacto ja</Link>
+              <Link className='link-project' to='/Contact'>Contacto-nos já</Link>
           </div>
         </div>
         <div className='container-project-in'>

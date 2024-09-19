@@ -31,7 +31,7 @@ const {allUsers,views}=useAuthContext()
        </h1> 
 
          <div className='container-dash'>
-            <div className='colunm-dash'
+            <div className='card-dash'
                data-aos="fade-right" data-aos-anchor-placement="top-bottom"
             >
               <h2><FontAwesomeIcon icon={faEye}/></h2>
@@ -40,7 +40,7 @@ const {allUsers,views}=useAuthContext()
                 <p>Acessos: {views}</p>
               </div>
             </div>
-            <div className='colunm-dash'
+            <div className='card-dash'
               data-aos="fade-up" data-aos-anchor-placement="top-bottom"
             >
               <h2><FontAwesomeIcon icon={faUserCircle}/></h2>
@@ -49,7 +49,7 @@ const {allUsers,views}=useAuthContext()
                 <p className=''>Usuarios: {allUsers}</p>
               </div>
             </div>
-            <div className='colunm-dash'
+            <div className='card-dash'
                data-aos="fade-left" data-aos-anchor-placement="top-bottom"
             >
               <h2><FontAwesomeIcon icon={faChartBar}/></h2>

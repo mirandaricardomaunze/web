@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {  faCheck, faUser, faX } from '@fortawesome/free-solid-svg-icons'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { faGoogle } from '@fortawesome/free-brands-svg-icons'
 
 
 
@@ -42,7 +43,7 @@ useEffect(()=>{
 })
 
 
-const  errorPassword='A senha deve pelo menos ter 8 caracteres, incluindo letras maisuculas,minusculas e numeros';
+const  errorPassword='Deve ter 8 caracteres, letras maisuculas,minusculas e numeros';
 const errorEmail='Email deve ser valido';
 const error='Desculpa, houve falha ao conectar com servidor !'
 
@@ -157,9 +158,10 @@ handleEmptyInput()
 console.log('Nome:', name);
 console.log('Email:', email);
 console.log('Senha:', password);
-
 } 
-
+const handleRedirectToGoogle=()=>{
+   window.open('http://localhost:4000/loginGoogle')
+}
   return (
     <div>
        <div className='container-btn-modal' 
@@ -183,8 +185,10 @@ console.log('Senha:', password);
                     <label  htmlFor="name">Nome:</label>
                  </div>
                  <div>
-                    <input className='input' id='name' name='name' value={name}
+                    <input className='input-signin' id='name'
+                     name='name' value={name}
                      onChange={handleChangeName}
+                     required
                     type="text" placeholder='Degite o seu nome'/>
                     {emptyInputName? <p className='erro'>Preencha os espacos vazios</p>:null}
                  </div>
@@ -192,9 +196,11 @@ console.log('Senha:', password);
                     <label htmlFor="email">Email:</label>
                  </div>
                  <div>
-                    <input className='input' id='email' value={email} type="email" name='email'
+                    <input className='input-signin' id='email'
+                     value={email} type="email" name='email'
                      onChange={handleChangeEmail}
-                    placeholder='Degite o seu email'/>
+                     required
+                     placeholder='Degite o seu email'/>
                     {emptyInputEmail? <p className='erro'>Preencha os espacos vazios</p>:null}
                     {errorRegexEmail?<p className='erro'>{errorEmail}</p>:null}
                  </div>
@@ -202,30 +208,38 @@ console.log('Senha:', password);
                     <label htmlFor="password">Senha:</label>
                  </div>
                  <div>
-                    <input className='input' id='password' value={password} type="password"  name='email'
+                    <input className='input-signin' id='password'
+                      value={password} type="password"  name='email'
                       onChange={handleChangePassword}
+                      required
                     placeholder='Degite a sua senha'/>
-                    {emptyInputPass? <p className='erro'>Preencha os espacos vazios</p>:null}
-                    {errorRegexPassword?<p className='erro-pass'>{errorPassword} </p>:null}
                  </div>
+                 {emptyInputPass? <span className='erro'>Preencha os espacos vazios</span>:null}
+                 {errorRegexPassword?<span className='erro-pass'>{errorPassword} </span>:null}
+                 <div>
+                    <span className='success-login'>{successServer} 
+                       {successServer?.length>0 && <FontAwesomeIcon className='icon-success'  icon={faCheck}/>}
+                     </span>
+                     <span className='erro'>{errorServer}
+                        {errorServer?.length>0 && <FontAwesomeIcon className='icon-success' icon={faX}/>}
+                        {errorConnectServer && error }
+                     </span>
+                 </div>
+                 <div>
+                      <button className='btn-signin' id='btngoogle' onClick={handleRedirectToGoogle}>
+                      <FontAwesomeIcon className='icon-google' icon={faGoogle} />
+                        Entra com google
+                      </button>
+                  </div>
+                 <div>
+                     <button type='submit'  className='btn-signin'  >Enviar</button>
+                  </div>
                   <div className='container-checkbox'>
                      <input type="checkbox"  className='input-checkbox' required/>
                      <p>  Aceita nossos termos</p>
                   </div>  
-                     <p className='success-login'>{successServer} 
-                       {successServer?.length>0 && <FontAwesomeIcon className='icon-success'  icon={faCheck}/>}
-                     </p>
-                     <p className='erro'>{errorServer}
-                        {errorServer?.length>0 && <FontAwesomeIcon className='icon-success' icon={faX}/>}
-                     </p>
-                     <p className='erro'>
-                       {errorConnectServer && error}
-                     </p>
-                  <div>
-                     <button type='submit'  className='btn'  >Enviar</button>
-                  </div>
                   <div className='text-regist'>
-                     <p className='redirect-link'>Ainda nao tem conta ? </p>
+                     <p className='redirect-link'>Ainda não tem conta ? </p>
                      <Link className='link-redirect' to='/SignUp' > Registar</Link>
                   </div>
                   <div className='text-regist'>

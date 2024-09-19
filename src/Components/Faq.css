@@ -1,7 +1,7 @@
 
 .container-faq{
 padding: 90px;
-background-image: url('../Assets/back.png');
+background-image: url('../Assets/Banners.png');
 background-position: center;
 background-repeat: no-repeat;
 background-size: cover;
@@ -18,7 +18,7 @@ display: flex;
 border-left:5px royalblue solid;
 background-image: linear-gradient(to right ,rgb(10, 10, 10),rgb(10, 4, 88));
 color:rgb(153, 154, 235);
-border-radius: 5px 5px 0 0 ;
+border-radius: 5px ;
 }
 #btn-faq1{
 margin-left: 200px;
@@ -55,16 +55,19 @@ padding: 10px;
   color: rgb(153, 154, 235);
   border-radius: 10px;
   border: #f9f9f9 solid 1px;
-  max-height: 0;
+ height: 0px;
   overflow: hidden;
-  transition: max-height 10s ease-out, padding 3s ease-out;
+  transition: 10s ease-out, padding 3s ease-out;
   
 }
-
-.text-faq.open {
+.text-faq,
+ .open {
   max-height: 200px; /* Ajuste conforme necessário */
   padding: 20px; /* Mantém o padding ao abrir */
+  transition: 10s ease-in-out;
+  height: fit-content ;
 }
+
 .title-faq{
 font-size: 50px;
 color:rgb(153, 154, 235);

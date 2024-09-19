@@ -52,6 +52,10 @@ const WorkWithUs = () => {
                 </div>
             </div>
             <div className='work'>
+            <div className='work-rounded'
+             data-aos="fade-left" data-aos-anchor-placement="top-bottom"
+            >
+            </div> 
               <div className='circle-work'
                 data-aos="fade-left" data-aos-anchor-placement="top-bottom"
               >

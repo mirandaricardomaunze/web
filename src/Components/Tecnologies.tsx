@@ -20,6 +20,18 @@ const Tecnologies = () => {
         >
              <h1 className='title-home-tecno' >Nossos <span className='title-color'>Serviços</span> </h1> 
         </div>
+        <p className='text-tecno'
+           data-aos="fade-up" data-aos-anchor-placement="top-bottom"
+          >
+            Nossa equipe de especialistas em desenvolvimento web oferece soluções personalizadas
+            e inovadoras para atender às suas necessidades digitais.
+            Trabalhamos em estreita colaboração com cada cliente para entender profundamente
+            seus objetivos e desafios, permitindo-nos desenvolver soluções que impulsionam 
+            resultados reais. Seja para lançar um novo site, otimizar um existente ou 
+            desenvolver uma aplicação sob medida, estamos comprometidos em levar sua presença 
+            digital ao próximo nível
+          </p>
+      
         <div className='container-tecno'>
             <div className="tecno"
               data-aos="fade-right" data-aos-anchor-placement="top-bottom"

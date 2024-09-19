@@ -1,100 +1,126 @@
 .container-contact-main{
-margin-top: 50px;
-background-image: url(../Assets/Backgroundimage.jpg);
+background-image: url(../Assets/contact.png);
 background-repeat: no-repeat;
-object-fit: cover;
+background-size: cover;
+margin-top: 50px;
 }
-
+.container-contact-text{
+height: fit-content;
+padding: 100px 20px 20px 20px;
+}
+.text-contact-text{
+max-width: 700px;
+margin:0 auto;
+font-size: 20px;
+text-align: center;
+padding:10px ;
+color: rgb(160, 161, 189);
+}
 .container-contact{
 display: grid;
 grid-template-columns: repeat(2,1fr);
-gap: 10px;
+height: fit-content;
 margin:0 auto;
-padding: 40px;
-width: 900px;
-background-image: url(../Assets/mansmile.png);
-background-position: 600px;
-background-size: 300px;
-background-repeat: no-repeat;
-background-position-y: 230px;
+padding: 5px;
+width: fit-content;
+border-radius: 20px;
+background-color: rgb(24, 71, 211);
 }
-
+.container-contact div:nth-child(2){
+background-image: url(../Assets/iPhone.png);
+background-position-x: 40px;
+background-position-y: 100px;
+background-size: 400px;
+background-repeat: no-repeat;
+}
 
 .label{
 margin-top: 10px;
 margin-bottom: 6px;
 }
+.form-contact{
+width: 400px;
+border-radius: 10px;
+margin:0 auto;
+color: rgb(238, 238, 238);
+padding:40px 20px 40px 20px;
+background-color: rgb(24, 71, 211) ; 
+}
 .form-contact div:nth-child(6){
 margin-bottom: 0px;
 }  
 
+.form-contact div:nth-child(2){
+margin-bottom: 0px;
+background-color: transparent;
+}
+
 .input-contact{
 border: none;
+border-bottom: 1px solid royalblue;
+color: rgb(156, 157, 204);
 outline: none;
 padding: 15px;
 font-size: 15px;
-border-radius: 5px;
 transition: 0.7s ease;
-width: 92%;
+box-sizing: border-box;
+width: 100%;
 margin-bottom:5px;
+background-color:transparent;
 }
     
 .input-contact:focus{
-box-shadow:0px 0px 0px 3px rgb(68, 53, 207);
-background-color: white;
+box-shadow:0px 2px 0px 0px royalblue ;
 }
     
-.btn{
+.btn-contact{
 background-color: royalblue;
 color: white;
 padding: 15px;
 border-radius: 5px;
 border: none;
 font-size: 17px;
+width: 100%;
 }
 .btn:focus{
-box-shadow:0px 0px 0px 2px royalblue;
+box-shadow:0px 0px 0px 2px rgb(4, 9, 26);
 }
    
-.btn:hover{
-background-color: rgb(22, 71, 218);
-}
-.contact{
-width: 510px;
-text-align: left;
-padding: 20px;
-border-radius: 10px;
-height: fit-content;
-}
-.container-contact-text{
-padding: 20px;
-width: 700px;
-margin:0 auto;
-color: #555;
-text-align: left;
-}
-.text-contact{
-color: rgb(153, 154, 235);
-margin: 0 auto;
+.btn-contact:hover{
+background-color: rgb(10, 16, 37);
 }
 
-.text-contact-text{
-font-size: 20px;
-text-align: center;
-padding:0 0 50px 0;
-color: rgb(153, 154, 235);
+.contact{
+width: 450px;
+text-align: left;
+padding: 20px;
+height: auto;
+background-color: rgb(24, 71, 211);
+}
+
+div .label{
+color: rgb(225, 227, 235);
+}
+
+.text-contact{
+color: rgb(240, 240, 245);
+padding: 10px;
+}
+
+.icon-text{
+margin-right: 5px;
 }
 
 .title-contact{
 padding: 20px 0px 20px 0px;
 font-size: 50px;
-color: rgb(153, 154, 235);
+color:rgb(207, 215, 230);
 text-align: center;
 }
 
 .title-cont{
-padding: 20px 0px 20px 0px;
-color:rgb(153, 154, 235);
+padding: 20px ;
+color:white;
 font-size: 40px;
 }
 
@@ -104,50 +130,74 @@ padding: 20px 0 0 0 ;
 .icon-contact{
 background-color: white;
 }
-.form-contact{
-width: 400px;
-padding: 40px ;
-border-radius: 10px;
-margin-top: 20px;
-box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-background-image: linear-gradient(to right ,rgb(10, 10, 10),rgb(10, 4, 88));
-}
- 
-.textarea{
-resize: none;
+
+
+textarea{
+border: none;
+border-bottom: 1px solid royalblue;
+outline: none;
+padding: 15px;
+font-size: 15px;
+transition: 0.7s ease;
+width: 100%;
+margin-bottom:5px;
+box-sizing: border-box;
+resize:none;
 font-family:  serif;
 scroll-behavior: none;
-background-color: white;
+background-color:transparent;
+color: rgb(153, 154, 235);
+}
+textarea:focus{
+box-shadow:0px 2px 0px 0px royalblue;
 }
 
-#subject{
-background-color: aliceblue;
-}
 .cont-text-form{
 width: auto;
 margin:0 auto;
 text-align: center;
 padding: 0 40px 40px 40px;
 }
-.visit-contact{
-width: auto;
-max-width: 780px;
-background-image: linear-gradient(to right ,rgb(10, 10, 10),rgb(10, 4, 88));
-margin:0 auto;
-padding: 40px;
-border-radius: 10px;
-margin-bottom: 50px;
-text-align: left;
-}
-.title-visit{
+
+.title-datails{
 padding: 20px 0px 0px 0px;
 color: rgb(153, 154, 235);
 font-size: 30px;
 }
-.container-visit-contact{
-padding: 50px;
-}
 
+.container-contact-card{
+display: grid;
+grid-template-columns: repeat(3,1fr);
+gap: 10px;
+width: fit-content;
+margin: auto;
+text-align: center;
+padding: 40px 0px 100px 0px;
+}
+.card-datails{
+padding: 20px;
+width: 300px;
+height: fit-content;
+border-radius:5px;
+box-shadow: 0px 5px 15px rgba(40, 40, 139, 0.1);
+background-color: rgb(6, 11, 71);
+transition: 0.5s;
+}
+.card-datails:hover{
+background-color:rgb(24, 71, 211) ;
+}
+.icon-datails-card{
+background-color: royalblue;
+padding: 10px;
+color: white;
+border-radius: 50%;
+width: 30px;
+height: 30px;
+}
+.text-datails-card{
+color: white;
+padding: 10px;
+}
 .erro{
 color: red;
 font-size: 12px;
@@ -172,13 +222,19 @@ grid-template-columns: repeat(1,1fr);
 width: fit-content;
 padding: 0px 0 40px 0;
 } 
-.input-contact{
-width:92%;
-}
+
 .form-contact{
-padding: 20px;
 width: 350px;
 margin:0 auto;
+}
+.container-contact-card{
+display: grid;
+grid-template-columns: repeat(2,1fr);
+gap: 10px;
+width: fit-content;
+margin: auto;
+text-align: center;
+padding: 40px 0px 100px 0px;
 }
 }
 
@@ -187,7 +243,7 @@ margin:0 auto;
 display: grid;
 grid-template-columns: repeat(1,1fr);
 width: fit-content;
-padding: 0px 0 40px 0;
+padding: 40px 0 40px 0;
 }
 .contact{
 width: auto;
@@ -202,24 +258,15 @@ padding: 0px;
 margin:0 auto;
 }
 .form-contact{
-padding:15px;
-width:fit-content;
+width: 300px;;
 margin:0 auto;
-border:1px solid white;
-margin-top: -50px;
+
 }
 .input-contact{
-width: 310px;;
+width:100%;
 }
 .container-visit-contact{
 padding: 10px;
-}
-.visit-contact{
-width: 320px;
-}
-.visit-contact{
-padding: 5%;
-box-sizing: border-box;
 }
 .input-contact{
 width: 280px;
@@ -233,5 +280,14 @@ text-align: center;
 }
 .cont-text-form{
 padding-bottom: 150px;
+}
+.container-contact-card{
+display: grid;
+grid-template-columns: repeat(1,1fr);
+gap: 10px;
+width: fit-content;
+margin: auto;
+text-align: center;
+padding: 40px 0px 100px 0px;
 }
 }

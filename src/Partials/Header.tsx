@@ -19,8 +19,35 @@ import Dashboard from '../Components/Dashboard/Dashboard'
 
 
 const Header = () => {
-const [togle,setTogle]=useState<boolean>(true)
+const [isOpen,setIsOpen]=useState<boolean>(true)
+const [changeIcon,setChangeIcon]=useState<boolean>(true)
 const [user,setUser]=useState<string>()
+
+
+const handleChangeIcon=()=>{
+  setChangeIcon(!changeIcon)
+} 
+const handleShowMenu=()=>{
+   handleChangeIcon()
+  setIsOpen(!isOpen)
+  }
+ 
+  useEffect(()=>{
+  const handleResize=()=>{
+    const screenWidth=window.innerWidth
+    if (screenWidth<900) {
+      console.log('false');
+      setIsOpen(false)
+    }else {
+      setIsOpen(true)
+    }
+  }
+  handleResize()
+  window.addEventListener('resize',handleResize)
+  return ()=>{
+    window.removeEventListener('resize',handleResize)
+  }
+  },[])
 
 const {token,nameStorage,setNameStorage, logout}=useAuthContext()
 
@@ -41,23 +68,22 @@ checkNameUserLoged()
 },[nameStorage,setNameStorage])
 
 
-const handleShowMenu=()=>{
-setTogle(!togle)
-}
+
   return (
-    <div className='container-nav'>
+    <div className='container-nav'  id='nav'>
        <div className='container-brand' >
           <Link   className='nav-brand'  to='/' ><span className='brand'>Soft</span>Moz</Link>
            <button className='btn-toggle'
            onClick={handleShowMenu}
+           
            >
-            {togle? <FontAwesomeIcon className='icon-toggle' icon={faNavicon}/>:
+            {changeIcon? <FontAwesomeIcon className='icon-toggle' icon={faNavicon}/>:
             <FontAwesomeIcon className='icon-toggle' icon={faClose}/>}
           </button>
        </div>
-        <nav className='nav-bar'>
-          {togle &&  <div className={`${{togle}?'':'animate'} nav-bar`} id='nav'> 
-            <NavLink  className='nav-link'  to='/' >Inicio</NavLink>
+        <nav className={`nav-bar${isOpen?'':'open'}`} >
+          {isOpen &&  <div className={`${{isOpen}?'':'animate'} nav-bar`} id='nav'> 
+            <NavLink  className='nav-link'  to='/'  >Inicio</NavLink>
             <NavLink className='nav-link' to='/Services'>Serviços</NavLink>
             <NavLink className='nav-link' to='/Contact'>Contato</NavLink>
             <NavLink className='nav-link' to='/About'>Sobre</NavLink>

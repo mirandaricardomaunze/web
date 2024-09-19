@@ -1,7 +1,7 @@
 import React, {  useEffect, useState } from 'react'
 import './Contact.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {  faCheck, faEnvelope, faMobile } from '@fortawesome/free-solid-svg-icons'
+import {  faCheck, faEnvelope,  faMapMarker, faMobile } from '@fortawesome/free-solid-svg-icons'
 import axios, { AxiosResponse } from 'axios'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -14,8 +14,25 @@ interface Client{
   message:any
 }
 
+interface Visit{
+  id:number
+  icon:React.JSX.Element
+  title:string
+  text:string
+}
 
-const Contact = () => {
+const Contact = ()=> {
+
+  const visit:Visit[]=[
+  {id:1,icon:<FontAwesomeIcon icon={faMapMarker}/>,title:'Escritório',text:'Av 25 de Setembro'},
+    {id:2,icon:<FontAwesomeIcon icon={faEnvelope}/>,title:'Email',text:'mirandamaunze122@gmail.com'},
+    {id:2,icon:<FontAwesomeIcon icon={faMobile}/>,title:'Telefone',text:'+258847750120'}
+  ]
+  
+
+
+
+
   useEffect(()=>{
     AOS.init({ duration: 1000 });
   })
@@ -157,7 +174,6 @@ const handleSubmit=async(e:React.FormEvent<HTMLFormElement>)=>{
               <p className=''
                 data-aos="fade-up" data-aos-anchor-placement="top-bottom"
               >
-                Estamos aqui para ajudar você a transformar suas ideias em realidade.
                 Se você tem alguma pergunta, precisa de mais informações ou deseja discutir 
                 um projeto, entre em contato conosco. Nossa equipe está pronta para oferecer
                 suporte personalizado e soluções sob medida para suas necessidades.
@@ -167,60 +183,54 @@ const handleSubmit=async(e:React.FormEvent<HTMLFormElement>)=>{
           <div className='container-contact-bg'>
           <div className='container-contact'>
          <div className='contact'>
-          <div className='cont-text-form'>
-             <h2 className='title-cont'
-               data-aos="fade-up" data-aos-anchor-placement="top-bottom"
-             >Formulario de contato</h2>
-             <p className='text-contact'
-               data-aos="fade-up" data-aos-anchor-placement="top-bottom"
-             >Para sua conveniência, preencha o formulário abaixo e entraremos em contato com você em breve:</p>
-          </div>
              <div className='form-contact'
               data-aos="fade-up" data-aos-anchor-placement="top-bottom"
              >
-                <h1 className='title-cont'
-                  data-aos="fade-up" data-aos-anchor-placement="top-bottom"
-                >Contacta-nos </h1>
                 <form action="" onSubmit={handleSubmit}
                  data-aos="fade-up" data-aos-anchor-placement="top-bottom"
                 >
                    <div>
-                     <label htmlFor="name" className='text-contact'>Nome:</label>
+                     <label className='label'  htmlFor="name" >Nome:</label>
                    </div>
                    <div>
                       <input className='input-contact' type="text" name='name' id='name'
-                       value={name}  onChange={handleChangeName}
+                       value={name}  onChange={handleChangeName}  required
                        placeholder='Degite o nome' />
-                      {emptyInput? <p className='erro'>Preecha os espacos vazios</p>:null}
+                      {emptyInput? <span className='erro'>Preecha os espacos vazios</span>:null}
                    </div>
                    <div>
-                     <label htmlFor="email" className='text-contact'>Email:</label>
+                     <label className='label' htmlFor="email">Email:</label>
                    </div>
                    <div>
                       <input className='input-contact' type="text" name='email' id='email'
-                      value={email}  onChange={handleChangeEmail}
+                      value={email}  onChange={handleChangeEmail}  required
                        placeholder='Degite o email' />
-                        {emptyInput? <p  className='erro'>Preecha os espacos vazios</p>:null}
+                        {emptyInput? <p className='erro'>Preecha os espacos vazios</p>:null}
                         {errorRegexEmail?<p className='erro'>{errorEmail}</p>:null}
                    </div>
                    <div>
-                     <label htmlFor="subject" className='text-contact'>Assunto:</label>
+                     <label className='label' htmlFor="subject" >Assunto:</label>
                    </div>
                    <div>
-                      <textarea className='input-contact textarea'  name="subject" id="subject" 
+                      <textarea   name="subject" id="subject" 
+                      required
                       value={subject}  onChange={handleChangeSubject}
                       placeholder='Escreva o assunto' ></textarea>
                        {emptyInput? <p  className='erro'>Preecha os espacos vazios</p>:null}
                    </div>
-                     <p className='erro'>{erro}</p>
-                     <p className='success-msg' >{serverSuccess}
+                     <span className='erro'>{erro}</span>
+                     <span className='success-msg' >{serverSuccess}
                        {serverSuccess?.length>0 && <FontAwesomeIcon className='icon-check' icon={faCheck}/>}
-                     </p>
-                     <p className='erro'>
+                     </span>
+                     <span className='erro'>
                        {errorServerConnect&& errorConnect}
-                     </p>
+                     </span>
+                    <div className='container-check'>
+                      <input id='email' type="checkbox" className="input-checkbox" required /> 
+                      <p>Aceita os nossos termos</p>
+                    </div>
                     <div className='cont-btn-contact'>
-                       <button className='btn'
+                       <button className='btn-contact'
                        data-aos="fade-up" data-aos-anchor-placement="top-bottom"
                        >
                          Enviar
@@ -232,43 +242,35 @@ const handleSubmit=async(e:React.FormEvent<HTMLFormElement>)=>{
           <div className='contact' 
             data-aos="fade-up" data-aos-anchor-placement="top-bottom"
           >
-            <h2 className='title-cont'
-             data-aos="fade-up" data-aos-anchor-placement="top-bottom"
-            >
-              Informações de Contato
-            </h2>
-            <p className='text-contact ' id='text-contact'>
-              <FontAwesomeIcon icon={faMobile}/>
-              <b> Telefone:</b>  847750120</p>
-            <p className='text-contact' id='text-contact'>
-              <FontAwesomeIcon icon={faEnvelope}/>
-              <b>  Email:</b>  mirandamaunze@122gmail.com
-            </p>
-          </div>
-          </div>
-          </div>
-      <div className='container-visit-contact'
-       data-aos="fade-up" data-aos-anchor-placement="top-bottom"
-      >  
-       <div className='visit-contact'
-        data-aos="fade-up" data-aos-anchor-placement="top-bottom"
-       >
-          <h2 className='title-visit'
-            data-aos="fade-up" data-aos-anchor-placement="top-bottom"
-          >Visite-nos</h2>
-          <p className='text-contact'
-             data-aos="fade-up" data-aos-anchor-placement="top-bottom"
-          >
-            Se preferir um contato pessoal, sinta-se à vontade para nos visitar em nosso escritório.
-            Estamos ansiosos para conhecê-lo e discutir 
-            como podemos ajudar a impulsionar sua presença online
-          </p>
-          <p className='text-contact'
-            data-aos="fade-up" data-aos-anchor-placement="top-bottom"
-          >
-            Não hesite em nos contatar. Estamos aqui para ajudar você a alcançar seus objetivos online.</p>
+
         </div>
-        </div>
+       </div>
+      </div>
+        <div className='container-contact-card'>
+             {
+              visit.map((card)=>(
+                <div key={card.id} className="card-datails"
+                 data-aos="fade-up" data-aos-anchor-placement="top-bottom"
+                >
+                  <span className="icon-datails-card"
+                   data-aos="fade-up" data-aos-anchor-placement="top-bottom"
+                  >
+                   {card.icon}
+                  </span>
+                  <h1 className="title-datails"
+                  data-aos="fade-up" data-aos-anchor-placement="top-bottom"
+                  >
+                    {card.title}
+                  </h1>
+                  <p className="text-datails-card"
+                  data-aos="fade-up" data-aos-anchor-placement="top-bottom"
+                  >
+                    {card.text}
+                  </p>
+                </div>
+              ))
+             }
+         </div>
     </div>
   )
 }

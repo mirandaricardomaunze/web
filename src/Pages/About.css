@@ -16,6 +16,8 @@ text-align: left;
 background-color: #3e6feb;
 padding: 50px;
 background-image: linear-gradient(to right ,rgb(10, 10, 10),rgb(10, 4, 88));
+background-image: url(../Assets/Bannerservice.png);
+background-size: cover;
 }
 .container-grid-about{
 display: grid;
@@ -29,9 +31,9 @@ width: fit-content;
 text-align: left;
 max-width: 400px;
 padding:20px 20px 20px 20px;
-border: 1px solid rgb(153, 154, 235);
 border-radius: 10px;
 transition: 0.8s;
+box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
 }
 .about:hover{
 background-image: linear-gradient(to right ,rgb(10, 10, 10),rgb(10, 4, 88));
@@ -40,9 +42,6 @@ transform:  scale( 1.04);
 
 .container-grid-about-second-main{
 padding: 50px;
-background-image: url('../Assets/Backgroundimage.jpg');
-background-repeat: no-repeat;
-background-size: cover;
 }
 .container-grid-about-second{
 display: grid;
@@ -56,11 +55,15 @@ padding: 20px;
 color: white;
 background-color: royalblue;
 padding: 10px;
-width: fit-content;
-border-radius: 5px;
+width: 40px;
+height:40px;
+border-radius: 50%;
 margin:0 auto;
 margin-bottom: 10px;
-font-size: 40px;
+font-size: 20px;
+display: flex;
+align-items: center;
+justify-content: center;
 }
 .title-about{
 font-size: 50px;
@@ -101,7 +104,6 @@ text-align: left;
 box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
 padding: 20px;
 border-radius: 10px;
-border: 1px solid white;
 transition: 0.8s;
 }
 .about-second:hover{
@@ -126,9 +128,7 @@ width: fit-content;
 color: white;
 background-color: rgb(8, 59, 214);
 }
-.cont-link-join{
 
-}
 
 @media screen and (max-width:1150px) {
 .container-grid-about-second{

@@ -37,14 +37,13 @@ const About = () => {
          <div className='contairner-first-text'>
           <h1 className='title-about'
             data-aos="fade-up" data-aos-anchor-placement="top-bottom"
-          >Construa a Sua Presença Online</h1>
+          >Sobre nós</h1>
           <p className='text-about'
             data-aos="fade-up" data-aos-anchor-placement="top-bottom"
           >
-            Seu site é a porta de entrada para o mundo virtual. Na era digital, 
-            é crucial ter uma presença online que não apenas impressione, mas também encante 
-            e engaje seu público-alvo. Aqui, no nosso serviço de desenvolvimento de sites,
-            estamos dedicados a transformar sua visão em realidade digital.
+           Somos uma equipe apaixonada por transformar ideias em soluções digitais inovadoras.
+           Combinamos criatividade, tecnologia de ponta e uma abordagem personalizada para 
+           desenvolver sites que não só impressionam visualmente, mas também proporcionam resultados reais para o seu negócio.
           </p>
          </div>
       
