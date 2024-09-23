@@ -1,14 +1,14 @@
-.container-first-home-about{
+.container-firsthome{
 padding: 50px 10px 50px 10px;
-background-image: linear-gradient(to right ,rgb(10, 10, 10),rgb(10, 4, 88));
+background-color: #051842;
 box-sizing: border-box;
 }
 .container-first{
 display: grid;
+grid-template-columns: repeat(2,1fr);
 width: fit-content;
 gap: 10px;
 margin: 0 auto;
-grid-template-columns: repeat(2,1fr);
 border-radius: 10px;
 }
 .title-first-h1{
@@ -26,31 +26,33 @@ padding: 10px;
 width: auto;
 text-align: center;
 }
-.container-first div:nth-child(2){
-background-image: none;
+.container-first .first:nth-child(1){
+display: flex;
+justify-content: center;
+align-items: center;
+height: auto;
+}
+.img{
+object-fit: cover;
+width: 380px;
+height: auto;
 }
 .first{
-height: 400px;
+height: fit-content;
 text-align: center;
-width: 500px;
+width: 400px;
 border-radius: 15px;
-padding: 10px;
+padding: 20px;
 color: rgb(153, 154, 235);
 margin:0 auto;
-background-image: url(../Assets/Macbook.png);
-background-position:bottom;
-background-size:400px;
-background-repeat: no-repeat;
 }
-
 .container-first .first:nth-child(2){
 border: none;
-max-width: 400px;
-padding-top: 50px;
 text-align: left;
+background-color: rgb(41, 41, 226);
 }
 .card-home-service{
-margin-top: 40px;
+margin-top: 10px;
 display: flex;
 }
 .card-home-service p{
@@ -68,43 +70,13 @@ display: flex;
 align-items: center;
 justify-content: center;
 }
-.container-card-home{
-margin-top: 50px;
-}
-.link-home{
-text-decoration: none;
-padding: 20px;
-color:white;
-background-color: royalblue;
-border-radius: 5px;
-}
-.link-home:hover{
-background-color:blue;
-}
-
-.container-link-home{
-padding: 30px 0 0 0;
-}
-
-
-.imge-home{
-width: 200px;
-height: 40px;
-object-fit: cover;
-border-radius: 15px;
-transition:2s ease;
-
-}
-
-
-
 .card-home-service p{
 font-size: medium;
 }
 
 @media only screen and (max-width:1150px) {
 .container-first{
-display:grid;
+display: grid;
 grid-template-columns: repeat(2,1fr);
 height:fit-content ;
 width: 720px;

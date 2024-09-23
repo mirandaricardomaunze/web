@@ -4,6 +4,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLaptopCode, faTachometer, faToolbox } from '@fortawesome/free-solid-svg-icons'
+import mackbook from '../Assets/Macbook.png'
 
 
 const HomeServices = () => {
@@ -13,18 +14,13 @@ const HomeServices = () => {
 
 
   return (
-    <div className='container-first-home-about'>
+    <div className='container-firsthome'>
         <div className='container-first' >  
              <div className='first'
-              data-aos="fade-right" data-aos-anchor-placement="top-bottom"
-             >
-              <h1 className='title-first-h1'
-               data-aos="fade-right" data-aos-anchor-placement="top-bottom"
-               >
-                 Nossos serviços
-              </h1>
-              
-             </div>
+              data-aos="fade-right" data-aos-anchor-placement="top-bottom">
+                <img className='img' src={mackbook} alt="Mackbook" />
+
+              </div>
              <div className='first'
               data-aos="fade-up" data-aos-anchor-placement="top-bottom"
              >

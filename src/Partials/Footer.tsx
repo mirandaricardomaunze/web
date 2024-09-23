@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebookSquare, faInstagramSquare, faYoutubeSquare } from '@fortawesome/free-brands-svg-icons'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import Messager from '../Components/messager/Messager'
 
 
 
@@ -38,6 +39,7 @@ const Footer = () => {
 
   return (
     <div className='main-container-footer'>
+      <Messager/>
        <div className='container-footer'>
        <div className='footer container-brand'>
               <div className=''>
@@ -49,8 +51,8 @@ const Footer = () => {
               </div>
           </div>
           <div className='footer'>
-              <h2 className='footer-title'>Acesse os links</h2>
-              <div className='container-link-map'>
+              <h2 className='footer-title'>Acesse</h2>
+              <div className='container-link-footer'>
                 <Link className='footer-link '  to='/'>Inicio</Link>
                 <Link className='footer-link ' to='/Services'>Serviços</Link>
                 <Link className='footer-link ' to='/About'>Sobre</Link>
@@ -60,13 +62,13 @@ const Footer = () => {
           <div className='footer '>
               <h2 className='footer-title'>Comece agora</h2>
               <div className='cont-footer-link'>
-                 <Link className='footer-link  ' id='link-f' to='/SignUp'>Registar - se</Link>
+                 <Link className='footer-link  ' id='link-f' to='/SignUp'>Registar-se</Link>
                  <Link className='footer-link  ' id='link-f' to='/SignIn'>Entrar agora</Link>
               </div>
           </div>
           <div className='footer'>
               <h2 className='footer-title ' >Siga-nos</h2>
-              <div className='container-midia text-footer' id='footer-follow'>
+              <div className='container-midia' id='footer-follow'>
                  <div className='midia'
                  data-aos="fade-right" data-aos-anchor-placement="top-bottom"
                  >

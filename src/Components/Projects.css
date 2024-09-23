@@ -1,25 +1,29 @@
 .container-project-bg{
-background-image: url(../Assets/Banners.png);
-background-size: cover;
-background-attachment: fixed;
+padding: 0px;
 }
 .container-project{
-display: grid;
-grid-template-columns: repeat(2,1fr);
-gap: 15px;
+display:flex;
+justify-content: center;
 padding: 20px;
-max-width: 900px;
 margin:0 auto;
 padding-bottom: 100px;
 box-sizing: border-box;
+background-color: rgb(21, 42, 160);
+border-radius: 15px;
+height: fit-content;
+box-sizing: border-box;
 }
-.project{
+.project-card{
 width: 400px;
 height: auto;
 text-align: left;
-padding: 10px;
+padding: 20px;
 }
-
+.text-project{
+color: rgb(153, 154, 235);
+font-size: 20px;
+margin-bottom: 20px;
+}
 .fixed{
 background-attachment: fixed;
 }
@@ -30,46 +34,6 @@ color: rgb(171, 172, 228);
 margin-bottom: 20px;
 border-left:  rgb(65, 8, 156) solid 5px;
 padding-left: 10px;
-}
-
-.text-first-project{
-color: rgb(153, 154, 235);
-font-size: 20px;
-margin-bottom: 20px;
-}
-
-.container-project-in{
-display: grid;
-grid-template-columns: repeat(1,1fr);
-gap: 20px;
-width: fit-content;
-padding: 40px;
-margin:0 auto;
-height: fit-content;
-}
-.project-in{
-width: auto;
-height: auto; 
-background-color: royalblue;
-text-align: center;  
-border-radius: 10px;
-transition: 0.5s;
-margin:0 auto;
-}
-
-.project-in:hover{
-transform: scale(1.1);
-}
-.img-project{
-width: 390px;
-height: 200px;
-object-fit: cover;
-border-radius: 10px;
-}
-.text-project{
-padding: 10px;
-color: white;
-font-size: 20px;
 }
 .link-project{
 background-color: royalblue;
@@ -85,18 +49,26 @@ margin-top: 40px;
 background-color: blue;
 }
 
+.img-project{
+width: 390px;
+height: 200px;
+object-fit: cover;
+border-radius: 10px;
+}
+
 @media only screen and (max-width:880px) {
 .container-project{
-display:grid;
-padding: 10px;
-grid-template-columns: repeat(1,1fr);
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
 width: auto;
 max-width: none;
 } 
 .container-project-in{
 padding:0 0 20px 0;
 }
-.project{
+.project-card{
 margin:0 auto;
 padding-bottom: 30px;
 width: auto;
@@ -104,10 +76,6 @@ width: auto;
 .img-project{
 width: 300px;
 height: 200px;
-}
-.project-in{
-margin: 0 auto; 
-width: auto;  
 }
 }
 

@@ -6,10 +6,22 @@ import { Link } from 'react-router-dom'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
+interface TextProject{
+textfirst:string  
+textsecond:string  
+textthirth:string  
+}
 
 
 const Projects = ():React.JSX.Element => {
 
+const textProject:TextProject[]=[
+{
+textfirst:' Com uma equipe talentosa e diversificada, cada membro tem a oportunidade de contribuir com suas habilidades únicas para projetos empolgantes e desafiadores',
+textsecond:' Nosso time de designers talentosos trabalha em estreita colaboração com você para criar um design personalizado que reflita a identidade da sua marca e atraia seu  público-alvo.',
+textthirth:'Na era digital, é crucial ter uma presença online que não apenas impressione, mas também encante e engaje seu público.'
+}
+]
 
  useEffect(()=>{
     AOS.init({ duration: 1000 });
@@ -19,37 +31,23 @@ const Projects = ():React.JSX.Element => {
   return (
     <div className='container-project-bg'>
       <div className='container-project'>
-        <div className=' project fixed'>
-          <h1 className='title-project'
-           data-aos="fade-right" data-aos-anchor-placement="top-bottom"
-          >Nossos Projectos</h1>
-          <p className='text-first-project'
-           data-aos="fade-right" data-aos-anchor-placement="top-bottom"
-          >
-           Com uma equipe talentosa e diversificada, cada membro tem a oportunidade de 
-           contribuir com suas habilidades únicas para projetos empolgantes e desafiadores.
-          </p>
-          <p className='text-first-project'
-            data-aos="fade-right" data-aos-anchor-placement="top-bottom"
-          >
-            Nosso time de designers talentosos trabalha em estreita colaboração com você para 
-            criar um design personalizado que reflita a identidade da sua marca e atraia seu 
-            público-alvo.
-          </p>
-          <p className='text-first-project'
-            data-aos="fade-right" data-aos-anchor-placement="top-bottom"
-          >
-          Na era digital, é crucial ter uma presença online que não apenas impressione, 
-          mas também encante e engaje seu público.
-          </p>
+        <div className=' project-card fixed'>
+          <h1 className='title'>Nossos projectos</h1>
+          {textProject.map((project)=>(
+            < div>
+              <p className='text-project'>{project.textfirst}</p>
+              <p className='text-project'>{project.textsecond}</p>
+              <p className='text-project'>{project.textthirth}</p>
+            </div>
+          ))}
           <div className='container-link-project'
             data-aos="fade-right" data-aos-anchor-placement="top-bottom"
           >
               <Link className='link-project' to='/Contact'>Contacto-nos já</Link>
           </div>
         </div>
-        <div className='container-project-in'>
-            <div className='project-in'
+        <div className='container-project-card'>
+            <div className='project-card'
             data-aos="fade-left" data-aos-anchor-placement="top-bottom"
             >
               <img className='img-project' src={webfood} alt="" /> 
@@ -57,7 +55,7 @@ const Projects = ():React.JSX.Element => {
                 data-aos="fade-left" data-aos-anchor-placement="top-bottom"
               >Projecto de alimentos</p>  
             </div>
-            <div  className='project-in'
+            <div  className='project-card'
              data-aos="fade-left" data-aos-anchor-placement="top-bottom">
               <img className='img-project'src={webHotel} alt="" />
               <p className='text-project'

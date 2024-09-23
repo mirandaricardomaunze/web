@@ -1,11 +1,11 @@
 .container-comment-main{
 padding: 50px 0 50px 0;
-background-image: linear-gradient(to right ,rgb(10, 10, 10),rgb(10, 4, 88));
+background-color: #051842;
 }
 .container-comment-in{
 display: flex;
 gap: 10px;
-width: 500px;
+width: 400px;
 padding: 40px;
 margin:0 auto;
 border-radius: 10px;

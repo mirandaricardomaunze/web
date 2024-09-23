@@ -1,10 +1,14 @@
 
 .container-faq{
 padding: 90px;
-background-image: url('../Assets/Banners.png');
+background-image: url('../Assets/faq.png');
 background-position: center;
 background-repeat: no-repeat;
 background-size: cover;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
 }
 
 .faq{
@@ -13,6 +17,7 @@ text-align: left;
 margin:0 auto; 
 margin-top: 10px; 
 }
+
 .faq-quetion{
 display: flex;
 border-left:5px royalblue solid;
@@ -20,52 +25,40 @@ background-image: linear-gradient(to right ,rgb(10, 10, 10),rgb(10, 4, 88));
 color:rgb(153, 154, 235);
 border-radius: 5px ;
 }
-#btn-faq1{
-margin-left: 200px;
-}
-#btn-faq2{
-margin-left: 250px;
-}
-#btn-faq3{
-margin-left: 86px;
-}
-#btn-faq4{
- margin-left: 101px;
-}
+
+
 .btn-faq{
 border: none;
 padding: 3px;
-float: right;
 border-radius: 2px;
 color:rgb(153, 154, 235);
-margin-left: 50px;
 background-color: transparent;
 cursor: pointer;
 }
+
 .faq-quetion{
 font-size: 20px;
 font-weight: lighter;
 background-color: #f9f9f9;
-padding: 10px;
+padding: 20px;
+display: flex;
+justify-content: space-between;
 }
 
-.text-faq {
-  background-image: linear-gradient(to right, rgb(10, 10, 10), rgb(10, 4, 88));
-  padding: 20px;
-  color: rgb(153, 154, 235);
-  border-radius: 10px;
-  border: #f9f9f9 solid 1px;
- height: 0px;
-  overflow: hidden;
-  transition: 10s ease-out, padding 3s ease-out;
-  
+.faq-asnwer{
+background-image: linear-gradient(to right, rgb(10, 10, 10), rgb(10, 4, 88));
+padding: 20px;
+color: rgb(153, 154, 235);
+border-radius: 10px;
+border: #f9f9f9 solid 1px;
+height: 0px;
+overflow: hidden;
+transition: 10s ease-out, padding 3s ease-out;
 }
-.text-faq,
- .open {
-  max-height: 200px; /* Ajuste conforme necessário */
-  padding: 20px; /* Mantém o padding ao abrir */
-  transition: 10s ease-in-out;
-  height: fit-content ;
+.faq-asnwer,
+.open {
+padding: 20px; /* Mantém o padding ao abrir */
+height: fit-content ;
 }
 
 .title-faq{

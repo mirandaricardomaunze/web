@@ -5,9 +5,6 @@ import WorkWithUs from '../Components/WorkWithUs'
 import Team from '../Components/Team'
 import Coments from '../Components/Coments'
 import Faq from '../Components/Faq'
-import man from '../Assets/mansmile.png'
-import man1 from '../Assets/man.png'
-import manblack from '../Assets/manblack.png'
 import client1 from '../Assets/client1.jpg'
 import client2 from '../Assets/client2.jpg'
 import client3 from '../Assets/client3.jpg'
@@ -25,17 +22,6 @@ const slides=[
 {id:1,img:teamimg},
 {id:2,img:teamimage},
 {id:3,img:teamimgeman}
-]
-
-
-
-const team=[
-{id:1,image:man,
-text:'Sou desenvolvedor Senior em javascript e react ',nome:'Miranda Ricardo'},
-{id:2,image:man1,
-text:'Sou desenvolvedor senior em javascript e php',nome:'Mark John'},
-{id:3,image:manblack,
-text:'Sou desenvolvedor e Designer Grafico',nome:' Richard Muller'}
 ]
 
 const comment=[
@@ -59,10 +45,10 @@ const Home = () => {
   return (
     <div className='container-home'>
        <div>
-       <Slide slide={slides}/> 
-          <HomeServices/>
+          <Slide slide={slides}/> 
+           <HomeServices/>
             <WorkWithUs/>
-            <Team contents={team}/>
+            <Team />
             <Projects/>
             <Pricing/>
             <Statiscs/>

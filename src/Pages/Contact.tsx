@@ -226,8 +226,11 @@ const handleSubmit=async(e:React.FormEvent<HTMLFormElement>)=>{
                        {errorServerConnect&& errorConnect}
                      </span>
                     <div className='container-check'>
-                      <input id='email' type="checkbox" className="input-checkbox" required /> 
-                      <p>Aceita os nossos termos</p>
+                      <span>
+                        <input id='email' type="checkbox" className="input-checkbox" required /> 
+                        Aceita os nossos termos 
+                      </span>  
+                   
                     </div>
                     <div className='cont-btn-contact'>
                        <button className='btn-contact'

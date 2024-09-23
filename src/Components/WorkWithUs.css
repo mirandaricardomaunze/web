@@ -1,6 +1,5 @@
 .container-main-work{
 background-image: linear-gradient(to right ,rgb(10, 10, 10),rgb(10, 4, 88));
-width: 100%;
 background-image: url('../Assets/Bannerservice.png');
 background-repeat: no-repeat;
 background-size: cover;
@@ -13,6 +12,7 @@ margin:0 auto;
 grid-template-columns: repeat(2,1fr);
 width:auto;
 padding: 90px;
+box-sizing: border-box;
 }
 .work-first{
 width: auto;
